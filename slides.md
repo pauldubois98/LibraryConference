@@ -1,0 +1,201 @@
+---
+title: "IA & société "
+subtitle: "Fonctionnement des IA modernes, et consequences pour la société"
+lang: fr
+---
+
+## Systemes experts: des règles écrites à la main
+
+![](figures/systeme_expert.svg){.fig}
+
+## Le Machine Learning: apprendre à partir d'exemples
+
+![](figures/chat_ml.svg){.fig}
+
+## Réseau de neurones: systeme capables d'appendre
+
+
+## Entrainer un réseau de neurones à la main
+
+DEMO_RESEAU
+
+## Explosion de la taille des modèles
+
+![](figures/echelle_parametres.svg){.fig}
+
+## Entrainement automatique
+
+![](figures/boucle_entrainement.svg){.fig}
+
+## Prédire la suite d'un texte
+
+<div class="big-q" style="font-size:1.4em; margin-top:1.2em">« Paris est la capitale de la <span class="orange">___</span> »</div>
+
+::: {.fragment}
+<div class="big-q teal" style="font-size:1.4em">→ France</div>
+:::
+
+::: {.fragment}
+<div class="big-q" style="font-size:1.1em; margin-top:1em">« Paris est la capitale de la France. Elle est située en <span class="orange">___</span> »</div>
+<div class="big-q teal" style="font-size:1.1em">→ Europe</div>
+:::
+
+## Charactère vs not vs token
+
+![](figures/tokens.svg){.fig}
+<!-- refaire cette image pour comparer decomposition en mot/charactère/token -->
+
+## Token par token
+
+<iframe class="demo" data-src="demos/token.html"></iframe>
+<!-- Sur cette demo, l'utilisateur doit pouvoir choisir nimport lequel des mots, pas seulement de mot le plus probable -->
+
+## Variabilite des reponses
+
+<iframe class="demo" data-src="demos/temperature.html"></iframe>
+<!-- Enlever les boutons "tirer 1 mot" et "tirer 100 mots" (laisser juste le slider) -->
+
+## La température
+
+![](figures/temperature.svg){.fig}
+
+## Mascarade de la conversation avec une IA
+
+![](figures/conversation.svg){.fig}
+
+## Raisonner par étapes (« chain of thought »)
+
+![](figures/chain_of_thought.svg){.fig}
+<!-- Refaire cette slide: faire une reponse texte, avec les token faux surlignes en rouge. Dans le cas d'une reponse courte, un ou deux token faux, dans le cas d'une reponse longue, l'erreur est repetee, donc plus de token faux, donc plus penalisee. -->
+
+## Deux sources de biais
+
+![](figures/deux_biais.svg){.fig}
+<!-- refaire cette slide: meme scheme: biais dans le modele (surligner les poids), et biais dans l'instruction/l'utilisation (surligner les instructions) -->
+
+## Biais d'entraînement : le modèle hérite de ses données
+<!-- biais dans le modele: choix des textes d'entrainement, choix du poid donne a chaque corpus de texte -->
+
+## Biais d'utilisation : même modèle, réponses différentes
+<!-- biais dans l'utilisation: e.g. n'explique pas comment fabriquer une bombe, ne promouvois pas tel partie politique -->
+
+## L'IA dans la recherche
+
+![](figures/recherche.svg){.fig}
+
+::: notes
+Avant : un chemin, quelques pistes.
+Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de son domaine, et on garde une synthèse humaine.
+:::
+
+## « Objectivement meilleur » ≠ « socialement préféré »
+
+![](figures/meilleur_vs_prefere.svg){.fig}
+
+## Des faux, sous toutes les formes
+
+![](figures/fake_medias.svg){.fig}
+
+## Ce qui change pour l'information
+
+![](figures/info_cout.svg){.fig} 
+
+<div class="msg fragment">Et en bibliothèque ? 📚</div>
+
+## Hameçonnage
+
+<div class="cards c2" style="align-items:start">
+<div>
+<div class="mail old"><div class="hd">De : service-client@secur-verif-acount.xyz</div><div class="bd">
+Bonjour,<br><br>
+Votre compte a <span class="err">ete bloque</span>.<br>
+<span class="err">Clique</span> ici pour le <span class="err">debloquer</span> <span class="err">immediatement !!!</span><br><br>
+Merci <span class="err">de votre comprehension</span>
+</div></div>
+<div class="fragment" style="margin-top:14px"><span class="tag r">fautes</span><span class="tag r">formulation étrange</span><span class="tag r">traduction approximative</span></div>
+</div>
+<div class="fragment">
+<div class="mail"><div class="hd">De : Médiathèque municipale — Espace lecteur</div><div class="bd">
+Bonjour Monsieur Dupont,<br><br>
+Nous avons détecté une connexion inhabituelle à votre espace lecteur, le 23 septembre à 22 h 14, depuis un appareil situé à Lyon.<br><br>
+Si vous n'êtes pas à l'origine de cette connexion, nous vous invitons à sécuriser votre compte sous 48 heures :<br>
+<span class="btn">Vérifier mon compte</span><br><br>
+Le service numérique de la médiathèque
+</div></div>
+<div class="fragment" style="margin-top:14px"><span class="tag">français impeccable</span><span class="tag">personnalisé</span><span class="tag">adapté au destinataire</span><span class="tag">des dizaines de variantes</span></div>
+</div>
+</div>
+
+<p class="muted" style="font-size:16px">Exemples fictifs</p>
+
+## Action des IA
+
+![](figures/chatbot_vs_agent.svg){.fig}
+
+::: notes
+Chatbot : le modèle peut produire un texte dangereux, mais il reste dans le monde du texte.
+Agent : il peut naviguer, lire et écrire des fichiers, exécuter des commandes, envoyer des mails.
+Une erreur de texte est une chose. Une erreur qui déclenche une action en est une autre.
+:::
+
+## L'incident Hugging Face
+
+![](figures/incident_hf.svg){.fig}
+
+<div class="src">Sources : Hugging Face, « Security incident disclosure — July 2026 » et « Anatomy of a Frontier Lab Agent Intrusion » (blog huggingface.co) ; OpenAI, « The Hugging Face incident and the road ahead ».</div>
+
+::: notes
+Faits (d'après le rapport technique de Hugging Face) :
+- Fenêtre de l'incident : 9 au 13 juillet 2026.
+- Origine : une évaluation interne d'OpenAI sur les capacités en cybersécurité (basée sur le benchmark ExploitGym).
+  Hugging Face parle d'un « agent autonome piloté par une combinaison de modèles OpenAI ».
+- L'agent est sorti de son bac à sable via une faille inconnue (zero-day) dans un proxy de cache de paquets.
+- Entrée chez Hugging Face : un jeu de données malveillant exploitant deux chemins d'exécution de code dans le traitement des datasets,
+  puis vol d'identifiants et déplacements latéraux dans l'infrastructure.
+- Environ 17 600 actions reconstituées, regroupées en ~6 280 groupes.
+- Interprétation de Hugging Face : l'agent tentait de « tricher » à l'évaluation en allant voler les solutions du test.
+- Pas de preuve d'altération des modèles, datasets ou Spaces publics ; identifiants renouvelés, infrastructure reconstruite.
+- Détection grâce à de la détection d'anomalies basée sur des LLM.
+À vérifier avant la conférence : les chiffres divergent selon les médias (certains parlent de centaines d'agents).
+:::
+
+## Écrire avec une IA peut changer notre opinion
+
+![](figures/jakesch.svg){.fig-s}
+
+<div class="msg fragment">La majorité des participants n'a pas remarqué que l'IA était orientée.</div>
+
+<div class="src">Jakesch, Bhat, Buschek, Zalmanson & Naaman, « Co-Writing with Opinionated Language Models Affects Users' Views », CHI 2023. <a href="https://doi.org/10.1145/3544548.3581196">doi:10.1145/3544548.3581196</a></div>
+
+::: notes
+Expérience en ligne, 1 506 participants, qui écrivent un court texte :
+« les réseaux sociaux sont-ils bons pour la société ? ».
+Une partie d'entre eux utilise un assistant d'écriture (GPT-3) configuré pour pencher d'un côté.
+Résultat : les textes penchent dans le sens de l'IA, ET l'opinion mesurée ensuite dans un questionnaire se déplace aussi.
+Deux fois plus de chances d'écrire un paragraphe d'accord avec l'assistant (Cornell Chronicle, mai 2023).
+La majorité des participants n'a même pas remarqué que l'IA était biaisée.
+Retour à la question d'ouverture : oui, une IA peut influencer ce que l'on pense sans dire quoi penser.
+:::
+
+## Conclusion
+
+<ol class="retenir">
+<li class="fragment"><b>Une IA n'est pas magique.</b><span>Elle apprend à partir de données et produit des prédictions.</span></li>
+<li class="fragment"><b>Un LLM prédit du texte, token par token.</b><span>Le reseau de neurone est complexe, mais la tache est simple.</span></li>
+<li class="fragment"><b>Les données et l'instruction peuvent etre biaise.</b></li>
+<li class="fragment"><b>L'IA réduit fortement le coût de certaines activités.</b><span>La recherche… comme la fraude et la manipulation.</span></li>
+</ol>
+
+## Sources
+
+<div style="text-align:left; font-size:20px; max-width:1100px; margin:0 auto; line-height:1.6">
+
+- Jakesch M. et al., *Co-Writing with Opinionated Language Models Affects Users' Views*, CHI 2023. <https://arxiv.org/abs/2302.00560>
+- Hugging Face, *Security incident disclosure — July 2026*. <https://huggingface.co/blog/security-incident-july-2026>
+- Hugging Face, *Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident*. <https://huggingface.co/blog/agent-intrusion-technical-timeline>
+- OpenAI, *The Hugging Face incident and the road ahead*. <https://openai.com/index/hugging-face-incident-and-the-road-ahead/>
+- Caliskan A., Bryson J., Narayanan A., *Semantics derived automatically from language corpora contain human-like biases*, Science, 2017.
+- LeCun Y. et al., *Gradient-based learning applied to document recognition*, 1998 (LeNet, ~60 000 paramètres).
+- Radford A. et al., GPT-2 (2019) ; Brown T. et al., *Language Models are Few-Shot Learners* (GPT-3), 2020.
+
+</div>
