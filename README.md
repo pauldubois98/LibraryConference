@@ -1,6 +1,7 @@
 # IA & société
 
-Slides: <https://pauldubois98.github.io/LibraryConference/slides.html>
+Slides: <https://pauldubois98.github.io/LibraryConference/slides.html><br>
+_`S` notes orateur, `F` plein écran, `Échap` vue d'ensemble._
 
 Conférence de découverte du fonctionnement de l'IA, en vulgarisation, et introduction aux impacts sociétaux de l'IA : fake news, biais, éthique, bulles d'information, démocratie et IA.
 
@@ -25,5 +26,3 @@ Conférence de découverte du fonctionnement de l'IA, en vulgarisation, et intro
 python3 build.py          # génère figures/*.svg puis slides.html (pandoc + reveal.js)
 python3 train_lettres.py  # (optionnel) réentraîne le réseau de la démo « lettre suivante »
 ```
-
-_Pendant la présentation : `S` notes orateur, `F` plein écran, `Échap` vue d'ensemble._
