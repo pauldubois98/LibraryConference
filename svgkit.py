@@ -1,0 +1,93 @@
+"""Mini-bibliothèque pour dessiner des diagrammes SVG homogènes (boîtes, flèches, texte)."""
+
+from html import escape
+import math
+
+FONT = "Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif"
+
+# Palette commune avec theme.css
+INK = "#1f2a44"
+MUTED = "#6b7489"
+LIGHT = "#eef1f6"
+TEAL = "#0f7c8c"
+TEAL_L = "#d6eef1"
+ORANGE = "#e07a2f"
+ORANGE_L = "#fbe5d3"
+RED = "#c0392b"
+RED_L = "#f7dcd8"
+GREEN = "#2e8b57"
+GREEN_L = "#d9f0e3"
+PURPLE = "#6c4fb3"
+PURPLE_L = "#e6e0f5"
+WHITE = "#ffffff"
+
+
+class SVG:
+    def __init__(self, w, h):
+        self.w, self.h = w, h
+        self.items = []
+
+    def raw(self, s):
+        self.items.append(s)
+
+    def text(self, x, y, s, fs=34, anchor="middle", color=INK, weight="normal",
+             italic=False, lh=1.25):
+        lines = str(s).split("\n")
+        y0 = y - (len(lines) - 1) * fs * lh / 2
+        style = "font-style:italic;" if italic else ""
+        spans = "".join(
+            f'<tspan x="{x}" y="{y0 + i * fs * lh:.1f}">{escape(l)}</tspan>'
+            for i, l in enumerate(lines))
+        self.raw(f'<text font-family="{FONT}" font-size="{fs}" fill="{color}" '
+                 f'font-weight="{weight}" text-anchor="{anchor}" '
+                 f'dominant-baseline="central" style="{style}">{spans}</text>')
+
+    def rect(self, x, y, w, h, fill=LIGHT, stroke=None, sw=3, rx=18, dash=None, opacity=1):
+        st = f'stroke="{stroke}" stroke-width="{sw}"' if stroke else ""
+        da = f'stroke-dasharray="{dash}"' if dash else ""
+        self.raw(f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{rx}" '
+                 f'fill="{fill}" {st} {da} opacity="{opacity}"/>')
+
+    def box(self, x, y, w, h, s, fill=LIGHT, stroke=None, fs=32, color=INK,
+            weight="normal", rx=18, sw=3, dash=None):
+        """Boîte dont (x, y) est le coin supérieur gauche, texte centré."""
+        self.rect(x, y, w, h, fill, stroke, sw, rx, dash)
+        self.text(x + w / 2, y + h / 2, s, fs, color=color, weight=weight)
+
+    def cbox(self, cx, cy, w, h, s, **kw):
+        """Boîte centrée sur (cx, cy)."""
+        self.box(cx - w / 2, cy - h / 2, w, h, s, **kw)
+
+    def circle(self, cx, cy, r, fill=LIGHT, stroke=None, sw=3):
+        st = f'stroke="{stroke}" stroke-width="{sw}"' if stroke else ""
+        self.raw(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{fill}" {st}/>')
+
+    def line(self, x1, y1, x2, y2, color=MUTED, sw=4, dash=None, opacity=1):
+        da = f'stroke-dasharray="{dash}"' if dash else ""
+        self.raw(f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" '
+                 f'stroke-width="{sw}" stroke-linecap="round" {da} opacity="{opacity}"/>')
+
+    def arrow(self, x1, y1, x2, y2, color=MUTED, sw=5, head=20, dash=None, opacity=1):
+        ang = math.atan2(y2 - y1, x2 - x1)
+        # la ligne s'arrête à la base de la pointe
+        bx, by = x2 - head * 0.8 * math.cos(ang), y2 - head * 0.8 * math.sin(ang)
+        self.line(x1, y1, bx, by, color, sw, dash, opacity)
+        p1 = (x2 - head * math.cos(ang - 0.45), y2 - head * math.sin(ang - 0.45))
+        p2 = (x2 - head * math.cos(ang + 0.45), y2 - head * math.sin(ang + 0.45))
+        self.raw(f'<polygon points="{x2},{y2} {p1[0]:.1f},{p1[1]:.1f} {p2[0]:.1f},{p2[1]:.1f}" '
+                 f'fill="{color}" opacity="{opacity}"/>')
+
+    def curve_arrow(self, x1, y1, cx, cy, x2, y2, color=MUTED, sw=5, head=20):
+        self.raw(f'<path d="M{x1},{y1} Q{cx},{cy} {x2},{y2}" fill="none" stroke="{color}" '
+                 f'stroke-width="{sw}" stroke-linecap="round"/>')
+        ang = math.atan2(y2 - cy, x2 - cx)
+        p1 = (x2 - head * math.cos(ang - 0.45), y2 - head * math.sin(ang - 0.45))
+        p2 = (x2 - head * math.cos(ang + 0.45), y2 - head * math.sin(ang + 0.45))
+        self.raw(f'<polygon points="{x2},{y2} {p1[0]:.1f},{p1[1]:.1f} {p2[0]:.1f},{p2[1]:.1f}" '
+                 f'fill="{color}"/>')
+
+    def save(self, path):
+        body = "\n".join(self.items)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" '
+                    f'width="{self.w}" height="{self.h}">\n{body}\n</svg>\n')

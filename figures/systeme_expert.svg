@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" width="1600" height="760">
+<rect x="520.0" y="25.0" width="560" height="90" rx="18" fill="#eef1f6"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800.0" y="70.0">Une image arrive</tspan></text>
+<line x1="800" y1="115" x2="800.0" y2="159.0" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
+<polygon points="800,175 791.3,157.0 808.7,157.0" fill="#6b7489" opacity="1"/>
+<rect x="490.0" y="180.0" width="620" height="100" rx="18" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"  opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800.0" y="230.0">SI 4 pattes ET moustaches ?</tspan></text>
+<line x1="620" y1="280" x2="394.7692307692308" y2="373.84615384615387" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
+<polygon points="380,380 393.3,365.0 400.0,381.1" fill="#6b7489" opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#2e8b57" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="460" y="310.0">oui</tspan></text>
+<line x1="980" y1="280" x2="1205.2307692307693" y2="373.84615384615387" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
+<polygon points="1220,380 1200.0,381.1 1206.7,365.0" fill="#6b7489" opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140" y="310.0">non</tspan></text>
+<rect x="120.0" y="390.0" width="520" height="100" rx="18" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"  opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="380.0" y="440.0">SI miaule ?</tspan></text>
+<rect x="1010.0" y="390.0" width="420" height="100" rx="18" fill="#f7dcd8" stroke="#c0392b" stroke-width="3"  opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1220.0" y="440.0">ALORS pas un chat</tspan></text>
+<line x1="260" y1="490" x2="189.9951207608708" y2="577.5060990489116" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
+<polygon points="180,590 184.5,570.5 198.0,581.4" fill="#6b7489" opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#2e8b57" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="185" y="530.0">oui</tspan></text>
+<line x1="500" y1="490" x2="570.0048792391292" y2="577.5060990489116" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
+<polygon points="580,590 562.0,581.4 575.5,570.5" fill="#6b7489" opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="575" y="530.0">non</tspan></text>
+<rect x="30.0" y="600.0" width="300" height="100" rx="18" fill="#d9f0e3" stroke="#2e8b57" stroke-width="3"  opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="180.0" y="650.0">ALORS chat</tspan></text>
+<rect x="410.0" y="600.0" width="380" height="100" rx="18" fill="#f7dcd8" stroke="#c0392b" stroke-width="3"  opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="600.0" y="650.0">ALORS pas un chat</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="38" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1220" y="626.2">Règles écrites</tspan><tspan x="1220" y="673.8">par des humains</tspan></text>
+</svg>

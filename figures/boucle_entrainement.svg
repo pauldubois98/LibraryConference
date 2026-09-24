@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 780" width="1600" height="780">
+<path d="M872.44196836111,134.07237707382166 Q1058.7213155753925,170.25848954936305 1169.6281085730195,273.3745510078322" fill="none" stroke="#6b7489" stroke-width="5" stroke-linecap="round"/>
+<polygon points="1169.6281085730195,273.3745510078322 1150.5,267.5 1162.4,254.7" fill="#6b7489"/>
+<path d="M1209.8692178748227,361.3234328790575 Q1202.4395630818328,484.3616390894534 1096.3542132992652,586.7190850110363" fill="none" stroke="#6b7489" stroke-width="5" stroke-linecap="round"/>
+<polygon points="1096.3542132992652,586.7190850110363 1103.3,568.0 1115.4,580.5" fill="#6b7489"/>
+<path d="M983.6711356363519,646.1247584249853 Q800.0,696.5247584249853 616.3288643636481,646.1247584249853" fill="none" stroke="#6b7489" stroke-width="5" stroke-linecap="round"/>
+<polygon points="616.3288643636481,646.1247584249853 636.0,642.5 631.4,659.3" fill="#6b7489"/>
+<path d="M503.6457867007348,586.7190850110363 Q397.56043691816694,484.3616390894534 390.1307821251771,361.3234328790576" fill="none" stroke="#6b7489" stroke-width="5" stroke-linecap="round"/>
+<polygon points="390.1307821251771,361.3234328790576 399.9,378.8 382.5,379.8" fill="#6b7489"/>
+<path d="M430.3718914269805,273.3745510078323 Q541.2786844246075,170.2584895493631 727.55803163889,134.07237707382166" fill="none" stroke="#6b7489" stroke-width="5" stroke-linecap="round"/>
+<polygon points="727.55803163889,134.07237707382166 711.5,146.0 708.2,129.0" fill="#6b7489"/>
+<rect x="635.0" y="60.0" width="330" height="120" rx="18" fill="#eef1f6"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800.0" y="101.2">Exemple</tspan><tspan x="800.0" y="138.8">(donnée)</tspan></text>
+<rect x="1047.7585280720966" y="253.4752415750147" width="330" height="120" rx="18" fill="#fbe5d3"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1212.7585280720966" y="294.7">Prédiction</tspan><tspan x="1212.7585280720966" y="332.2">du modèle</tspan></text>
+<rect x="890.0987994949332" y="566.5247584249853" width="330" height="120" rx="18" fill="#d6eef1"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1055.0987994949332" y="607.8">Comparaison avec</tspan><tspan x="1055.0987994949332" y="645.3">la bonne réponse</tspan></text>
+<rect x="379.90120050506675" y="566.5247584249853" width="330" height="120" rx="18" fill="#f7dcd8"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="544.9012005050668" y="626.5">Erreur</tspan></text>
+<rect x="222.24147192790332" y="253.47524157501476" width="330" height="120" rx="18" fill="#d9f0e3"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#2e8b57" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="387.2414719279033" y="294.7">On ajuste</tspan><tspan x="387.2414719279033" y="332.2">les boutons</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="380.0">× des millions</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="435.0">voire des milliards de fois</tspan></text>
+</svg>

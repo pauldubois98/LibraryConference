@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700">
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="38" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style="font-style:italic;"><tspan x="800" y="45.0">« Donne-moi les arguments sur X »</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="100" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="240.0">🧑</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="340.0">Personne A</tspan></text>
+<line x1="210" y1="250" x2="454.1054570260619" y2="278.16601427223793" stroke="#0f7c8c" stroke-width="4" stroke-linecap="round"  opacity="1"/>
+<polygon points="470,280 451.1,286.6 453.1,269.3" fill="#0f7c8c" opacity="1"/>
+<rect x="1130" y="170" width="400" height="170" rx="18" fill="#d6eef1"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="38" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1330.0" y="255.0">Réponse A</tspan></text>
+<line x1="890" y1="280" x2="1104.0936885908886" y2="256.7289468922947" stroke="#0f7c8c" stroke-width="4" stroke-linecap="round"  opacity="1"/>
+<polygon points="1120,255 1103.0,265.6 1101.2,248.3" fill="#0f7c8c" opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="100" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="530.0">👩</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="630.0">Personne B</tspan></text>
+<line x1="210" y1="540" x2="455.9124624012452" y2="407.5855971685603" stroke="#e07a2f" stroke-width="4" stroke-linecap="round"  opacity="1"/>
+<polygon points="470,400 458.3,416.2 450.0,400.9" fill="#e07a2f" opacity="1"/>
+<rect x="1130" y="460" width="400" height="170" rx="18" fill="#fbe5d3"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="38" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1330.0" y="545.0">Réponse B</tspan></text>
+<line x1="890" y1="400" x2="1106.4651903584695" y2="536.4671852259917" stroke="#e07a2f" stroke-width="4" stroke-linecap="round"  opacity="1"/>
+<polygon points="1120,545 1100.1,542.8 1109.4,528.0" fill="#e07a2f" opacity="1"/>
+<rect x="470.0" y="210.0" width="420" height="300" rx="18" fill="#eef1f6"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="680.0" y="360.0"></tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="680" y="240.0">contexte</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="680" y="298.0">historique</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="680" y="356.0">formulation</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="680" y="414.0">sources</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#6c4fb3" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="680" y="472.0">préférences implicites</tspan></text>
+</svg>

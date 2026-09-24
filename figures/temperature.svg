@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700">
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style="font-style:italic;"><tspan x="800" y="40.0">« Paris est situé en … »</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="110.0">Température basse (0,3)</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="182.0">France</tspan></text>
+<rect x="195" y="160" width="301.83968214526357" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="504.83968214526357" y="182.0">100%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="246.0">Europe</tspan></text>
+<rect x="195" y="224" width="2.139173252051946" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="205.13917325205193" y="246.0">0%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="310.0">Paris</tspan></text>
+<rect x="195" y="288" width="2.0138077354195683" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="205.01380773541956" y="310.0">0%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="374.0">l&#x27;Île</tspan></text>
+<rect x="195" y="352" width="2.005292489453316" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="205.00529248945332" y="374.0">0%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="438.0">Seine</tspan></text>
+<rect x="195" y="416" width="2.001369900858145" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="205.00136990085815" y="438.0">0%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="502.0">plein</tspan></text>
+<rect x="195" y="480" width="2.000525081457858" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="205.00052508145785" y="502.0">0%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="566.0">effet</tspan></text>
+<rect x="195" y="544" width="2.000135911378957" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="205.00013591137895" y="566.0">0%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="180" y="630.0">zone</tspan></text>
+<rect x="195" y="608" width="2.0000134841166206" height="48" rx="6" fill="#0f7c8c"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="205.0000134841166" y="630.0">0%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="810" y="110.0">Normale (1)</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="182.0">France</tspan></text>
+<rect x="715" y="160" width="242.0" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="965.0" y="182.0">80%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="246.0">Europe</tspan></text>
+<rect x="715" y="224" width="25.999999999999996" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="749.0" y="246.0">8%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="310.0">Paris</tspan></text>
+<rect x="715" y="288" width="14.000000000000002" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="737.0" y="310.0">4%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="374.0">l&#x27;Île</tspan></text>
+<rect x="715" y="352" width="10.999999999999998" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="734.0" y="374.0">3%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="438.0">Seine</tspan></text>
+<rect x="715" y="416" width="8.0" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="731.0" y="438.0">2%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="502.0">plein</tspan></text>
+<rect x="715" y="480" width="6.499999999999999" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="729.5" y="502.0">1%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="566.0">effet</tspan></text>
+<rect x="715" y="544" width="5.000000000000002" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="728.0" y="566.0">1%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="700" y="630.0">zone</tspan></text>
+<rect x="715" y="608" width="3.5000000000000004" height="48" rx="6" fill="#6b7489"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="726.5" y="630.0">1%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1330" y="110.0">Élevée (2,5)</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="182.0">France</tspan></text>
+<rect x="1235" y="160" width="112.8732333696277" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1355.8732333696278" y="182.0">37%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="246.0">Europe</tspan></text>
+<rect x="1235" y="224" width="46.13942922690008" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1289.1394292269001" y="246.0">15%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="310.0">Paris</tspan></text>
+<rect x="1235" y="288" width="35.45143205776286" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1278.4514320577628" y="310.0">11%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="374.0">l&#x27;Île</tspan></text>
+<rect x="1235" y="352" width="31.815302504325413" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1274.8153025043255" y="374.0">10%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="438.0">Seine</tspan></text>
+<rect x="1235" y="416" width="27.35144487172409" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1270.3514448717242" y="438.0">8%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="502.0">plein</tspan></text>
+<rect x="1235" y="480" width="24.59577397066249" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1267.5957739706625" y="502.0">8%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="566.0">effet</tspan></text>
+<rect x="1235" y="544" width="21.212802488523636" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1264.2128024885237" y="566.0">6%</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1220" y="630.0">zone</tspan></text>
+<rect x="1235" y="608" width="16.56058151047374" height="48" rx="6" fill="#e07a2f"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1259.5605815104736" y="630.0">5%</tspan></text>
+</svg>
