@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Entraînement automatique</title>
+<!-- Même réseau que la démo « à la main », mais les poids sont ajustés automatiquement
+     par descente de gradient (rétropropagation), étape par étape. -->
+<link rel="stylesheet" href="common.css">
+<style>
+  body { flex-direction: row; gap: 18px; padding: 8px 12px; user-select: none; }
+  #left { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  #svg { flex: 1; width: 100%; display: block; }
+  .layer-lab { font-size: 22px; fill: var(--muted); text-anchor: middle; }
+  .val { font-size: 20px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
+  #controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 20px; }
+  #controls button { font-size: 20px; padding: 8px 16px; }
+  #step { font-size: 22px; color: var(--muted); min-width: 150px; }
+  #step b { color: var(--ink); }
+  input[type=range] { accent-color: var(--orange); width: 110px; }
+
+  #right { width: 360px; display: flex; flex-direction: column; gap: 8px; }
+  #right h3 { margin: 0; font-size: 22px; }
+  select { font: inherit; font-size: 20px; padding: 4px 6px; border-radius: 8px; }
+  table { border-collapse: collapse; font-size: 21px; width: 100%; }
+  th { font-size: 16px; color: var(--muted); font-weight: normal; }
+  td { text-align: center; padding: 2px 4px; border-top: 1px solid var(--light); }
+  tr.trow { cursor: pointer; }
+  tr.cur td { background: var(--teal-l); }
+  td.t { color: var(--orange); font-weight: bold; }
+  td.ok { color: var(--green); font-weight: bold; }
+  td.ko { color: var(--red); font-weight: bold; }
+  canvas { border: 2px solid var(--light); border-radius: 12px; width: 100%; }
+  .small { font-size: 16px; color: var(--muted); }
+  #score { font-size: 22px; font-weight: bold; text-align: center; padding: 6px; border-radius: 12px; background: var(--light); }
+</style>
+</head>
+<body>
+<div id="left">
+  <svg id="svg"></svg>
+  <div id="controls">
+    <button id="run">▶ Lancer</button>
+    <button id="one" class="alt">1 étape</button>
+    <button id="rand" class="alt">🎲 Nouveaux poids</button>
+    <span>vitesse <input type="range" id="speed" min="1" max="30" value="1"></span>
+    <span id="step"></span>
+  </div>
+</div>
+<div id="right">
+  <h3>Objectif</h3>
+  <select id="target"><option>OU</option><option>ET</option><option selected>XOR</option></select>
+  <div id="table"></div>
+  <div id="score"></div>
+  <h3 style="margin-top:4px">Erreur <span class="small">(doit descendre)</span></h3>
+  <canvas id="curve" width="700" height="260"></canvas>
+</div>
+
+<script>
+// ------------------------------------------------------------------ réseau 2 → 3 → 1, activation sigmoïde
+const SIZES = [2, 3, 1], LR = 1.5;
+const sig = x => 1 / (1 + Math.exp(-x));
+const ROWS = [[0, 0], [0, 1], [1, 0], [1, 1]];
+const TARGETS = { "OU": r => +(r[0] || r[1]), "ET": r => +(r[0] && r[1]), "XOR": r => r[0] ^ r[1] };
+let W, B, step, history, running = false, cur = 3;
+
+function randomize() {
+  W = SIZES.slice(0, -1).map((n, l) => Array.from({length: n}, () => Array.from({length: SIZES[l + 1]}, () => Math.random() * 2 - 1)));
+  B = SIZES.slice(1).map(n => Array.from({length: n}, () => Math.random() * 2 - 1));
+  step = 0; history = [loss()];
+}
+function forward(x) {
+  const acts = [x];
+  for (let l = 0; l < W.length; l++) {
+    const a = acts[l];
+    acts.push(B[l].map((b, j) => sig(a.reduce((s, v, i) => s + v * W[l][i][j], b))));
+  }
+  return acts;
+}
+const target = r => TARGETS[document.getElementById("target").value](r);
+function loss() { return ROWS.reduce((s, r) => s + (forward(r).at(-1)[0] - target(r)) ** 2, 0) / ROWS.length; }
+
+// Une étape = on regarde les 4 exemples, on mesure l'erreur, on tourne chaque bouton un peu dans le bon sens.
+function trainStep() {
+  const gW = W.map(m => m.map(r => r.map(() => 0))), gB = B.map(v => v.map(() => 0));
+  for (const r of ROWS) {
+    const acts = forward(r);
+    let delta = [acts.at(-1)[0] - target(r)];               // entropie croisée + sigmoïde
+    for (let l = W.length - 1; l >= 0; l--) {
+      for (let j = 0; j < delta.length; j++) {
+        gB[l][j] += delta[j];
+        for (let i = 0; i < acts[l].length; i++) gW[l][i][j] += delta[j] * acts[l][i];
+      }
+      if (l > 0) delta = acts[l].map((a, i) => a * (1 - a) * delta.reduce((s, d, j) => s + d * W[l][i][j], 0));
+    }
+  }
+  W.forEach((m, l) => m.forEach((row, i) => row.forEach((_, j) => m[i][j] -= LR * gW[l][i][j] / ROWS.length)));
+  B.forEach((v, l) => v.forEach((_, j) => v[j] -= LR * gB[l][j] / ROWS.length));
+  step++;
+  history.push(loss());
+}
+
+// ------------------------------------------------------------------ affichage
+const svg = document.getElementById("svg"), NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); svg.appendChild(e); return e; }
+function colorFor(v) {
+  const t = Math.min(1, Math.abs(v)), G = [221, 221, 221], T = v >= 0 ? [46, 139, 87] : [192, 57, 43];
+  return `rgb(${G.map((g, i) => Math.round(g + t * (T[i] - g))).join(",")})`;
+}
+const fmt = v => (Math.round(v * 100) / 100).toString().replace(".", ",");
+
+function drawNet() {
+  svg.innerHTML = "";
+  const Wd = svg.clientWidth, H = svg.clientHeight, acts = forward(ROWS[cur]);
+  const pos = SIZES.map((n, l) => {
+    const x = 80 + (Wd - 160) * l / (SIZES.length - 1), gap = Math.min(130, (H - 110) / n);
+    return Array.from({length: n}, (_, j) => [x, 50 + (H - 50) / 2 + (j - (n - 1) / 2) * gap]);
+  });
+  ["Entrées", "Couche cachée", "Sortie"].forEach((t, l) => el("text", {x: pos[l][0][0], y: 26, class: "layer-lab"}).textContent = t);
+  for (let l = 0; l < W.length; l++) for (let i = 0; i < SIZES[l]; i++) for (let j = 0; j < SIZES[l + 1]; j++) {
+    const w = W[l][i][j], [ax, ay] = pos[l][i], [bx, by] = pos[l + 1][j];
+    el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: w >= 0 ? "#2e8b57" : "#c0392b",
+                "stroke-width": Math.min(14, 1 + Math.abs(w) * 1.6), "stroke-linecap": "round", opacity: .85});
+  }
+  for (let l = 0; l < SIZES.length; l++) for (let j = 0; j < SIZES[l]; j++) {
+    const [x, y] = pos[l][j], v = acts[l][j];
+    if (l > 0) { const b = B[l - 1][j]; el("circle", {cx: x, cy: y, r: 34 + Math.min(10, Math.abs(b) * 1.5), fill: b >= 0 ? "#2e8b57" : "#c0392b", opacity: .9}); }
+    el("circle", {cx: x, cy: y, r: 32, fill: colorFor(v), stroke: "#fff", "stroke-width": 3});
+    el("text", {x, y, class: "val", fill: v > .45 ? "#fff" : "#1f2a44"}).textContent = fmt(v);
+  }
+}
+function drawTable() {
+  let ok = 0, h = "<table><tr><th>x1</th><th>x2</th><th>sortie</th><th>cible</th><th></th></tr>";
+  ROWS.forEach((r, k) => {
+    const o = forward(r).at(-1)[0], t = target(r), good = Math.abs(o - t) < 0.25;
+    ok += good;
+    h += `<tr class="trow${k === cur ? " cur" : ""}" data-k="${k}"><td>${r[0]}</td><td>${r[1]}</td><td>${fmt(o)}</td><td class="t">${t}</td><td class="${good ? "ok" : "ko"}">${good ? "✓" : "✗"}</td></tr>`;
+  });
+  const tb = document.getElementById("table");
+  tb.innerHTML = h + "</table>";
+  tb.querySelectorAll("tr.trow").forEach(tr => tr.onclick = () => { cur = +tr.dataset.k; draw(); });
+  const sc = document.getElementById("score");
+  sc.className = "";
+  sc.textContent = `${ok} / 4 corrects`;
+}
+function drawCurve() {
+  const c = document.getElementById("curve"), g = c.getContext("2d"), Wc = c.width, Hc = c.height, pad = 30;
+  g.clearRect(0, 0, Wc, Hc);
+  const maxL = Math.max(0.3, ...history), n = history.length;
+  g.strokeStyle = "#d0d5de"; g.lineWidth = 2; g.beginPath(); g.moveTo(pad, 10); g.lineTo(pad, Hc - pad); g.lineTo(Wc - 10, Hc - pad); g.stroke();
+  g.fillStyle = "#6b7489"; g.font = "22px Lato, sans-serif";
+  g.fillText("étapes", Wc - 90, Hc - 6);
+  g.strokeStyle = "#e07a2f"; g.lineWidth = 4; g.beginPath();
+  const stride = Math.max(1, Math.floor(n / 600));
+  for (let k = 0; k < n; k += stride) {
+    const x = pad + (Wc - pad - 10) * k / Math.max(1, n - 1), y = Hc - pad - (Hc - pad - 10) * history[k] / maxL;
+    k ? g.lineTo(x, y) : g.moveTo(x, y);
+  }
+  g.stroke();
+}
+function draw() {
+  drawNet(); drawTable(); drawCurve();
+  document.getElementById("step").innerHTML = `étape <b>${step}</b>`;
+}
+
+// ------------------------------------------------------------------ boucle
+const runBtn = document.getElementById("run");
+function loop() {
+  if (!running) return;
+  const k = +document.getElementById("speed").value;
+  for (let i = 0; i < k; i++) trainStep();
+  draw();
+  requestAnimationFrame(loop);
+}
+runBtn.onclick = () => { running = !running; runBtn.textContent = running ? "⏸ Pause" : "▶ Lancer"; loop(); };
+document.getElementById("one").onclick = () => { trainStep(); draw(); };
+document.getElementById("rand").onclick = () => { randomize(); draw(); };
+document.getElementById("target").onchange = () => { history = [loss()]; step = 0; draw(); };
+window.addEventListener("resize", draw);
+randomize(); draw();
+</script>
+</body>
+</html>
