@@ -26,7 +26,7 @@ def info_balance():
             s.rect(x, 130 + H * (1 - v), 180, H * v, fill=c, rx=12)
             s.text(x + 90, 650, lab, fs=30)
         s.text(x0 + 300, 105, "", fs=20)
-    s.text(1540, 360, "coût", fs=28, color=MUTED, anchor="end", italic=True)
+    s.text(120, 360, "coût", fs=28, color=MUTED, anchor="end", italic=True)
     s.save(out("info_cout.svg"))
 
 
@@ -154,7 +154,7 @@ def training_loop():
     cx, cy, rx, ry = 800, 400, 434, 280
     steps = [("Exemple\n(donnée)", LIGHT, INK), ("Prédiction\ndu modèle", ORANGE_L, INK),
              ("Comparaison avec\nla bonne réponse", TEAL_L, INK), ("Erreur", RED_L, RED),
-             ("On ajuste\nles boutons", GREEN_L, GREEN)]
+             ("On ajuste\nles parametres", GREEN_L, GREEN)]
     n, bw, bh = len(steps), 330, 120
     angles = [-np.pi / 2 + 2 * np.pi * i / n for i in range(n)]
     pts = [(cx + rx * np.cos(a), cy + ry * np.sin(a)) for a in angles]
@@ -435,6 +435,8 @@ def better_vs_preferred():
     s = SVG(1600, 680)
     rows = [("Musée", "📱", "Tablette", "plus d'informations", "🧑‍🏫", "Visite guidée", "on préfère souvent"),
             ("Musique", "🎧", "MP3", "plus pratique, parfait", "🎤", "Concert", "on y va quand même")]
+    s.text(560, 40, "« objectivement meilleur »", fs=34, color=TEAL, weight="bold")
+    s.text(1200, 40, "« socialement préféré »", fs=34, color=ORANGE, weight="bold")
     for i, (dom, e1, t1, d1, e2, t2, d2) in enumerate(rows):
         y = 100 + i * 280
         s.text(130, y + 110, dom, fs=40, weight="bold")
@@ -442,7 +444,7 @@ def better_vs_preferred():
         s.text(400, y + 110, e1, fs=100)
         s.text(640, y + 85, t1, fs=38, weight="bold")
         s.text(640, y + 145, d1, fs=26, color=MUTED)
-        s.text(880, y + 110, "≠", fs=80, color=INK, weight="bold")
+        # s.text(880, y + 110, "≠", fs=80, color=INK, weight="bold")
         s.box(940, y, 520, 220, "", fill=ORANGE_L)
         s.text(1040, y + 110, e2, fs=100)
         s.text(1280, y + 85, t2, fs=38, weight="bold")

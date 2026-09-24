@@ -4,6 +4,8 @@ subtitle: "Fonctionnement des IA modernes, et conséquences pour la société"
 lang: fr
 ---
 
+<!-- page de titre: fonctionnement de l'ia moderne -->
+
 ## Systèmes experts : des règles écrites à la main
 
 <div class="cols" style="grid-template-columns: 330px 1fr">
@@ -29,11 +31,11 @@ lang: fr
 
 ![](figures/echelle_parametres.svg){.fig}
 
-## Entraînement automatique
+## Boucle d'entraînement automatique
 
 ![](figures/boucle_entrainement.svg){.fig}
 
-## Démo : la machine règle les boutons
+## Entraînement automatique
 
 <iframe class="demo" data-src="demos/entrainement.html"></iframe>
 
@@ -49,6 +51,21 @@ et le restent : c'est pour ça qu'on initialise les poids au hasard.
 Cliquer sur une cible dans la table passe en objectif « Personnalisé ».
 :::
 
+## Prédire la suite d'un texte
+
+<div class="big-q" style="font-size:1.4em; margin-top:1.2em">« Paris est la capitale de la <span class="orange">___</span> »</div>
+
+::: {.fragment}
+<div class="big-q teal" style="font-size:1.4em">→ France</div>
+:::
+
+::: {.fragment}
+<div class="big-q" style="font-size:1.1em; margin-top:1em">« Paris est la capitale de la France. Elle est située en <span class="orange">___</span> »</div>
+:::
+::: {.fragment}
+<div class="big-q teal" style="font-size:1.1em">→ Europe</div>
+:::
+
 ## Prédire la lettre suivante
 
 ![](figures/lettres.svg){.fig}
@@ -60,24 +77,25 @@ Sortie : un neurone par lettre ; la lettre prédite est celle dont le neurone s'
 Un LLM fait la même chose, avec des tokens au lieu de lettres et un contexte beaucoup plus long.
 :::
 
-<!-- faire une nouvelle slide avec une version interactive; je veux pouvoir changer les lettre en entree -->
+## Prédire la lettre suivante
+
+<iframe class="demo" data-src="demos/lettres.html"></iframe>
+<!-- cliquer sur un neurone de sortie doit ajouter ce neurone a l'entree -->
+<!-- effacer tout doit mettre des espaces comme les 3 neurones -->
+<!-- Je veux pouvoir charger un modele entraine en francias, un en anglais, et un modele aleatoire -->
+
+::: notes
+Vrai petit réseau (3 × 27 entrées, 20 neurones cachés, 27 sorties), entraîné sur « Le tour du monde en
+quatre-vingts jours » de Jules Verne (train_lettres.py) : environ 44 % de bonnes lettres au premier essai.
+Cliquer d'abord dans la démo pour qu'elle reçoive le clavier, puis taper des lettres : la fenêtre de 3 lettres glisse.
+Clic sur un neurone d'entrée = changer la lettre à cette position.
+« Ajouter la lettre prédite » (ou Entrée) : le réseau écrit tout seul, lettre par lettre ;
+il tourne vite en boucle (« de le de le… ») car il ne voit que 3 lettres. Un LLM voit des milliers de tokens.
+:::
 
 ## Caractère vs mot vs token
 
 ![](figures/tokens.svg){.fig}
-
-## Prédire la suite d'un texte
-
-<div class="big-q" style="font-size:1.4em; margin-top:1.2em">« Paris est la capitale de la <span class="orange">___</span> »</div>
-
-::: {.fragment}
-<div class="big-q teal" style="font-size:1.4em">→ France</div>
-:::
-
-::: {.fragment}
-<div class="big-q" style="font-size:1.1em; margin-top:1em">« Paris est la capitale de la France. Elle est située en <span class="orange">___</span> »</div>
-<div class="big-q teal" style="font-size:1.1em">→ Europe</div>
-:::
 
 ## Token par token
 
@@ -114,6 +132,7 @@ Un LLM fait la même chose, avec des tokens au lieu de lettres et un contexte be
 
 <div class="msg fragment">À l'entraînement, chaque token faux est pénalisé :<br>une erreur répétée dans un raisonnement coûte plus cher.</div>
 
+<!-- page de titre: impact de l'ia -->
 ## Deux sources de biais
 
 ![](figures/deux_biais.svg){.fig}
@@ -155,7 +174,7 @@ Avant : un chemin, quelques pistes.
 Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de son domaine, et on garde une synthèse humaine.
 ::: -->
 
-## « Objectivement meilleur » ≠ « socialement préféré »
+## Nous ne serons pas remplacés par les IA
 
 ![](figures/meilleur_vs_prefere.svg){.fig}
 
@@ -168,6 +187,8 @@ Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de
 ## Des faux, sous toutes les formes
 
 ![](figures/fake_medias.svg){.fig}
+
+<div class="msg fragment">De plus en plus difficiles a détecter!</div>
 
 ## Hameçonnage
 
@@ -231,10 +252,9 @@ Faits (d'après le rapport technique de Hugging Face) :
 <ol class="retenir">
 <li class="fragment">Une IA n'est pas magique.</li>
 <li class="fragment">Un LLM prédit du texte, token par token.</li>
-<li class="fragment">Les données et les instructions peuvent être biaisées.</li>
-<li class="fragment">L'IA réduit fortement le coût de la fraude / la création de faux.</li>
+<li class="fragment">Les données et/ou les instructions peuvent être biaisées.</li>
+<li class="fragment">L'IA réduit fortement le coût de la création de faux.</li>
 </ol>
-<!-- les bullet points sont mal centres -->
 
 ## Sources
 

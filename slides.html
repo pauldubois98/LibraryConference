@@ -42,6 +42,10 @@
 pour la société</p>
 </section>
 
+<section class="slide level2">
+
+<!-- page de titre: fonctionnement de l'ia moderne -->
+</section>
 <section id="systèmes-experts-des-règles-écrites-à-la-main"
 class="slide level2">
 <h2>Systèmes experts : des règles écrites à la main</h2>
@@ -79,12 +83,12 @@ class="slide level2">
 <h2>Explosion de la taille des modèles</h2>
 <p><img data-src="figures/echelle_parametres.svg" class="fig" /></p>
 </section>
-<section id="entraînement-automatique" class="slide level2">
-<h2>Entraînement automatique</h2>
+<section id="boucle-dentraînement-automatique" class="slide level2">
+<h2>Boucle d’entraînement automatique</h2>
 <p><img data-src="figures/boucle_entrainement.svg" class="fig" /></p>
 </section>
-<section id="démo-la-machine-règle-les-boutons" class="slide level2">
-<h2>Démo : la machine règle les boutons</h2>
+<section id="entraînement-automatique" class="slide level2">
+<h2>Entraînement automatique</h2>
 <iframe class="demo" data-src="demos/entrainement.html">
 </iframe>
 <aside class="notes">
@@ -102,23 +106,6 @@ le restent : c’est pour ça qu’on initialise les poids au hasard. Cliquer
 sur une cible dans la table passe en objectif « Personnalisé ».</p>
 </aside>
 </section>
-<section id="prédire-la-lettre-suivante" class="slide level2">
-<h2>Prédire la lettre suivante</h2>
-<p><img data-src="figures/lettres.svg" class="fig" /></p>
-<aside class="notes">
-<p>Entrée : pour chacune des 3 positions, un neurone par lettre possible
-; on allume (1) celui de la lettre lue, les autres restent à 0. Sortie :
-un neurone par lettre ; la lettre prédite est celle dont le neurone
-s’active le plus. « c h a » → t (chat), mais aussi r (char), n (chant),
-m (cham…). Pourcentages illustratifs. Un LLM fait la même chose, avec
-des tokens au lieu de lettres et un contexte beaucoup plus long.</p>
-</aside>
-<!-- faire une nouvelle slide avec une version interactive; je veux pouvoir changer les lettre en entree -->
-</section>
-<section id="caractère-vs-mot-vs-token" class="slide level2">
-<h2>Caractère vs mot vs token</h2>
-<p><img data-src="figures/tokens.svg" class="fig" /></p>
-</section>
 <section id="prédire-la-suite-dun-texte" class="slide level2">
 <h2>Prédire la suite d’un texte</h2>
 <div class="big-q" style="font-size:1.4em; margin-top:1.2em">
@@ -134,10 +121,47 @@ des tokens au lieu de lettres et un contexte beaucoup plus long.</p>
 « Paris est la capitale de la France. Elle est située en
 <span class="orange">___</span> »
 </div>
+</div>
+<div class="fragment">
 <div class="big-q teal" style="font-size:1.1em">
 → Europe
 </div>
 </div>
+</section>
+<section id="prédire-la-lettre-suivante" class="slide level2">
+<h2>Prédire la lettre suivante</h2>
+<p><img data-src="figures/lettres.svg" class="fig" /></p>
+<aside class="notes">
+<p>Entrée : pour chacune des 3 positions, un neurone par lettre possible
+; on allume (1) celui de la lettre lue, les autres restent à 0. Sortie :
+un neurone par lettre ; la lettre prédite est celle dont le neurone
+s’active le plus. « c h a » → t (chat), mais aussi r (char), n (chant),
+m (cham…). Pourcentages illustratifs. Un LLM fait la même chose, avec
+des tokens au lieu de lettres et un contexte beaucoup plus long.</p>
+</aside>
+</section>
+<section id="prédire-la-lettre-suivante-1" class="slide level2">
+<h2>Prédire la lettre suivante</h2>
+<iframe class="demo" data-src="demos/lettres.html">
+</iframe>
+<!-- cliquer sur un neurone de sortie doit ajouter ce neurone a l'entree -->
+<!-- effacer tout doit mettre des espaces comme les 3 neurones -->
+<!-- Je veux pouvoir charger un modele entraine en francias, un en anglais, et un modele aleatoire -->
+<aside class="notes">
+<p>Vrai petit réseau (3 × 27 entrées, 20 neurones cachés, 27 sorties),
+entraîné sur « Le tour du monde en quatre-vingts jours » de Jules Verne
+(train_lettres.py) : environ 44 % de bonnes lettres au premier essai.
+Cliquer d’abord dans la démo pour qu’elle reçoive le clavier, puis taper
+des lettres : la fenêtre de 3 lettres glisse. Clic sur un neurone
+d’entrée = changer la lettre à cette position. « Ajouter la lettre
+prédite » (ou Entrée) : le réseau écrit tout seul, lettre par lettre ;
+il tourne vite en boucle (« de le de le… ») car il ne voit que 3
+lettres. Un LLM voit des milliers de tokens.</p>
+</aside>
+</section>
+<section id="caractère-vs-mot-vs-token" class="slide level2">
+<h2>Caractère vs mot vs token</h2>
+<p><img data-src="figures/tokens.svg" class="fig" /></p>
 </section>
 <section id="token-par-token" class="slide level2">
 <h2>Token par token</h2>
@@ -217,6 +241,7 @@ class="tok">livres</span><span class="tok">.</span>
 À l’entraînement, chaque token faux est pénalisé :<br>une erreur répétée
 dans un raisonnement coûte plus cher.
 </div>
+<!-- page de titre: impact de l'ia -->
 </section>
 <section id="deux-sources-de-biais" class="slide level2">
 <h2>Deux sources de biais</h2>
@@ -265,9 +290,9 @@ Avant : un chemin, quelques pistes.
 Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de son domaine, et on garde une synthèse humaine.
 ::: -->
 </section>
-<section id="objectivement-meilleur-socialement-préféré"
+<section id="nous-ne-serons-pas-remplacés-par-les-ia"
 class="slide level2">
-<h2>« Objectivement meilleur » ≠ « socialement préféré »</h2>
+<h2>Nous ne serons pas remplacés par les IA</h2>
 <p><img data-src="figures/meilleur_vs_prefere.svg" class="fig" /></p>
 <div class="msg fragment">
 Et en bibliothèque ? 📚
@@ -280,6 +305,9 @@ Et en bibliothèque ? 📚
 <section id="des-faux-sous-toutes-les-formes" class="slide level2">
 <h2>Des faux, sous toutes les formes</h2>
 <p><img data-src="figures/fake_medias.svg" class="fig" /></p>
+<div class="msg fragment">
+De plus en plus difficiles a détecter!
+</div>
 </section>
 <section id="hameçonnage" class="slide level2">
 <h2>Hameçonnage</h2>
@@ -373,13 +401,12 @@ Une IA n’est pas magique.
 Un LLM prédit du texte, token par token.
 </li>
 <li class="fragment">
-Les données et les instructions peuvent être biaisées.
+Les données et/ou les instructions peuvent être biaisées.
 </li>
 <li class="fragment">
-L’IA réduit fortement le coût de la fraude / la création de faux.
+L’IA réduit fortement le coût de la création de faux.
 </li>
 </ol>
-<!-- les bullet points sont mal centres -->
 </section>
 <section id="sources" class="slide level2">
 <h2>Sources</h2>

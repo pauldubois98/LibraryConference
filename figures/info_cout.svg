@@ -15,5 +15,5 @@
 <rect x="1240" y="337.0" width="180" height="253.00000000000003" rx="12" fill="#0f7c8c"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1330" y="631.2">Vérifier</tspan><tspan x="1330" y="668.8">un contenu</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1200" y="105.0"></tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="end" dominant-baseline="central" style="font-style:italic;"><tspan x="1540" y="360.0">coût</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="end" dominant-baseline="central" style="font-style:italic;"><tspan x="120" y="360.0">coût</tspan></text>
 </svg>

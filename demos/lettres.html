@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Prédire la lettre suivante</title>
+<!-- Vrai petit réseau (entraîné par train_lettres.py) : 3 lettres en entrée → probabilité de chaque lettre suivante. -->
+<link rel="stylesheet" href="common.css">
+<script src="lettres_model.js"></script>
+<style>
+  body { padding: 4px 12px; gap: 4px; user-select: none; }
+  svg { flex: 1; width: 100%; display: block; }
+  .lab { font-size: 13px; fill: var(--muted); text-anchor: end; dominant-baseline: central; }
+  .lab.on { fill: var(--orange); font-weight: bold; }
+  .olab { font-size: 13px; fill: var(--muted); dominant-baseline: central; }
+  .olab.best { fill: var(--teal); font-weight: bold; }
+  .head { font-size: 17px; fill: var(--muted); text-anchor: middle; }
+  .big { font-size: 34px; font-weight: bold; fill: #fff; text-anchor: middle; dominant-baseline: central; }
+  .pct { font-size: 13px; fill: var(--muted); dominant-baseline: central; }
+  .pct.best { fill: var(--teal); font-weight: bold; }
+  .in { cursor: pointer; }
+  #bar { display: flex; align-items: center; gap: 12px; height: 52px; }
+  #bar button { font-size: 18px; padding: 8px 14px; }
+  #text { font-size: 24px; font-family: monospace; background: var(--light); border-radius: 10px; padding: 6px 12px;
+    flex: 1; white-space: pre; overflow: hidden; text-overflow: ellipsis; direction: rtl; text-align: left; }
+  #text b { color: var(--orange); }
+  .hint { font-size: 15px; color: var(--muted); }
+</style>
+</head>
+<body>
+<svg id="svg" viewBox="0 0 1180 520"></svg>
+<div id="bar">
+  <button id="add">Ajouter la lettre prédite ▶</button>
+  <button id="clear" class="alt">Effacer</button>
+  <div id="text"></div>
+</div>
+<div class="hint">Tapez des lettres au clavier, ou cliquez sur un neurone d'entrée. Espace = fin de mot (␣).</div>
+
+<script>
+const A = MODEL.alphabet, V = A.length, H = MODEL.hidden;
+const show = c => c === " " ? "␣" : c;
+let ctx = ["c", "h", "a"], text = "cha";
+
+function predict() {
+  const h = MODEL.b1.map((b, j) => 1 / (1 + Math.exp(-(b + ctx.reduce((s, c, k) => s + MODEL.W1[k * V + A.indexOf(c)][j], 0)))));
+  const z = MODEL.b2.map((b, i) => h.reduce((s, hj, j) => s + hj * MODEL.W2[j][i], b));
+  const m = Math.max(...z), e = z.map(v => Math.exp(v - m)), S = e.reduce((a, b) => a + b, 0);
+  return { h, p: e.map(v => v / S) };
+}
+
+const svg = document.getElementById("svg"), NS = "http://www.w3.org/2000/svg";
+function el(tag, attrs, txt) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (txt !== undefined) e.textContent = txt;
+  svg.appendChild(e); return e;
+}
+const IN_X = [70, 170, 270], HID_X = 590, OUT_X = 880, Y0 = 92, DY = 15.8;
+const rowY = i => Y0 + i * DY;
+const hidY = j => Y0 + 8 + j * (DY * (V - 1) - 16) / (H - 1);
+
+function render() {
+  svg.innerHTML = "";
+  const { h, p } = predict();
+  const best = p.indexOf(Math.max(...p));
+  const top = [...p.keys()].sort((a, b) => p[b] - p[a]).slice(0, 5);
+  // en-têtes : les 3 lettres lues et la lettre prédite
+  IN_X.forEach((x, k) => {
+    el("text", {x, y: 16, class: "head"}, `${k + 1}${k ? "e" : "re"} lettre`);
+    el("rect", {x: x - 28, y: 28, width: 56, height: 46, rx: 10, fill: "#e07a2f"});
+    el("text", {x, y: 51, class: "big"}, show(ctx[k]));
+  });
+  el("text", {x: HID_X, y: 16, class: "head"}, `couche cachée (${H} neurones)`);
+  el("text", {x: OUT_X + 60, y: 16, class: "head"}, "lettre suivante");
+  el("rect", {x: OUT_X + 32, y: 28, width: 56, height: 46, rx: 10, fill: "#0f7c8c"});
+  el("text", {x: OUT_X + 60, y: 51, class: "big"}, show(A[best]));
+  // traits : entrées actives → couche cachée (couleur = signe du poids, opacité = force)
+  ctx.forEach((c, k) => {
+    const i = A.indexOf(c);
+    for (let j = 0; j < H; j++) {
+      const w = MODEL.W1[k * V + i][j];
+      el("line", {x1: IN_X[k] + 6, y1: rowY(i), x2: HID_X - 9, y2: hidY(j), stroke: w >= 0 ? "#2e8b57" : "#c0392b",
+                  "stroke-width": 1 + Math.min(3, Math.abs(w)), opacity: Math.min(.9, .15 + Math.abs(w) / 4)});
+    }
+  });
+  // couche cachée → lettre prédite
+  for (let j = 0; j < H; j++) {
+    const w = MODEL.W2[j][best];
+    el("line", {x1: HID_X + 9, y1: hidY(j), x2: OUT_X - 6, y2: rowY(best), stroke: w >= 0 ? "#2e8b57" : "#c0392b",
+                "stroke-width": 1 + Math.min(3, Math.abs(w) / 2), opacity: Math.min(.9, .15 + Math.abs(w) / 6)});
+  }
+  // fond blanc sous les colonnes d'entrée : les traits passent « sous » les colonnes suivantes
+  IN_X.forEach(x => el("rect", {x: x - 24, y: rowY(0) - 9, width: 34, height: DY * (V - 1) + 18, fill: "#fff", opacity: .92}));
+  // neurones d'entrée : 3 colonnes × 27, cliquables
+  IN_X.forEach((x, k) => A.split("").forEach((c, i) => {
+    const on = ctx[k] === c;
+    el("text", {x: x - 12, y: rowY(i), class: "lab" + (on ? " on" : "")}, show(c));
+    const g = el("circle", {cx: x, cy: rowY(i), r: 6, fill: on ? "#e07a2f" : "#fff", stroke: on ? "#e07a2f" : "#b8bfcc",
+                            "stroke-width": 1.5, class: "in"});
+    g.onclick = () => { ctx[k] = c; text = text.slice(0, -3) + ctx.join(""); render(); };
+  }));
+  // couche cachée : couleur = activation
+  h.forEach((v, j) => el("circle", {cx: HID_X, cy: hidY(j), r: 9, fill: `rgba(15,124,140,${v.toFixed(2)})`, stroke: "#0f7c8c", "stroke-width": 1.5}));
+  // sorties : une par lettre, barre = probabilité
+  A.split("").forEach((c, i) => {
+    const b = i === best, y = rowY(i);
+    el("circle", {cx: OUT_X, cy: y, r: 6, fill: b ? "#0f7c8c" : `rgba(15,124,140,${Math.min(1, p[i] * 3).toFixed(2)})`, stroke: "#0f7c8c", "stroke-width": 1.2});
+    el("text", {x: OUT_X + 12, y, class: "olab" + (b ? " best" : "")}, show(c));
+    el("rect", {x: OUT_X + 28, y: y - 5, width: Math.max(1, 200 * p[i]), height: 10, rx: 3, fill: b ? "#0f7c8c" : "#b8dfe4"});
+    if (top.includes(i)) el("text", {x: OUT_X + 34 + 200 * p[i], y, class: "pct" + (b ? " best" : "")}, `${Math.round(100 * p[i])} %`);
+  });
+  const t = document.getElementById("text");
+  t.innerHTML = `<span dir="ltr">${text.slice(0, -3).replace(/ /g, "␣")}<b>${text.slice(-3).replace(/ /g, "␣")}</b></span>`;
+}
+
+// saisie : la fenêtre de 3 lettres glisse
+function push(c) { ctx = [ctx[1], ctx[2], c]; text += c; render(); }
+document.addEventListener("keydown", e => {
+  const c = e.key.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  if (c.length === 1 && A.includes(c)) { push(c); e.preventDefault(); }
+  else if (e.key === "Enter") { document.getElementById("add").click(); e.preventDefault(); }
+});
+document.getElementById("add").onclick = e => { e.currentTarget.blur(); const { p } = predict(); push(A[p.indexOf(Math.max(...p))]); };
+document.getElementById("clear").onclick = e => { e.currentTarget.blur(); text = ctx.join(""); render(); };
+render();
+</script>
+</body>
+</html>
