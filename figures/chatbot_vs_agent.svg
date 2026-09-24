@@ -12,7 +12,7 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330.0" y="560.0">📝 Texte</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style="font-style:italic;"><tspan x="330" y="690.0">reste dans le monde du texte</tspan></text>
 <line x1="680" y1="40" x2="680" y2="720" stroke="#eef1f6" stroke-width="6" stroke-linecap="round"  opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="42" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140" y="40.0">Agent qui peut agir</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="42" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140" y="40.0">Agent</tspan></text>
 <rect x="990.0" y="100.0" width="300" height="100" rx="18" fill="#eef1f6"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140.0" y="150.0">Utilisateur</tspan></text>
 <line x1="1140" y1="205" x2="1140.0" y2="269.0" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>

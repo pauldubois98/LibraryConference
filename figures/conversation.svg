@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700">
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="380" y="40.0">Ce que l&#x27;on voit</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="380" y="40.0">Interface utilisateur</tspan></text>
 <rect x="80" y="90" width="520" height="90" rx="18" fill="#d6eef1"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="340.0" y="135.0">Bonjour ! Un roman pour l&#x27;été ?</tspan></text>
 <rect x="200" y="200" width="520" height="130" rx="18" fill="#eef1f6"   opacity="1"/>
@@ -10,15 +10,13 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="460.0" y="505.0">…</tspan></text>
 <line x1="760" y1="330" x2="837.6" y2="330.0" stroke="#6b7489" stroke-width="8" stroke-linecap="round"  opacity="1"/>
 <polygon points="860,330 834.8,342.2 834.8,317.8" fill="#6b7489" opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1210" y="40.0">Ce que le modèle reçoit</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1210" y="40.0">Point de vu du LLM</tspan></text>
 <rect x="880" y="80" width="660" height="520" rx="18" fill="#ffffff" stroke="#e07a2f" stroke-width="4"  opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="910" y="130.0">Système : Tu es un assistant utile.</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="910" y="130.0">Conversation utilisateur / assistant bienveillant.</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="910" y="192.0">Utilisateur : Bonjour ! Un roman pour l&#x27;été ?</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="910" y="254.0">Assistant : Volontiers : aimez-vous plutôt</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="910" y="316.0">   les policiers ou les sagas ?</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="910" y="378.0">Utilisateur : Plutôt les policiers.</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#e07a2f" font-weight="bold" text-anchor="start" dominant-baseline="central" style=""><tspan x="910" y="440.0">Assistant :</tspan></text>
-<rect x="1080" y="430" width="36" height="44" rx="4" fill="#e07a2f"   opacity="0.6"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#e07a2f" font-weight="normal" text-anchor="middle" dominant-baseline="central" style="font-style:italic;"><tspan x="1210" y="550.0">un seul long texte → prédire la suite</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="660.0">Pas de mémoire propre : tout l&#x27;historique est relu à chaque réponse.</tspan></text>
+<rect x="1040" y="420" width="36" height="44" rx="4" fill="#e07a2f"   opacity="0.6"/>
 </svg>

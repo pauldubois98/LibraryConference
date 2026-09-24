@@ -239,15 +239,15 @@ def temperature_static():
 
 def chat_as_text():
     s = SVG(1600, 700)
-    s.text(380, 40, "Ce que l'on voit", fs=36, weight="bold", color=TEAL)
+    s.text(380, 40, "Interface utilisateur", fs=36, weight="bold", color=TEAL)
     s.box(80, 90, 520, 90, "Bonjour ! Un roman pour l'été ?", fill=TEAL_L, fs=28)
     s.box(200, 200, 520, 130, "Volontiers : aimez-vous plutôt\nles policiers ou les sagas ?", fill=LIGHT, fs=28)
     s.box(80, 350, 520, 90, "Plutôt les policiers.", fill=TEAL_L, fs=28)
     s.box(200, 460, 520, 90, "…", fill=LIGHT, fs=40)
     s.arrow(760, 330, 860, 330, sw=8, head=28)
-    s.text(1210, 40, "Ce que le modèle reçoit", fs=36, weight="bold", color=ORANGE)
+    s.text(1210, 40, "Point de vu du LLM", fs=36, weight="bold", color=ORANGE)
     s.rect(880, 80, 660, 520, fill=WHITE, stroke=ORANGE, sw=4)
-    lines = [("Système : Tu es un assistant utile.", MUTED),
+    lines = [("Conversation utilisateur / assistant bienveillant.", MUTED),
              ("Utilisateur : Bonjour ! Un roman pour l'été ?", INK),
              ("Assistant : Volontiers : aimez-vous plutôt", INK),
              ("   les policiers ou les sagas ?", INK),
@@ -255,9 +255,7 @@ def chat_as_text():
              ("Assistant :", ORANGE)]
     for i, (l, c) in enumerate(lines):
         s.text(910, 130 + i * 62, l, fs=26, anchor="start", color=c, weight="bold" if c == ORANGE else "normal")
-    s.rect(1080, 430, 36, 44, fill=ORANGE, rx=4, opacity=0.6)
-    s.text(1210, 550, "un seul long texte → prédire la suite", fs=28, italic=True, color=ORANGE)
-    s.text(800, 660, "Pas de mémoire propre : tout l'historique est relu à chaque réponse.", fs=30, color=MUTED)
+    s.rect(1040, 420, 36, 44, fill=ORANGE, rx=4, opacity=0.6)
     s.save(out("conversation.svg"))
 
 
@@ -302,7 +300,7 @@ def two_biases():
 
 def training_bias():
     s = SVG(1600, 720)
-    s.text(420, 40, "1. Quels textes garder ?", fs=36, weight="bold", color=TEAL)
+    s.text(420, 40, "Textes d'entrainement", fs=36, weight="bold", color=TEAL)
     corpora = [("Pages web", True), ("Livres", True), ("Wikipédia", True), ("Code informatique", True),
                ("Forums", False), ("Presse", True), ("Textes en d'autres langues", False)]
     for i, (c, keep) in enumerate(corpora):
@@ -312,7 +310,7 @@ def training_bias():
         s.text(650, y + 33, "✓" if keep else "✗", fs=44, weight="bold", color=GREEN if keep else RED)
         if not keep:
             s.line(150, y + 33, 570, y + 33, color=RED, sw=4)
-    s.text(1130, 40, "2. Quel poids donner à chacun ?", fs=36, weight="bold", color=ORANGE)
+    s.text(1130, 40, "Poid associé", fs=36, weight="bold", color=ORANGE)
     mix = [("Pages web", 0.45, TEAL), ("Livres", 0.15, ORANGE), ("Wikipédia", 0.08, PURPLE),
            ("Code", 0.17, GREEN), ("Presse", 0.15, RED)]
     x, W = 800, 660
@@ -324,9 +322,6 @@ def training_bias():
         s.rect(830, y - 16, 32, 32, fill=c, rx=6)
         s.text(880, y, f"{name} : {round(100 * p)} %", fs=28, anchor="start")
     s.text(1130, 560, "(proportions illustratives)", fs=24, color=MUTED, italic=True)
-    s.arrow(1130, 590, 1130, 620, sw=6)
-    s.cbox(1130, 665, 320, 80, "Modèle", fill=TEAL, color=WHITE, fs=36, weight="bold")
-    s.text(420, 680, "Des choix humains, avant tout calcul.", fs=30, italic=True, color=RED, weight="bold")
     s.save(out("biais_entrainement.svg"))
 
 
@@ -342,10 +337,9 @@ def usage_bias():
     s.box(40, 510, 720, 110, "Question de l'utilisateur", fill=LIGHT, fs=32, weight="bold")
     s.arrow(770, 250, 930, 340, sw=5, color=ORANGE)
     s.arrow(770, 565, 930, 400, sw=5)
-    s.cbox(1060, 370, 240, 180, "Modèle", fill=TEAL, color=WHITE, fs=40, weight="bold")
+    s.cbox(1060, 370, 240, 180, "IA", fill=TEAL, color=WHITE, fs=40, weight="bold")
     s.arrow(1185, 370, 1300, 370, sw=5)
     s.cbox(1430, 370, 240, 150, "Réponse", fill=WHITE, stroke=MUTED, fs=34)
-    s.text(1170, 580, "Des règles légitimes…\nmais qui restent des choix.", fs=30, italic=True, color=RED, weight="bold")
     s.save(out("biais_usage.svg"))
 
 
@@ -377,8 +371,6 @@ def better_vs_preferred():
     s = SVG(1600, 680)
     rows = [("Musée", "📱", "Tablette", "plus d'informations", "🧑‍🏫", "Visite guidée", "on préfère souvent"),
             ("Musique", "🎧", "MP3", "plus pratique, parfait", "🎤", "Concert", "on y va quand même")]
-    s.text(560, 40, "« objectivement meilleur »", fs=34, color=TEAL, weight="bold")
-    s.text(1200, 40, "« socialement préféré »", fs=34, color=ORANGE, weight="bold")
     for i, (dom, e1, t1, d1, e2, t2, d2) in enumerate(rows):
         y = 100 + i * 280
         s.text(130, y + 110, dom, fs=40, weight="bold")
@@ -416,7 +408,7 @@ def chatbot_vs_agent():
     s.cbox(330, 560, 300, 110, "📝 Texte", fill=TEAL_L, fs=34)
     s.text(330, 690, "reste dans le monde du texte", fs=28, color=MUTED, italic=True)
     s.line(680, 40, 680, 720, color=LIGHT, sw=6)
-    s.text(1140, 40, "Agent qui peut agir", fs=42, weight="bold", color=ORANGE)
+    s.text(1140, 40, "Agent", fs=42, weight="bold", color=ORANGE)
     s.cbox(1140, 150, 300, 100, "Utilisateur", fill=LIGHT, fs=32)
     s.arrow(1140, 205, 1140, 285)
     s.cbox(1140, 350, 260, 110, "LLM", fill=ORANGE, color=WHITE, fs=40, weight="bold")

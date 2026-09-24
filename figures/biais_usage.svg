@@ -14,10 +14,9 @@
 <line x1="770" y1="565" x2="918.86166662282" y2="411.48640629521685" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
 <polygon points="930,400 923.7,419.0 911.2,406.9" fill="#6b7489" opacity="1"/>
 <rect x="940.0" y="280.0" width="240" height="180" rx="18" fill="#0f7c8c"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1060.0" y="370.0">Modèle</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1060.0" y="370.0">IA</tspan></text>
 <line x1="1185" y1="370" x2="1284.0" y2="370.0" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
 <polygon points="1300,370 1282.0,378.7 1282.0,361.3" fill="#6b7489" opacity="1"/>
 <rect x="1310.0" y="295.0" width="240" height="150" rx="18" fill="#ffffff" stroke="#6b7489" stroke-width="3"  opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1430.0" y="370.0">Réponse</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style="font-style:italic;"><tspan x="1170" y="561.2">Des règles légitimes…</tspan><tspan x="1170" y="598.8">mais qui restent des choix.</tspan></text>
 </svg>

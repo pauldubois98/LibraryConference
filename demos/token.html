@@ -25,7 +25,7 @@
 </head>
 <body>
 <div id="text"></div>
-<h3>Quel est le <b>prochain token</b> ? <span style="font-size:20px">(cliquez sur n'importe quel mot)</span></h3>
+<h3><b>Prochain token:</b></h3>
 <div class="bars" id="bars"></div>
 <div class="row" id="controls">
   <button id="best">Le plus probable →</button>
@@ -141,7 +141,7 @@ function render() {
   const done = finished();
   text.innerHTML = html + (done ? "" : '<span class="cursor"></span>');
   best.disabled = done;
-  if (done) { bars.innerHTML = ""; info.textContent = "… et ainsi de suite."; return; }
+  if (done) { bars.innerHTML = ""; info.textContent = ""; return; }
   const D = dist();
   bars.innerHTML = D.map(([t, p], i) =>
     `<div class="lab" data-i="${i}">${t}</div><div class="track" data-i="${i}"><div class="fill" style="width:${p}%"></div></div><div class="pct" data-i="${i}">${p} %</div>`

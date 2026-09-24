@@ -24,6 +24,7 @@ lang: fr
 ## Entraîner un réseau de neurones à la main
 
 <iframe class="demo" data-src="demos/reseau.html?ni=2&nh=1&hs=2&no=1&act=step&t=OU"></iframe>
+<!-- Aligne l'element id gear (qui fait apparaitre les Réglages) avec les layer-lab (entree, couche cachee, sortie)-->
 
 ## Explosion de la taille des modèles
 
@@ -36,6 +37,7 @@ lang: fr
 ## Démo : la machine règle les boutons
 
 <iframe class="demo" data-src="demos/entrainement.html"></iframe>
+<!-- lorsque l'on fait une etape, je veux voir avec des petites fleches vers le haut ou le bas comment les poids sont mis a jour (et si on clique sur une autre entree, les fleches doivent etre mises a jour) -->
 
 ::: notes
 Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés, 1 sortie, activation sigmoïde).
@@ -101,17 +103,20 @@ Relancer « Nouveaux poids » montre que le point de départ change, mais l'erre
 
 ![](figures/deux_biais.svg){.fig}
 
-## Biais d'entraînement : le modèle hérite de ses données
+## Biais d'entraînement
+<!-- le modèle hérite de ses données -->
 
 ![](figures/biais_entrainement.svg){.fig}
 
-## Biais d'utilisation : même modèle, réponses différentes
+## Biais d'utilisation
+<!-- même modèle, réponses différentes -->
 
 ![](figures/biais_usage.svg){.fig}
 
 ## Écrire avec une IA peut changer notre opinion
 
 ![](figures/jakesch.svg){.fig-s}
+<!-- the "1 506 participants" box is not centered vertically, make it aligned with the middle row -->
 
 <div class="msg fragment">La majorité des participants n'a pas remarqué que l'IA était orientée.</div>
 
