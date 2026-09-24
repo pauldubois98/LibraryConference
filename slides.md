@@ -32,22 +32,35 @@ lang: fr
 ## Entraînement automatique
 
 ![](figures/boucle_entrainement.svg){.fig}
-<!-- les fleches ne sont pas visibles, fixer cette image -->
 
 ## Démo : la machine règle les boutons
 
 <iframe class="demo" data-src="demos/entrainement.html"></iframe>
-<!-- Le id "controls" doit etre mieux centre verticalement; je veux un bouton "poid aleatoires" et "RAZ poids"; je veux aussi pouvoir afficher/de-afficher le sens dans lequel l'exemple pousse; ajouter les objectifs "non-et" et "personalise" -->
 
 ::: notes
 Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés, 1 sortie, activation sigmoïde).
 Poids tirés au hasard, puis à chaque étape : prédiction sur les 4 exemples, calcul de l'erreur,
 chaque poids est ajusté un peu dans la direction qui réduit l'erreur (descente de gradient).
 XOR : environ 300 étapes en moyenne. Vitesse = nombre d'étapes par image.
-Relancer « Nouveaux poids » montre que le point de départ change, mais l'erreur finit par descendre.
+Relancer « Poids aléatoires » montre que le point de départ change, mais l'erreur finit par descendre.
+Flèches ▲▼ : sens dans lequel l'exemple sélectionné pousse chaque poids (cliquer une autre ligne pour changer d'exemple).
+« RAZ poids » puis XOR : l'erreur reste bloquée (sorties à 0,5). Tous les neurones cachés partent identiques
+et le restent : c'est pour ça qu'on initialise les poids au hasard.
+Cliquer sur une cible dans la table passe en objectif « Personnalisé ».
 :::
 
-<!-- Ajouter une slide expliquant comment prendre 3 lettres en entree (activer le neurone correspondant), et predire la prochaine lettre (celle qui s'active le plus) -->
+## Prédire la lettre suivante
+
+![](figures/lettres.svg){.fig}
+
+::: notes
+Entrée : pour chacune des 3 positions, un neurone par lettre possible ; on allume (1) celui de la lettre lue, les autres restent à 0.
+Sortie : un neurone par lettre ; la lettre prédite est celle dont le neurone s'active le plus.
+« c h a » → t (chat), mais aussi r (char), n (chant), m (cham…). Pourcentages illustratifs.
+Un LLM fait la même chose, avec des tokens au lieu de lettres et un contexte beaucoup plus long.
+:::
+
+<!-- faire une nouvelle slide avec une version interactive; je veux pouvoir changer les lettre en entree -->
 
 ## Caractère vs mot vs token
 
@@ -196,8 +209,7 @@ Une erreur de texte est une chose. Une erreur qui déclenche une action en est u
 
 ![](figures/incident_hf.svg){.fig}
 
-<div class="src">Sources : Hugging Face, « Security incident disclosure — July 2026 » et « Anatomy of a Frontier Lab Agent Intrusion » (blog huggingface.co) ; OpenAI, « The Hugging Face incident and the road ahead ».</div>
-<!-- a simplifier -->
+<div class="src">Sources : blog Hugging Face (juillet 2026) ; OpenAI</div>
 
 ::: notes
 Faits (d'après le rapport technique de Hugging Face) :
@@ -222,6 +234,7 @@ Faits (d'après le rapport technique de Hugging Face) :
 <li class="fragment">Les données et les instructions peuvent être biaisées.</li>
 <li class="fragment">L'IA réduit fortement le coût de la fraude / la création de faux.</li>
 </ol>
+<!-- les bullet points sont mal centres -->
 
 ## Sources
 

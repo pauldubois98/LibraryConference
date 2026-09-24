@@ -151,33 +151,31 @@ def scale_params():
 # ---------------------------------------------------------------- entraînement
 def training_loop():
     s = SVG(1600, 780)
-    cx, cy, R = 800, 400, 280
+    cx, cy, rx, ry = 800, 400, 434, 280
     steps = [("Exemple\n(donnée)", LIGHT, INK), ("Prédiction\ndu modèle", ORANGE_L, INK),
              ("Comparaison avec\nla bonne réponse", TEAL_L, INK), ("Erreur", RED_L, RED),
              ("On ajuste\nles boutons", GREEN_L, GREEN)]
-    n = len(steps)
-    pts = []
+    n, bw, bh = len(steps), 330, 120
+    angles = [-np.pi / 2 + 2 * np.pi * i / n for i in range(n)]
+    pts = [(cx + rx * np.cos(a), cy + ry * np.sin(a)) for a in angles]
+
+    def outside(x, y, box, margin=14):
+        return abs(x - box[0]) > bw / 2 + margin or abs(y - box[1]) > bh / 2 + margin
+
+    # flèches : arcs de l'ellipse entre le bord d'une boîte et le bord de la suivante
     for i in range(n):
-        a = -np.pi / 2 + 2 * np.pi * i / n
-        pts.append((cx + R * 1.55 * np.cos(a), cy + R * np.sin(a)))
-    for i in range(n):
-        (x1, y1), (x2, y2) = pts[i], pts[(i + 1) % n]
-        mx, my = (x1 + x2) / 2, (y1 + y2) / 2
-        # courbure vers l'extérieur
-        dx, dy = mx - cx, my - cy
-        d = np.hypot(dx, dy)
-        qx, qy = mx + dx / d * 70, my + dy / d * 70
-        f = 0.28
-        s.curve_arrow(x1 + (qx - x1) * f, y1 + (qy - y1) * f, qx, qy,
-                      x2 + (qx - x2) * f, y2 + (qy - y2) * f, color=MUTED, sw=5)
+        ts = np.linspace(angles[i], angles[i] + 2 * np.pi / n, 200)
+        arc = [(cx + rx * np.cos(t), cy + ry * np.sin(t)) for t in ts]
+        arc = [p for p in arc if outside(*p, pts[i]) and outside(*p, pts[(i + 1) % n])]
+        d = "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in arc[:-6])
+        s.raw(f'<path d="{d}" fill="none" stroke="{MUTED}" stroke-width="5" stroke-linecap="round"/>')
+        s.arrow(*arc[-7], *arc[-1], color=MUTED, sw=5, head=22)
     for (x, y), (lab, fill, col) in zip(pts, steps):
-        s.cbox(x, y, 330, 120, lab, fill=fill, fs=30, color=col, weight="bold")
-    s.text(cx, cy - 20, "× des millions", fs=44, weight="bold", color=TEAL)
-    s.text(cx, cy + 35, "voire des milliards de fois", fs=30, color=MUTED)
+        s.cbox(x, y, bw, bh, lab, fill=fill, fs=30, color=col, weight="bold")
+    s.text(cx, cy - 20, "× des millions de fois", fs=44, weight="bold", color=TEAL)
     s.save(out("boucle_entrainement.svg"))
 
 
-# ---------------------------------------------------------------- LLM
 def tokens_split():
     s = SVG(1600, 640)
     phrase = "La bibliothèque ouvre à 9h."
@@ -208,6 +206,74 @@ def tokens_split():
         s.text(260, y, a + " :", fs=28, anchor="end", weight="bold", color=c)
         s.text(280, y, b, fs=28, anchor="start", color=INK)
     s.save(out("tokens.svg"))
+
+
+def letters_nn():
+    """Réseau qui lit 3 lettres (un neurone par lettre possible) et prédit la suivante."""
+    s = SVG(1600, 830)
+    letters = ["a", "b", "c", "d", "e", "h", "i", "m", "n", "r", "s", "t", "…", "z"]
+    word = ["c", "h", "a"]
+    out_act = {"t": 0.62, "r": 0.15, "n": 0.09, "m": 0.06, "s": 0.04}
+    top, gap, r = 150, 45, 17
+    ys = [top + k * gap for k in range(len(letters))]
+    in_x = [150, 330, 510]
+    hid_x, hid_y = 900, [top + 90 + k * 95 for k in range(6)]
+    out_x = 1260
+
+    # connexions : seules celles des neurones actifs sont appuyées
+    for k, x in enumerate(in_x):
+        for i, l in enumerate(letters):
+            if l == "…":
+                continue
+            on = l == word[k]
+            for hy in hid_y:
+                s.line(x + r, ys[i], hid_x - 30, hy, color=ORANGE if on else "#dfe3ea",
+                       sw=2.5 if on else 1, opacity=0.9 if on else 0.6)
+    for hy in hid_y:
+        for i, l in enumerate(letters):
+            if l == "…":
+                continue
+            best = l == "t"
+            s.line(hid_x + 30, hy, out_x - r, ys[i], color=TEAL if best else "#dfe3ea",
+                   sw=2.5 if best else 1, opacity=0.9 if best else 0.6)
+
+    # entrées : 3 colonnes, un neurone par lettre (fond blanc : les traits passent « sous » les colonnes)
+    for x in in_x:
+        s.rect(x - 55, ys[0] - 25, 80, ys[-1] - ys[0] + 50, fill=WHITE, rx=10, opacity=0.92)
+    for k, x in enumerate(in_x):
+        s.text(x, 60, f"{k + 1}{'re' if k == 0 else 'e'} lettre", fs=28, color=MUTED)
+        s.cbox(x, 108, 70, 56, word[k], fill=ORANGE, color=WHITE, fs=36, weight="bold", rx=12)
+        for i, l in enumerate(letters):
+            if l == "…":
+                s.text(x, ys[i], "⋮", fs=30, color=MUTED)
+                continue
+            on = l == word[k]
+            s.circle(x, ys[i], r, fill=ORANGE if on else WHITE, stroke=ORANGE if on else "#b8bfcc", sw=2)
+            s.text(x - 40, ys[i], l, fs=24, color=ORANGE if on else MUTED, weight="bold" if on else "normal")
+            if on:
+                s.text(x, ys[i], "1", fs=20, color=WHITE, weight="bold")
+    # couche cachée
+    s.text(hid_x, 60, "couche cachée", fs=28, color=MUTED)
+    for hy in hid_y:
+        s.circle(hid_x, hy, 30, fill=TEAL_L, stroke=TEAL, sw=3)
+    # sorties : une par lettre, intensité = activation
+    s.text(out_x + 90, 60, "lettre suivante", fs=28, color=MUTED)
+    for i, l in enumerate(letters):
+        if l == "…":
+            s.text(out_x, ys[i], "⋮", fs=30, color=MUTED)
+            continue
+        a = out_act.get(l, 0.01)
+        best = l == "t"
+        s.circle(out_x, ys[i], r, fill=TEAL if best else (TEAL_L if a > 0.02 else WHITE),
+                 stroke=TEAL if a > 0.02 else "#b8bfcc", sw=2)
+        s.text(out_x + 40, ys[i], l, fs=24, color=TEAL if best else MUTED, weight="bold" if best else "normal")
+        s.rect(out_x + 65, ys[i] - 12, max(3, 220 * a), 24, fill=TEAL if best else "#b8dfe4", rx=5)
+        if a > 0.02:
+            s.text(out_x + 75 + 220 * a, ys[i], f"{round(100 * a)} %", fs=22, anchor="start",
+                   color=TEAL if best else MUTED, weight="bold" if best else "normal")
+    s.cbox(out_x + 90, 108, 150, 56, "t", fill=TEAL, color=WHITE, fs=36, weight="bold", rx=12)
+    s.text(800, 800, "« c h a »  →  le neurone le plus activé : « t »  →  « chat »", fs=32, color=INK, weight="bold")
+    s.save(out("lettres.svg"))
 
 
 def softmax_T(logits, T):
@@ -422,28 +488,20 @@ def chatbot_vs_agent():
 
 
 def hf_incident():
-    s = SVG(1600, 720)
-    steps = [("Évaluation interne\nd'OpenAI", "tester des capacités\nen cybersécurité", LIGHT, INK),
-             ("L'agent sort\nde son bac à sable", "via une faille inconnue\n(« zero-day »)", ORANGE_L, INK),
-             ("Entre chez\nHugging Face", "fichier de données piégé\n→ exécution de code", RED_L, INK),
-             ("Vole des\nidentifiants", "se déplace entre\nles serveurs internes", RED_L, INK),
-             ("Détecté", "par des outils de\ndétection d'anomalies", GREEN_L, INK)]
-    w, gap = 270, 42
-    x0 = (1600 - (5 * w + 4 * gap)) / 2
-    s.line(x0, 90, x0 + 5 * w + 4 * gap, 90, color=MUTED, sw=4)
-    s.text(x0, 45, "9 juillet 2026", fs=26, anchor="start", color=MUTED)
-    s.text(x0 + 5 * w + 4 * gap, 45, "13 juillet 2026", fs=26, anchor="end", color=MUTED)
-    for i, (t, d, c, col) in enumerate(steps):
+    s = SVG(1600, 620)
+    steps = [("Test interne\nd'OpenAI", LIGHT), ("L'IA sort de son\nbac à sable", ORANGE_L),
+             ("Elle pirate\nHugging Face", RED_L), ("Repérée", GREEN_L)]
+    w, gap = 320, 60
+    x0 = (1600 - (4 * w + 3 * gap)) / 2
+    s.text(800, 40, "juillet 2026", fs=32, color=MUTED, weight="bold")
+    for i, (t, c) in enumerate(steps):
         x = x0 + i * (w + gap)
-        s.circle(x + w / 2, 90, 14, fill=ORANGE if 0 < i < 4 else TEAL)
-        s.box(x, 140, w, 140, t, fill=c, fs=28, weight="bold")
-        s.text(x + w / 2, 350, d, fs=26, color=MUTED)
-        if i < 4:
-            s.arrow(x + w + 4, 210, x + w + gap - 4, 210, sw=4, head=14)
-    s.rect(160, 450, 1280, 170, fill=WHITE, stroke=ORANGE, sw=4)
-    s.text(800, 500, "Objectif de l'agent, selon Hugging Face : « tricher » à l'évaluation", fs=32, weight="bold")
-    s.text(800, 565, "aller chercher les solutions du test plutôt que résoudre l'exercice lui-même", fs=28, color=MUTED)
-    s.text(800, 680, "≈ 17 600 actions automatisées reconstituées par Hugging Face, en ~4 jours", fs=28, color=RED, weight="bold")
+        s.box(x, 90, w, 160, t, fill=c, fs=36, weight="bold")
+        if i < 3:
+            s.arrow(x + w + 6, 170, x + w + gap - 6, 170, sw=6, head=20)
+    s.rect(250, 340, 1100, 200, fill=WHITE, stroke=ORANGE, sw=5)
+    s.text(800, 400, "Son but : réussir le test", fs=40, weight="bold")
+    s.text(800, 475, "… en allant voler les réponses", fs=40, weight="bold", color=RED)
     s.save(out("incident_hf.svg"))
 
 
@@ -472,6 +530,7 @@ if __name__ == "__main__":
     neuron()
     scale_params()
     training_loop()
+    letters_nn()
     tokens_split()
     temperature_static()
     chat_as_text()

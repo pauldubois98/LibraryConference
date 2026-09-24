@@ -13,9 +13,14 @@
   .layer-lab { font-size: 22px; fill: var(--muted); text-anchor: middle; }
   .val { font-size: 20px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
   .legend { font-size: 17px; fill: var(--orange); }
-  #controls { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font-size: 20px; }
-  #controls button { font-size: 20px; padding: 8px 16px; }
-  #step { font-size: 22px; color: var(--muted); min-width: 150px; }
+  #controls { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: nowrap;
+    font-size: 18px; height: 64px; }
+  #controls button { font-size: 18px; padding: 8px 12px; white-space: nowrap; }
+  #controls span { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+  #step { font-size: 20px; color: var(--muted); }
+  .opt { display: flex; align-items: center; justify-content: space-between; font-size: 18px; }
+  .opt input { width: 20px; height: 20px; accent-color: var(--orange); }
+  td.t { cursor: pointer; }
   #step b { color: var(--ink); }
   input[type=range] { accent-color: var(--orange); width: 110px; }
 
@@ -41,18 +46,20 @@
   <div id="controls">
     <button id="run">▶ Lancer</button>
     <button id="one" class="alt">1 étape</button>
-    <button id="rand" class="alt">🎲 Nouveaux poids</button>
+    <button id="rand" class="alt">🎲 Poids aléatoires</button>
+    <button id="zero" class="alt">RAZ poids</button>
     <span>vitesse <input type="range" id="speed" min="1" max="30" value="1"></span>
-    <span id="step"></span>
   </div>
 </div>
 <div id="right">
   <h3>Objectif</h3>
-  <select id="target"><option>OU</option><option>ET</option><option selected>XOR</option></select>
+  <select id="target"><option>OU</option><option>ET</option><option selected>XOR</option><option>NON-ET</option><option>Personnalisé</option></select>
   <div id="table"></div>
   <div id="score"></div>
   <h3 style="margin-top:4px">Erreur <span class="small">(doit descendre)</span></h3>
-  <canvas id="curve" width="700" height="260"></canvas>
+  <canvas id="curve" width="700" height="220"></canvas>
+  <label class="opt">Afficher le sens des mises à jour ▲▼ <input type="checkbox" id="arrows" checked></label>
+  <div id="step"></div>
 </div>
 
 <script>
@@ -60,12 +67,20 @@
 const SIZES = [2, 3, 1], LR = 1.5;
 const sig = x => 1 / (1 + Math.exp(-x));
 const ROWS = [[0, 0], [0, 1], [1, 0], [1, 1]];
-const TARGETS = { "OU": r => +(r[0] || r[1]), "ET": r => +(r[0] && r[1]), "XOR": r => r[0] ^ r[1] };
-let W, B, step, history, running = false, cur = 3, arrows = false;
+const TARGETS = { "OU": r => +(r[0] || r[1]), "ET": r => +(r[0] && r[1]), "XOR": r => r[0] ^ r[1],
+                  "NON-ET": r => +!(r[0] && r[1]) };
+let W, B, step, history, running = false, cur = 3;
+let custom = [0, 1, 1, 0];   // cible « Personnalisé », modifiable en cliquant dans la table
 
 function randomize() {
   W = SIZES.slice(0, -1).map((n, l) => Array.from({length: n}, () => Array.from({length: SIZES[l + 1]}, () => Math.random() * 2 - 1)));
   B = SIZES.slice(1).map(n => Array.from({length: n}, () => Math.random() * 2 - 1));
+  step = 0; history = [loss()];
+}
+// Tous les poids à zéro : les neurones cachés restent identiques entre eux (symétrie),
+// le réseau ne peut alors apprendre que des fonctions simples.
+function zeroWeights() {
+  W = W.map(m => m.map(r => r.map(() => 0))); B = B.map(v => v.map(() => 0));
   step = 0; history = [loss()];
 }
 function forward(x) {
@@ -76,7 +91,8 @@ function forward(x) {
   }
   return acts;
 }
-const target = r => TARGETS[document.getElementById("target").value](r);
+const targetSel = document.getElementById("target");
+const target = r => targetSel.value === "Personnalisé" ? custom[ROWS.indexOf(r)] : TARGETS[targetSel.value](r);
 function loss() { return ROWS.reduce((s, r) => s + (forward(r).at(-1)[0] - target(r)) ** 2, 0) / ROWS.length; }
 
 // Gradient de l'erreur pour un seul exemple (ajouté dans gW, gB).
@@ -125,7 +141,7 @@ function drawNet() {
     el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: w >= 0 ? "#2e8b57" : "#c0392b",
                 "stroke-width": Math.min(14, 1 + Math.abs(w) * 1.6), "stroke-linecap": "round", opacity: .85});
   }
-  const showArrows = arrows && !running;
+  const showArrows = document.getElementById("arrows").checked && !running;
   if (showArrows) drawArrows(pos);
   for (let l = 0; l < SIZES.length; l++) for (let j = 0; j < SIZES[l]; j++) {
     const [x, y] = pos[l][j], v = acts[l][j];
@@ -156,7 +172,7 @@ function drawArrows(pos) {
     pending.push([pos[l + 1][j][0] + 44, pos[l + 1][j][1] - 40, gB[l][j]]);
   pending.gmax = gmax;
   el("text", {x: 8, y: svg.clientHeight - 10, class: "legend"}).textContent =
-    `▲▼ sens dans lequel l'exemple (${ROWS[cur].join(", ")}) pousse chaque bouton`;
+    `▲▼ sens dans lequel l'exemple (${ROWS[cur].join(", ")}) pousse`;
 }
 let pending = [];
 
@@ -169,7 +185,14 @@ function drawTable() {
   });
   const tb = document.getElementById("table");
   tb.innerHTML = h + "</table>";
-  tb.querySelectorAll("tr.trow").forEach(tr => tr.onclick = () => { cur = +tr.dataset.k; draw(); });
+  tb.querySelectorAll("tr.trow").forEach(tr => tr.onclick = e => {
+    if (e.target.classList.contains("t")) {           // clic sur une cible : passer en « Personnalisé » et l'inverser
+      const k = +tr.dataset.k;
+      if (targetSel.value !== "Personnalisé") { custom = ROWS.map(target); targetSel.value = "Personnalisé"; }
+      custom[k] = 1 - custom[k]; history = [loss()]; step = 0;
+    } else cur = +tr.dataset.k;
+    draw();
+  });
   const sc = document.getElementById("score");
   sc.className = "";
   sc.textContent = `${ok} / 4 corrects`;
@@ -205,12 +228,14 @@ function loop() {
 }
 runBtn.onclick = () => {
   running = !running; runBtn.textContent = running ? "⏸ Pause" : "▶ Lancer";
-  if (!running) { arrows = true; draw(); }
+  if (!running) draw();
   loop();
 };
-document.getElementById("one").onclick = () => { trainStep(); arrows = true; draw(); };
-document.getElementById("rand").onclick = () => { randomize(); arrows = false; draw(); };
-document.getElementById("target").onchange = () => { history = [loss()]; step = 0; arrows = false; draw(); };
+document.getElementById("one").onclick = () => { trainStep(); draw(); };
+document.getElementById("rand").onclick = () => { randomize(); draw(); };
+document.getElementById("zero").onclick = () => { zeroWeights(); draw(); };
+document.getElementById("arrows").onchange = draw;
+targetSel.onchange = () => { history = [loss()]; step = 0; draw(); };
 window.addEventListener("resize", draw);
 randomize(); draw();
 </script>

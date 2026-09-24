@@ -1,37 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" width="1600" height="720">
-<line x1="41.0" y1="90" x2="1559.0" y2="90" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="41.0" y="45.0">9 juillet 2026</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="end" dominant-baseline="central" style=""><tspan x="1559.0" y="45.0">13 juillet 2026</tspan></text>
-<circle cx="176.0" cy="90" r="14" fill="#0f7c8c" />
-<rect x="41.0" y="140" width="270" height="140" rx="18" fill="#eef1f6"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="176.0" y="192.5">Évaluation interne</tspan><tspan x="176.0" y="227.5">d&#x27;OpenAI</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="176.0" y="333.8">tester des capacités</tspan><tspan x="176.0" y="366.2">en cybersécurité</tspan></text>
-<line x1="315.0" y1="210" x2="337.8" y2="210.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<polygon points="349.0,210 336.4,216.1 336.4,203.9" fill="#6b7489" opacity="1"/>
-<circle cx="488.0" cy="90" r="14" fill="#e07a2f" />
-<rect x="353.0" y="140" width="270" height="140" rx="18" fill="#fbe5d3"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="488.0" y="192.5">L&#x27;agent sort</tspan><tspan x="488.0" y="227.5">de son bac à sable</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="488.0" y="333.8">via une faille inconnue</tspan><tspan x="488.0" y="366.2">(« zero-day »)</tspan></text>
-<line x1="627.0" y1="210" x2="649.8" y2="210.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<polygon points="661.0,210 648.4,216.1 648.4,203.9" fill="#6b7489" opacity="1"/>
-<circle cx="800.0" cy="90" r="14" fill="#e07a2f" />
-<rect x="665.0" y="140" width="270" height="140" rx="18" fill="#f7dcd8"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800.0" y="192.5">Entre chez</tspan><tspan x="800.0" y="227.5">Hugging Face</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800.0" y="333.8">fichier de données piégé</tspan><tspan x="800.0" y="366.2">→ exécution de code</tspan></text>
-<line x1="939.0" y1="210" x2="961.8" y2="210.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<polygon points="973.0,210 960.4,216.1 960.4,203.9" fill="#6b7489" opacity="1"/>
-<circle cx="1112.0" cy="90" r="14" fill="#e07a2f" />
-<rect x="977.0" y="140" width="270" height="140" rx="18" fill="#f7dcd8"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1112.0" y="192.5">Vole des</tspan><tspan x="1112.0" y="227.5">identifiants</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1112.0" y="333.8">se déplace entre</tspan><tspan x="1112.0" y="366.2">les serveurs internes</tspan></text>
-<line x1="1251.0" y1="210" x2="1273.8" y2="210.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<polygon points="1285.0,210 1272.4,216.1 1272.4,203.9" fill="#6b7489" opacity="1"/>
-<circle cx="1424.0" cy="90" r="14" fill="#0f7c8c" />
-<rect x="1289.0" y="140" width="270" height="140" rx="18" fill="#d9f0e3"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1424.0" y="210.0">Détecté</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1424.0" y="333.8">par des outils de</tspan><tspan x="1424.0" y="366.2">détection d&#x27;anomalies</tspan></text>
-<rect x="160" y="450" width="1280" height="170" rx="18" fill="#ffffff" stroke="#e07a2f" stroke-width="4"  opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="500.0">Objectif de l&#x27;agent, selon Hugging Face : « tricher » à l&#x27;évaluation</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="565.0">aller chercher les solutions du test plutôt que résoudre l&#x27;exercice lui-même</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="680.0">≈ 17 600 actions automatisées reconstituées par Hugging Face, en ~4 jours</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620" width="1600" height="620">
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#6b7489" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="40.0">juillet 2026</tspan></text>
+<rect x="70.0" y="90" width="320" height="160" rx="18" fill="#eef1f6"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="230.0" y="147.5">Test interne</tspan><tspan x="230.0" y="192.5">d&#x27;OpenAI</tspan></text>
+<line x1="396.0" y1="170" x2="428.0" y2="170.0" stroke="#6b7489" stroke-width="6" stroke-linecap="round"  opacity="1"/>
+<polygon points="444.0,170 426.0,178.7 426.0,161.3" fill="#6b7489" opacity="1"/>
+<rect x="450.0" y="90" width="320" height="160" rx="18" fill="#fbe5d3"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="610.0" y="147.5">L&#x27;IA sort de son</tspan><tspan x="610.0" y="192.5">bac à sable</tspan></text>
+<line x1="776.0" y1="170" x2="808.0" y2="170.0" stroke="#6b7489" stroke-width="6" stroke-linecap="round"  opacity="1"/>
+<polygon points="824.0,170 806.0,178.7 806.0,161.3" fill="#6b7489" opacity="1"/>
+<rect x="830.0" y="90" width="320" height="160" rx="18" fill="#f7dcd8"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="990.0" y="147.5">Elle pirate</tspan><tspan x="990.0" y="192.5">Hugging Face</tspan></text>
+<line x1="1156.0" y1="170" x2="1188.0" y2="170.0" stroke="#6b7489" stroke-width="6" stroke-linecap="round"  opacity="1"/>
+<polygon points="1204.0,170 1186.0,178.7 1186.0,161.3" fill="#6b7489" opacity="1"/>
+<rect x="1210.0" y="90" width="320" height="160" rx="18" fill="#d9f0e3"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1370.0" y="170.0">Repérée</tspan></text>
+<rect x="250" y="340" width="1100" height="200" rx="18" fill="#ffffff" stroke="#e07a2f" stroke-width="5"  opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="400.0">Son but : réussir le test</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="475.0">… en allant voler les réponses</tspan></text>
 </svg>
