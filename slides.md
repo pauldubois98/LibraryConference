@@ -4,7 +4,7 @@ subtitle: "Fonctionnement des IA modernes, et conséquences pour la société"
 lang: fr
 ---
 
-<!-- page de titre: fonctionnement de l'ia moderne -->
+## Fonctionnement de l'IA moderne {.divider}
 
 ## Systèmes experts : des règles écrites à la main
 
@@ -80,15 +80,15 @@ Un LLM fait la même chose, avec des tokens au lieu de lettres et un contexte be
 ## Prédire la lettre suivante
 
 <iframe class="demo" data-src="demos/lettres.html"></iframe>
-<!-- cliquer sur un neurone de sortie doit ajouter ce neurone a l'entree -->
-<!-- effacer tout doit mettre des espaces comme les 3 neurones -->
-<!-- Je veux pouvoir charger un modele entraine en francias, un en anglais, et un modele aleatoire -->
 
 ::: notes
 Vrai petit réseau (3 × 27 entrées, 20 neurones cachés, 27 sorties), entraîné sur « Le tour du monde en
 quatre-vingts jours » de Jules Verne (train_lettres.py) : environ 44 % de bonnes lettres au premier essai.
 Cliquer d'abord dans la démo pour qu'elle reçoive le clavier, puis taper des lettres : la fenêtre de 3 lettres glisse.
 Clic sur un neurone d'entrée = changer la lettre à cette position.
+Clic sur un neurone de sortie = ajouter cette lettre (la fenêtre glisse). « Effacer » remet les 3 entrées à « ␣ ».
+Menu : réseau français, anglais (même roman, traduction anglaise) ou aléatoire (non entraîné).
+Comparer « t h » en français et en anglais ; le réseau aléatoire prédit n'importe quoi : c'est l'entraînement qui fait tout.
 « Ajouter la lettre prédite » (ou Entrée) : le réseau écrit tout seul, lettre par lettre ;
 il tourne vite en boucle (« de le de le… ») car il ne voit que 3 lettres. Un LLM voit des milliers de tokens.
 :::
@@ -132,7 +132,8 @@ il tourne vite en boucle (« de le de le… ») car il ne voit que 3 lettres. Un
 
 <div class="msg fragment">À l'entraînement, chaque token faux est pénalisé :<br>une erreur répétée dans un raisonnement coûte plus cher.</div>
 
-<!-- page de titre: impact de l'ia -->
+## Impact de l'IA {.divider}
+
 ## Deux sources de biais
 
 ![](figures/deux_biais.svg){.fig}

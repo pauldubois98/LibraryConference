@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Prédire la lettre suivante</title>
-<!-- Vrai petit réseau (entraîné par train_lettres.py) : 3 lettres en entrée → probabilité de chaque lettre suivante. -->
+<!-- Vrais petits réseaux (entraînés par train_lettres.py) : 3 lettres en entrée → probabilité de chaque lettre suivante.
+     Modèles au choix : français, anglais, ou aléatoire (non entraîné). -->
 <link rel="stylesheet" href="common.css">
 <script src="lettres_model.js"></script>
 <style>
@@ -17,7 +18,8 @@
   .big { font-size: 34px; font-weight: bold; fill: #fff; text-anchor: middle; dominant-baseline: central; }
   .pct { font-size: 13px; fill: var(--muted); dominant-baseline: central; }
   .pct.best { fill: var(--teal); font-weight: bold; }
-  .in { cursor: pointer; }
+  .in, .out { cursor: pointer; }
+  select { font: inherit; font-size: 17px; padding: 6px; border-radius: 8px; max-width: 300px; }
   #bar { display: flex; align-items: center; gap: 12px; height: 52px; }
   #bar button { font-size: 18px; padding: 8px 14px; }
   #text { font-size: 24px; font-family: monospace; background: var(--light); border-radius: 10px; padding: 6px 12px;
@@ -31,12 +33,17 @@
 <div id="bar">
   <button id="add">Ajouter la lettre prédite ▶</button>
   <button id="clear" class="alt">Effacer</button>
+  <select id="model"></select>
   <div id="text"></div>
 </div>
-<div class="hint">Tapez des lettres au clavier, ou cliquez sur un neurone d'entrée. Espace = fin de mot (␣).</div>
+<!-- <div class="hint">Tapez des lettres au clavier, cliquez sur un neurone d'entrée (changer une lettre) ou de sortie (l'ajouter). Espace = fin de mot (␣).</div> -->
 
 <script>
-const A = MODEL.alphabet, V = A.length, H = MODEL.hidden;
+const A = MODELS.alphabet, V = A.length, H = MODELS.hidden;
+const modelSel = document.getElementById("model");
+for (const k in MODELS.models) modelSel.add(new Option(MODELS.models[k].label, k));
+let MODEL = MODELS.models[modelSel.value];
+modelSel.onchange = () => { MODEL = MODELS.models[modelSel.value]; modelSel.blur(); render(); };
 const show = c => c === " " ? "␣" : c;
 let ctx = ["c", "h", "a"], text = "cha";
 
@@ -103,7 +110,9 @@ function render() {
   // sorties : une par lettre, barre = probabilité
   A.split("").forEach((c, i) => {
     const b = i === best, y = rowY(i);
-    el("circle", {cx: OUT_X, cy: y, r: 6, fill: b ? "#0f7c8c" : `rgba(15,124,140,${Math.min(1, p[i] * 3).toFixed(2)})`, stroke: "#0f7c8c", "stroke-width": 1.2});
+    const o = el("circle", {cx: OUT_X, cy: y, r: 6, fill: b ? "#0f7c8c" : `rgba(15,124,140,${Math.min(1, p[i] * 3).toFixed(2)})`,
+                            stroke: "#0f7c8c", "stroke-width": 1.2, class: "out"});
+    o.onclick = () => push(c);                         // clic sur une sortie : on l'ajoute au texte
     el("text", {x: OUT_X + 12, y, class: "olab" + (b ? " best" : "")}, show(c));
     el("rect", {x: OUT_X + 28, y: y - 5, width: Math.max(1, 200 * p[i]), height: 10, rx: 3, fill: b ? "#0f7c8c" : "#b8dfe4"});
     if (top.includes(i)) el("text", {x: OUT_X + 34 + 200 * p[i], y, class: "pct" + (b ? " best" : "")}, `${Math.round(100 * p[i])} %`);
@@ -120,7 +129,7 @@ document.addEventListener("keydown", e => {
   else if (e.key === "Enter") { document.getElementById("add").click(); e.preventDefault(); }
 });
 document.getElementById("add").onclick = e => { e.currentTarget.blur(); const { p } = predict(); push(A[p.indexOf(Math.max(...p))]); };
-document.getElementById("clear").onclick = e => { e.currentTarget.blur(); text = ctx.join(""); render(); };
+document.getElementById("clear").onclick = e => { e.currentTarget.blur(); ctx = [" ", " ", " "]; text = "   "; render(); };
 render();
 </script>
 </body>

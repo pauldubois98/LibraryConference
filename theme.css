@@ -40,8 +40,9 @@
 .reveal .sous-titre { font-size: 1em; color: var(--muted); margin-top: .5em; }
 
 /* Séparateurs de parties */
-.reveal section.divider h2 { font-size: 2em; color: var(--teal); margin-top: 1.2em; }
-.reveal section.divider h2::after { display: none; }
+.reveal section.divider { padding-top: 250px; }
+.reveal section.divider h2 { font-size: 2.2em; color: var(--teal); }
+.reveal section.divider h2::after { width: 140px; height: 8px; margin-top: .35em; }
 
 /* Grilles de cartes */
 .reveal .cards { display: grid; gap: 22px; margin: 20px auto; max-width: 1180px; }
