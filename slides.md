@@ -140,14 +140,7 @@ La majorité des participants n'a même pas remarqué que l'IA était biaisée.
 Retour à la question d'ouverture : oui, une IA peut influencer ce que l'on pense sans dire quoi penser.
 :::
 
-<!-- ## L'IA dans la recherche
-
-![](figures/recherche.svg){.fig}
-
-::: notes
-Avant : un chemin, quelques pistes.
-Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de son domaine, et on garde une synthèse humaine.
-::: -->
+<!-- ## L'IA dans la recherche -->
 
 ## Nous ne serons pas remplacés par les IA
 

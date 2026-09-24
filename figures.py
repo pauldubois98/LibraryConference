@@ -407,29 +407,6 @@ def usage_bias():
     s.save(out("biais_usage.svg"))
 
 
-def research_before_after():
-    s = SVG(1600, 760)
-    s.text(270, 40, "Avant", fs=40, weight="bold", color=TEAL)
-    steps = ["Hypothèse", "Recherche\nbibliographique", "Quelques pistes", "Expérimentation"]
-    for i, t in enumerate(steps):
-        y = 90 + i * 165
-        s.cbox(270, y + 55, 380, 115, t, fill=TEAL_L, fs=30)
-        if i < 3:
-            s.arrow(270, y + 115, 270, y + 160)
-    s.line(560, 40, 560, 720, color=LIGHT, sw=6)
-    s.text(1080, 40, "Avec des agents", fs=40, weight="bold", color=ORANGE)
-    s.cbox(720, 380, 200, 110, "Question", fill=LIGHT, fs=32, weight="bold")
-    ags = ["Agent 1 : hypothèse A", "Agent 2 : hypothèse B", "Agent 3 : autre domaine",
-           "Agent 4 : objections", "…  × 50"]
-    for i, t in enumerate(ags):
-        y = 120 + i * 130
-        s.arrow(820, 380, 910, y + 40, sw=4)
-        s.box(920, y, 400, 80, t, fill=ORANGE_L, fs=26)
-        s.arrow(1330, y + 40, 1410, 380, sw=3)
-    s.cbox(1490, 380, 170, 150, "Synthèse\nhumaine", fill=GREEN, color=WHITE, fs=28, weight="bold")
-    s.save(out("recherche.svg"))
-
-
 # ---------------------------------------------------------------- humain
 def better_vs_preferred():
     s = SVG(1600, 680)
@@ -539,7 +516,6 @@ if __name__ == "__main__":
     two_biases()
     training_bias()
     usage_bias()
-    research_before_after()
     better_vs_preferred()
     fake_media()
     chatbot_vs_agent()
