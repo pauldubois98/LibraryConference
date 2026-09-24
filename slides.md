@@ -39,18 +39,6 @@ lang: fr
 
 <iframe class="demo" data-src="demos/entrainement.html"></iframe>
 
-::: notes
-Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés, 1 sortie, activation sigmoïde).
-Poids tirés au hasard, puis à chaque étape : prédiction sur les 4 exemples, calcul de l'erreur,
-chaque poids est ajusté un peu dans la direction qui réduit l'erreur (descente de gradient).
-XOR : environ 300 étapes en moyenne. Vitesse = nombre d'étapes par image.
-Relancer « Poids aléatoires » montre que le point de départ change, mais l'erreur finit par descendre.
-Flèches ▲▼ : sens dans lequel l'exemple sélectionné pousse chaque poids (cliquer une autre ligne pour changer d'exemple).
-« RAZ poids » puis XOR : l'erreur reste bloquée (sorties à 0,5). Tous les neurones cachés partent identiques
-et le restent : c'est pour ça qu'on initialise les poids au hasard.
-Cliquer sur une cible dans la table passe en objectif « Personnalisé ».
-:::
-
 ## Prédire la suite d'un texte
 
 <div class="big-q" style="font-size:1.4em; margin-top:1.2em">« Paris est la capitale de la <span class="orange">___</span> »</div>
@@ -66,31 +54,19 @@ Cliquer sur une cible dans la table passe en objectif « Personnalisé ».
 <div class="big-q teal" style="font-size:1.1em">→ Europe</div>
 :::
 
-## Prédire la lettre suivante
-
-![](figures/lettres.svg){.fig}
-
-::: notes
-Entrée : pour chacune des 3 positions, un neurone par lettre possible ; on allume (1) celui de la lettre lue, les autres restent à 0.
-Sortie : un neurone par lettre ; la lettre prédite est celle dont le neurone s'active le plus.
-« c h a » → t (chat), mais aussi r (char), n (chant), m (cham…). Pourcentages illustratifs.
-Un LLM fait la même chose, avec des tokens au lieu de lettres et un contexte beaucoup plus long.
-:::
+<!-- ## Prédire la lettre suivante
+![](figures/lettres.svg){.fig} -->
 
 ## Prédire la lettre suivante
 
 <iframe class="demo" data-src="demos/lettres.html"></iframe>
 
 ::: notes
-Vrai petit réseau (3 × 27 entrées, 20 neurones cachés, 27 sorties), entraîné sur « Le tour du monde en
-quatre-vingts jours » de Jules Verne (train_lettres.py) : environ 44 % de bonnes lettres au premier essai.
-Cliquer d'abord dans la démo pour qu'elle reçoive le clavier, puis taper des lettres : la fenêtre de 3 lettres glisse.
-Clic sur un neurone d'entrée = changer la lettre à cette position.
-Clic sur un neurone de sortie = ajouter cette lettre (la fenêtre glisse). « Effacer » remet les 3 entrées à « ␣ ».
+Vrai petit réseau (3 × 27 entrées, 20 neurones cachés, 27 sorties), entraîné sur « Le tour du monde en quatre-vingts jours » de Jules Verne (train_lettres.py).
+Environ 40% de lettres correctement prédites.
 Menu : réseau français, anglais (même roman, traduction anglaise) ou aléatoire (non entraîné).
-Comparer « t h » en français et en anglais ; le réseau aléatoire prédit n'importe quoi : c'est l'entraînement qui fait tout.
-« Ajouter la lettre prédite » (ou Entrée) : le réseau écrit tout seul, lettre par lettre ;
-il tourne vite en boucle (« de le de le… ») car il ne voit que 3 lettres. Un LLM voit des milliers de tokens.
+Le réseau tourne vite en boucle (« de le de le… ») car il ne voit que 3 lettres.
+Un LLM voit des milliers de tokens de contexte.
 :::
 
 ## Caractère vs mot vs token
@@ -140,12 +116,10 @@ il tourne vite en boucle (« de le de le… ») car il ne voit que 3 lettres. Un
 
 ## Biais d'entraînement
 <!-- le modèle hérite de ses données -->
-
 ![](figures/biais_entrainement.svg){.fig}
 
 ## Biais d'utilisation
 <!-- même modèle, réponses différentes -->
-
 ![](figures/biais_usage.svg){.fig}
 
 ## Écrire avec une IA peut changer notre opinion
@@ -220,12 +194,6 @@ Le service numérique de la médiathèque
 ## Action des IA
 
 ![](figures/chatbot_vs_agent.svg){.fig}
-
-::: notes
-Chatbot : le modèle peut produire un texte dangereux, mais il reste dans le monde du texte.
-Agent : il peut naviguer, lire et écrire des fichiers, exécuter des commandes, envoyer des mails.
-Une erreur de texte est une chose. Une erreur qui déclenche une action en est une autre.
-:::
 
 ## L'incident Hugging Face
 

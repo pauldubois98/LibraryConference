@@ -45,7 +45,7 @@ for (const k in MODELS.models) modelSel.add(new Option(MODELS.models[k].label, k
 let MODEL = MODELS.models[modelSel.value];
 modelSel.onchange = () => { MODEL = MODELS.models[modelSel.value]; modelSel.blur(); render(); };
 const show = c => c === " " ? "␣" : c;
-let ctx = ["c", "h", "a"], text = "cha";
+let ctx = [" ", "t", "h"], text = " th";
 
 function predict() {
   const h = MODEL.b1.map((b, j) => 1 / (1 + Math.exp(-(b + ctx.reduce((s, c, k) => s + MODEL.W1[k * V + A.indexOf(c)][j], 0)))));
@@ -123,9 +123,16 @@ function render() {
 
 // saisie : la fenêtre de 3 lettres glisse
 function push(c) { ctx = [ctx[1], ctx[2], c]; text += c; render(); }
+// Retour arrière : on enlève la dernière lettre, la fenêtre recule (complétée par des espaces au début).
+function pop() {
+  if (text.length > 0) text = text.slice(0, -1);
+  ctx = ("   " + text).slice(-3).split("");
+  render();
+}
 document.addEventListener("keydown", e => {
   const c = e.key.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
   if (c.length === 1 && A.includes(c)) { push(c); e.preventDefault(); }
+  else if (e.key === "Backspace") { pop(); e.preventDefault(); }
   else if (e.key === "Enter") { document.getElementById("add").click(); e.preventDefault(); }
 });
 document.getElementById("add").onclick = e => { e.currentTarget.blur(); const { p } = predict(); push(A[p.indexOf(Math.max(...p))]); };

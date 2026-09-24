@@ -91,20 +91,6 @@ class="slide level2">
 <h2>Entraînement automatique</h2>
 <iframe class="demo" data-src="demos/entrainement.html">
 </iframe>
-<aside class="notes">
-<p>Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés,
-1 sortie, activation sigmoïde). Poids tirés au hasard, puis à chaque
-étape : prédiction sur les 4 exemples, calcul de l’erreur, chaque poids
-est ajusté un peu dans la direction qui réduit l’erreur (descente de
-gradient). XOR : environ 300 étapes en moyenne. Vitesse = nombre
-d’étapes par image. Relancer « Poids aléatoires » montre que le point de
-départ change, mais l’erreur finit par descendre. Flèches ▲▼ : sens dans
-lequel l’exemple sélectionné pousse chaque poids (cliquer une autre
-ligne pour changer d’exemple). « RAZ poids » puis XOR : l’erreur reste
-bloquée (sorties à 0,5). Tous les neurones cachés partent identiques et
-le restent : c’est pour ça qu’on initialise les poids au hasard. Cliquer
-sur une cible dans la table passe en objectif « Personnalisé ».</p>
-</aside>
 </section>
 <section id="prédire-la-suite-dun-texte" class="slide level2">
 <h2>Prédire la suite d’un texte</h2>
@@ -127,38 +113,21 @@ sur une cible dans la table passe en objectif « Personnalisé ».</p>
 → Europe
 </div>
 </div>
+<!-- ## Prédire la lettre suivante
+![](figures/lettres.svg){.fig} -->
 </section>
 <section id="prédire-la-lettre-suivante" class="slide level2">
-<h2>Prédire la lettre suivante</h2>
-<p><img data-src="figures/lettres.svg" class="fig" /></p>
-<aside class="notes">
-<p>Entrée : pour chacune des 3 positions, un neurone par lettre possible
-; on allume (1) celui de la lettre lue, les autres restent à 0. Sortie :
-un neurone par lettre ; la lettre prédite est celle dont le neurone
-s’active le plus. « c h a » → t (chat), mais aussi r (char), n (chant),
-m (cham…). Pourcentages illustratifs. Un LLM fait la même chose, avec
-des tokens au lieu de lettres et un contexte beaucoup plus long.</p>
-</aside>
-</section>
-<section id="prédire-la-lettre-suivante-1" class="slide level2">
 <h2>Prédire la lettre suivante</h2>
 <iframe class="demo" data-src="demos/lettres.html">
 </iframe>
 <aside class="notes">
 <p>Vrai petit réseau (3 × 27 entrées, 20 neurones cachés, 27 sorties),
 entraîné sur « Le tour du monde en quatre-vingts jours » de Jules Verne
-(train_lettres.py) : environ 44 % de bonnes lettres au premier essai.
-Cliquer d’abord dans la démo pour qu’elle reçoive le clavier, puis taper
-des lettres : la fenêtre de 3 lettres glisse. Clic sur un neurone
-d’entrée = changer la lettre à cette position. Clic sur un neurone de
-sortie = ajouter cette lettre (la fenêtre glisse). « Effacer » remet les
-3 entrées à « ␣ ». Menu : réseau français, anglais (même roman,
-traduction anglaise) ou aléatoire (non entraîné). Comparer « t h » en
-français et en anglais ; le réseau aléatoire prédit n’importe quoi :
-c’est l’entraînement qui fait tout. « Ajouter la lettre prédite » (ou
-Entrée) : le réseau écrit tout seul, lettre par lettre ; il tourne vite
-en boucle (« de le de le… ») car il ne voit que 3 lettres. Un LLM voit
-des milliers de tokens.</p>
+(train_lettres.py). Environ 40% de lettres correctement prédites. Menu :
+réseau français, anglais (même roman, traduction anglaise) ou aléatoire
+(non entraîné). Le réseau tourne vite en boucle (« de le de le… ») car
+il ne voit que 3 lettres. Un LLM voit des milliers de tokens de
+contexte.</p>
 </aside>
 </section>
 <section id="caractère-vs-mot-vs-token" class="slide level2">
@@ -362,12 +331,6 @@ Exemples fictifs
 <section id="action-des-ia" class="slide level2">
 <h2>Action des IA</h2>
 <p><img data-src="figures/chatbot_vs_agent.svg" class="fig" /></p>
-<aside class="notes">
-<p>Chatbot : le modèle peut produire un texte dangereux, mais il reste
-dans le monde du texte. Agent : il peut naviguer, lire et écrire des
-fichiers, exécuter des commandes, envoyer des mails. Une erreur de texte
-est une chose. Une erreur qui déclenche une action en est une autre.</p>
-</aside>
 </section>
 <section id="lincident-hugging-face" class="slide level2">
 <h2>L’incident Hugging Face</h2>
