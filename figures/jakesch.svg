@@ -10,20 +10,20 @@
 <polygon points="1090,220 1072.0,228.7 1072.0,211.3" fill="#6b7489" opacity="1"/>
 <line x1="345" y1="410" x2="504.0" y2="410.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="520,410 502.0,418.7 502.0,401.3" fill="#6b7489" opacity="1"/>
-<rect x="530" y="340" width="460" height="140" rx="18" fill="#d6eef1"   opacity="1"/>
+<rect x="530" y="340" width="460" height="140" rx="18" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="760.0" y="392.5">Avec une IA réglée</tspan><tspan x="760.0" y="427.5">sur « plutôt POUR »</tspan></text>
 <line x1="1000" y1="410" x2="1074.0" y2="410.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="1090,410 1072.0,418.7 1072.0,401.3" fill="#6b7489" opacity="1"/>
 <line x1="345" y1="410" x2="509.16038792397137" y2="588.2312783174547" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="520,600 501.4,592.6 514.2,580.9" fill="#6b7489" opacity="1"/>
-<rect x="530" y="530" width="460" height="140" rx="18" fill="#fbe5d3"   opacity="1"/>
+<rect x="530" y="530" width="460" height="140" rx="18" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="760.0" y="582.5">Avec une IA réglée</tspan><tspan x="760.0" y="617.5">sur « plutôt CONTRE »</tspan></text>
 <line x1="1000" y1="600" x2="1074.0" y2="600.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="1090,600 1072.0,608.7 1072.0,591.3" fill="#6b7489" opacity="1"/>
 <rect x="1100" y="150" width="440" height="140" rx="18" fill="#eef1f6"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1320.0" y="220.0">Référence</tspan></text>
-<rect x="1100" y="340" width="440" height="140" rx="18" fill="#0f7c8c"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1320.0" y="392.5">Textes plus « pour »</tspan><tspan x="1320.0" y="427.5">+ opinion déplacée</tspan></text>
-<rect x="1100" y="530" width="440" height="140" rx="18" fill="#e07a2f"   opacity="1"/>
+<rect x="1100" y="340" width="440" height="140" rx="18" fill="#ffc000"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1320.0" y="392.5">Textes plus « pour »</tspan><tspan x="1320.0" y="427.5">+ opinion déplacée</tspan></text>
+<rect x="1100" y="530" width="440" height="140" rx="18" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1320.0" y="582.5">Textes plus « contre »</tspan><tspan x="1320.0" y="617.5">+ opinion déplacée</tspan></text>
 </svg>

@@ -1,45 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 760" width="1600" height="760">
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="42" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330" y="40.0">Chatbot</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="42" fill="#b38600" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330" y="40.0">Chatbot</tspan></text>
 <rect x="180.0" y="100.0" width="300" height="100" rx="18" fill="#eef1f6"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330.0" y="150.0">Utilisateur</tspan></text>
 <line x1="330" y1="205" x2="330.0" y2="269.0" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
 <polygon points="330,285 321.3,267.0 338.7,267.0" fill="#6b7489" opacity="1"/>
-<rect x="200.0" y="295.0" width="260" height="110" rx="18" fill="#0f7c8c"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330.0" y="350.0">LLM</tspan></text>
+<rect x="200.0" y="295.0" width="260" height="110" rx="18" fill="#ffc000"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330.0" y="350.0">LLM</tspan></text>
 <line x1="330" y1="410" x2="330.0" y2="474.0" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
 <polygon points="330,490 321.3,472.0 338.7,472.0" fill="#6b7489" opacity="1"/>
-<rect x="180.0" y="505.0" width="300" height="110" rx="18" fill="#d6eef1"   opacity="1"/>
+<rect x="180.0" y="505.0" width="300" height="110" rx="18" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330.0" y="560.0">📝 Texte</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style="font-style:italic;"><tspan x="330" y="690.0">reste dans le monde du texte</tspan></text>
 <line x1="680" y1="40" x2="680" y2="720" stroke="#eef1f6" stroke-width="6" stroke-linecap="round"  opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="42" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140" y="40.0">Agent</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="42" fill="#800080" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140" y="40.0">Agent</tspan></text>
 <rect x="990.0" y="100.0" width="300" height="100" rx="18" fill="#eef1f6"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140.0" y="150.0">Utilisateur</tspan></text>
 <line x1="1140" y1="205" x2="1140.0" y2="269.0" stroke="#6b7489" stroke-width="5" stroke-linecap="round"  opacity="1"/>
 <polygon points="1140,285 1131.3,267.0 1148.7,267.0" fill="#6b7489" opacity="1"/>
-<rect x="1010.0" y="295.0" width="260" height="110" rx="18" fill="#e07a2f"   opacity="1"/>
+<rect x="1010.0" y="295.0" width="260" height="110" rx="18" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="40" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1140.0" y="350.0">LLM</tspan></text>
 <line x1="1140" y1="410" x2="825.4362211398037" y2="495.79012150732626" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="810,500 825.1,486.9 829.7,503.7" fill="#6b7489" opacity="1"/>
-<rect x="715.0" y="505.0" width="190" height="130" rx="18" fill="#fbe5d3"   opacity="1"/>
+<rect x="715.0" y="505.0" width="190" height="130" rx="18" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="810.0" y="570.0"></tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="50" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="810" y="545.0">🌐</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="810" y="605.0">Web</tspan></text>
 <line x1="1140" y1="410" x2="1042.383316787253" y2="489.8681953558838" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="1030,500 1038.4,481.9 1049.4,495.3" fill="#6b7489" opacity="1"/>
-<rect x="935.0" y="505.0" width="190" height="130" rx="18" fill="#fbe5d3"   opacity="1"/>
+<rect x="935.0" y="505.0" width="190" height="130" rx="18" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1030.0" y="570.0"></tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="50" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1030" y="545.0">📁</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1030" y="605.0">Fichiers</tspan></text>
 <line x1="1140" y1="410" x2="1237.616683212747" y2="489.8681953558838" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="1250,500 1230.6,495.3 1241.6,481.9" fill="#6b7489" opacity="1"/>
-<rect x="1155.0" y="505.0" width="190" height="130" rx="18" fill="#fbe5d3"   opacity="1"/>
+<rect x="1155.0" y="505.0" width="190" height="130" rx="18" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1250.0" y="570.0"></tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="50" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1250" y="545.0">⌨️</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1250" y="605.0">Terminal</tspan></text>
 <line x1="1140" y1="410" x2="1454.5637788601962" y2="495.79012150732626" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="1470,500 1450.3,503.7 1454.9,486.9" fill="#6b7489" opacity="1"/>
-<rect x="1375.0" y="505.0" width="190" height="130" rx="18" fill="#fbe5d3"   opacity="1"/>
+<rect x="1375.0" y="505.0" width="190" height="130" rx="18" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1470.0" y="570.0"></tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="50" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1470" y="545.0">✉️</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1470" y="605.0">E-mail</tspan></text>

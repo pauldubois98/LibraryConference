@@ -41,17 +41,17 @@ lang: fr
 
 ## Prédire la suite d'un texte
 
-<div class="big-q" style="font-size:1.4em; margin-top:1.2em">« Paris est la capitale de la <span class="orange">___</span> »</div>
+<div class="big-q" style="font-size:1.4em; margin-top:1.2em">« Paris est la capitale de la <span class="violet">___</span> »</div>
 
 ::: {.fragment}
-<div class="big-q teal" style="font-size:1.4em">→ France</div>
+<div class="big-q orange" style="font-size:1.4em">→ France</div>
 :::
 
 ::: {.fragment}
-<div class="big-q" style="font-size:1.1em; margin-top:1em">« Paris est la capitale de la France. Elle est située en <span class="orange">___</span> »</div>
+<div class="big-q" style="font-size:1.1em; margin-top:1em">« Paris est la capitale de la France. Elle est située en <span class="violet">___</span> »</div>
 :::
 ::: {.fragment}
-<div class="big-q teal" style="font-size:1.1em">→ Europe</div>
+<div class="big-q orange" style="font-size:1.1em">→ Europe</div>
 :::
 
 <!-- ## Prédire la lettre suivante

@@ -3,7 +3,7 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="575.0" y="45.0">Une zone de l&#x27;image</tspan></text>
 <line x1="575" y1="82" x2="575.0" y2="117.2" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="575,130 568.0,115.6 582.0,115.6" fill="#6b7489" opacity="1"/>
-<rect x="425.0" y="135.0" width="300" height="80" rx="18" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"  opacity="1"/>
+<rect x="425.0" y="135.0" width="300" height="80" rx="18" fill="#fff2cc" stroke="#ffc000" stroke-width="3"  opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="575.0" y="175.0">Plutôt bleu ?</tspan></text>
 <line x1="480" y1="217" x2="311.8616424153143" y2="285.1894450204559" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="300,290 310.7,278.1 316.0,291.0" fill="#6b7489" opacity="1"/>
@@ -11,9 +11,9 @@
 <line x1="670" y1="217" x2="838.1383575846857" y2="285.1894450204559" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="850,290 834.0,291.0 839.3,278.1" fill="#6b7489" opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="805.0" y="248.5">non</tspan></text>
-<rect x="100.0" y="290.0" width="340" height="80" rx="18" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"  opacity="1"/>
+<rect x="100.0" y="290.0" width="340" height="80" rx="18" fill="#fff2cc" stroke="#ffc000" stroke-width="3"  opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="270.0" y="330.0">En haut de l&#x27;image ?</tspan></text>
-<rect x="725.0" y="290.0" width="290" height="80" rx="18" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"  opacity="1"/>
+<rect x="725.0" y="290.0" width="290" height="80" rx="18" fill="#fff2cc" stroke="#ffc000" stroke-width="3"  opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="870.0" y="330.0">Plutôt blanc ?</tspan></text>
 <line x1="200" y1="372" x2="148.46875695471164" y2="430.4020754513268" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="140,440 144.3,424.6 154.8,433.8" fill="#6b7489" opacity="1"/>
@@ -33,7 +33,7 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="26" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1010.0" y="401.0">non</tspan></text>
 <rect x="575.0" y="445.0" width="210" height="80" rx="18" fill="#d9f0e3" stroke="#2e8b57" stroke-width="3"  opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="680.0" y="485.0">ALORS nuage</tspan></text>
-<rect x="855.0" y="445.0" width="270" height="80" rx="18" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"  opacity="1"/>
+<rect x="855.0" y="445.0" width="270" height="80" rx="18" fill="#fff2cc" stroke="#ffc000" stroke-width="3"  opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="990.0" y="485.0">Plutôt vert ?</tspan></text>
 <line x1="930" y1="527" x2="869.5141650719637" y2="581.4372514352326" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="860,590 866.1,575.2 875.4,585.5" fill="#6b7489" opacity="1"/>
@@ -45,5 +45,5 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="850.0" y="635.0">ALORS herbe</tspan></text>
 <rect x="975.0" y="595.0" width="170" height="80" rx="18" fill="#eef1f6" stroke="#6b7489" stroke-width="3" stroke-dasharray="8 6" opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1060.0" y="635.0">…</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="300" y="700.0">Règles écrites par des humains</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#b38600" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="300" y="700.0">Règles écrites par des humains</tspan></text>
 </svg>

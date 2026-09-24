@@ -11,12 +11,12 @@
 <line x1="167" y1="195" x2="870" y2="525" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="167" y1="195" x2="870" y2="620" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="167" y1="195" x2="870" y2="715" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="167" y1="240" x2="870" y2="240" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="167" y1="240" x2="870" y2="335" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="167" y1="240" x2="870" y2="430" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="167" y1="240" x2="870" y2="525" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="167" y1="240" x2="870" y2="620" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="167" y1="240" x2="870" y2="715" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="167" y1="240" x2="870" y2="240" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="167" y1="240" x2="870" y2="335" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="167" y1="240" x2="870" y2="430" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="167" y1="240" x2="870" y2="525" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="167" y1="240" x2="870" y2="620" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="167" y1="240" x2="870" y2="715" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="167" y1="285" x2="870" y2="240" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="167" y1="285" x2="870" y2="335" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="167" y1="285" x2="870" y2="430" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -107,12 +107,12 @@
 <line x1="347" y1="330" x2="870" y2="525" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="347" y1="330" x2="870" y2="620" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="347" y1="330" x2="870" y2="715" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="347" y1="375" x2="870" y2="240" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="347" y1="375" x2="870" y2="335" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="347" y1="375" x2="870" y2="430" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="347" y1="375" x2="870" y2="525" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="347" y1="375" x2="870" y2="620" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="347" y1="375" x2="870" y2="715" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="347" y1="375" x2="870" y2="240" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="347" y1="375" x2="870" y2="335" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="347" y1="375" x2="870" y2="430" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="347" y1="375" x2="870" y2="525" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="347" y1="375" x2="870" y2="620" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="347" y1="375" x2="870" y2="715" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="347" y1="420" x2="870" y2="240" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="347" y1="420" x2="870" y2="335" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="347" y1="420" x2="870" y2="430" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -155,12 +155,12 @@
 <line x1="347" y1="735" x2="870" y2="525" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="347" y1="735" x2="870" y2="620" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="347" y1="735" x2="870" y2="715" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="527" y1="150" x2="870" y2="240" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="527" y1="150" x2="870" y2="335" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="527" y1="150" x2="870" y2="430" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="527" y1="150" x2="870" y2="525" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="527" y1="150" x2="870" y2="620" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
-<line x1="527" y1="150" x2="870" y2="715" stroke="#e07a2f" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="527" y1="150" x2="870" y2="240" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="527" y1="150" x2="870" y2="335" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="527" y1="150" x2="870" y2="430" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="527" y1="150" x2="870" y2="525" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="527" y1="150" x2="870" y2="620" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="527" y1="150" x2="870" y2="715" stroke="#800080" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="527" y1="195" x2="870" y2="240" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="527" y1="195" x2="870" y2="335" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="527" y1="195" x2="870" y2="430" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -244,7 +244,7 @@
 <line x1="930" y1="240" x2="1243" y2="510" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="240" x2="1243" y2="555" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="240" x2="1243" y2="600" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="930" y1="240" x2="1243" y2="645" stroke="#0f7c8c" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="930" y1="240" x2="1243" y2="645" stroke="#ffc000" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="930" y1="240" x2="1243" y2="735" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="335" x2="1243" y2="150" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="335" x2="1243" y2="195" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -257,7 +257,7 @@
 <line x1="930" y1="335" x2="1243" y2="510" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="335" x2="1243" y2="555" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="335" x2="1243" y2="600" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="930" y1="335" x2="1243" y2="645" stroke="#0f7c8c" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="930" y1="335" x2="1243" y2="645" stroke="#ffc000" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="930" y1="335" x2="1243" y2="735" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="430" x2="1243" y2="150" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="430" x2="1243" y2="195" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -270,7 +270,7 @@
 <line x1="930" y1="430" x2="1243" y2="510" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="430" x2="1243" y2="555" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="430" x2="1243" y2="600" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="930" y1="430" x2="1243" y2="645" stroke="#0f7c8c" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="930" y1="430" x2="1243" y2="645" stroke="#ffc000" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="930" y1="430" x2="1243" y2="735" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="525" x2="1243" y2="150" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="525" x2="1243" y2="195" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -283,7 +283,7 @@
 <line x1="930" y1="525" x2="1243" y2="510" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="525" x2="1243" y2="555" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="525" x2="1243" y2="600" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="930" y1="525" x2="1243" y2="645" stroke="#0f7c8c" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="930" y1="525" x2="1243" y2="645" stroke="#ffc000" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="930" y1="525" x2="1243" y2="735" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="620" x2="1243" y2="150" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="620" x2="1243" y2="195" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -296,7 +296,7 @@
 <line x1="930" y1="620" x2="1243" y2="510" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="620" x2="1243" y2="555" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="620" x2="1243" y2="600" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="930" y1="620" x2="1243" y2="645" stroke="#0f7c8c" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="930" y1="620" x2="1243" y2="645" stroke="#ffc000" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="930" y1="620" x2="1243" y2="735" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="715" x2="1243" y2="150" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="715" x2="1243" y2="195" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
@@ -309,20 +309,20 @@
 <line x1="930" y1="715" x2="1243" y2="510" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="715" x2="1243" y2="555" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <line x1="930" y1="715" x2="1243" y2="600" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
-<line x1="930" y1="715" x2="1243" y2="645" stroke="#0f7c8c" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
+<line x1="930" y1="715" x2="1243" y2="645" stroke="#ffc000" stroke-width="2.5" stroke-linecap="round"  opacity="0.9"/>
 <line x1="930" y1="715" x2="1243" y2="735" stroke="#dfe3ea" stroke-width="1" stroke-linecap="round"  opacity="0.6"/>
 <rect x="95" y="125" width="80" height="635" rx="10" fill="#ffffff"   opacity="0.92"/>
 <rect x="275" y="125" width="80" height="635" rx="10" fill="#ffffff"   opacity="0.92"/>
 <rect x="455" y="125" width="80" height="635" rx="10" fill="#ffffff"   opacity="0.92"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="150" y="60.0">1re lettre</tspan></text>
-<rect x="115.0" y="80.0" width="70" height="56" rx="12" fill="#e07a2f"   opacity="1"/>
+<rect x="115.0" y="80.0" width="70" height="56" rx="12" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="150.0" y="108.0">c</tspan></text>
 <circle cx="150" cy="150" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="150.0">a</tspan></text>
 <circle cx="150" cy="195" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="195.0">b</tspan></text>
-<circle cx="150" cy="240" r="17" fill="#e07a2f" stroke="#e07a2f" stroke-width="2"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="240.0">c</tspan></text>
+<circle cx="150" cy="240" r="17" fill="#800080" stroke="#800080" stroke-width="2"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#800080" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="240.0">c</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="150" y="240.0">1</tspan></text>
 <circle cx="150" cy="285" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="285.0">d</tspan></text>
@@ -346,7 +346,7 @@
 <circle cx="150" cy="735" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="110" y="735.0">z</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330" y="60.0">2e lettre</tspan></text>
-<rect x="295.0" y="80.0" width="70" height="56" rx="12" fill="#e07a2f"   opacity="1"/>
+<rect x="295.0" y="80.0" width="70" height="56" rx="12" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330.0" y="108.0">h</tspan></text>
 <circle cx="330" cy="150" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="150.0">a</tspan></text>
@@ -358,8 +358,8 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="285.0">d</tspan></text>
 <circle cx="330" cy="330" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="330.0">e</tspan></text>
-<circle cx="330" cy="375" r="17" fill="#e07a2f" stroke="#e07a2f" stroke-width="2"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="375.0">h</tspan></text>
+<circle cx="330" cy="375" r="17" fill="#800080" stroke="#800080" stroke-width="2"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#800080" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="375.0">h</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="330" y="375.0">1</tspan></text>
 <circle cx="330" cy="420" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="420.0">i</tspan></text>
@@ -377,10 +377,10 @@
 <circle cx="330" cy="735" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="290" y="735.0">z</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="510" y="60.0">3e lettre</tspan></text>
-<rect x="475.0" y="80.0" width="70" height="56" rx="12" fill="#e07a2f"   opacity="1"/>
+<rect x="475.0" y="80.0" width="70" height="56" rx="12" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="510.0" y="108.0">a</tspan></text>
-<circle cx="510" cy="150" r="17" fill="#e07a2f" stroke="#e07a2f" stroke-width="2"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="470" y="150.0">a</tspan></text>
+<circle cx="510" cy="150" r="17" fill="#800080" stroke="#800080" stroke-width="2"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#800080" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="470" y="150.0">a</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="510" y="150.0">1</tspan></text>
 <circle cx="510" cy="195" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="470" y="195.0">b</tspan></text>
@@ -408,59 +408,59 @@
 <circle cx="510" cy="735" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="470" y="735.0">z</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="900" y="60.0">couche cachée</tspan></text>
-<circle cx="900" cy="240" r="30" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"/>
-<circle cx="900" cy="335" r="30" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"/>
-<circle cx="900" cy="430" r="30" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"/>
-<circle cx="900" cy="525" r="30" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"/>
-<circle cx="900" cy="620" r="30" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"/>
-<circle cx="900" cy="715" r="30" fill="#d6eef1" stroke="#0f7c8c" stroke-width="3"/>
+<circle cx="900" cy="240" r="30" fill="#fff2cc" stroke="#ffc000" stroke-width="3"/>
+<circle cx="900" cy="335" r="30" fill="#fff2cc" stroke="#ffc000" stroke-width="3"/>
+<circle cx="900" cy="430" r="30" fill="#fff2cc" stroke="#ffc000" stroke-width="3"/>
+<circle cx="900" cy="525" r="30" fill="#fff2cc" stroke="#ffc000" stroke-width="3"/>
+<circle cx="900" cy="620" r="30" fill="#fff2cc" stroke="#ffc000" stroke-width="3"/>
+<circle cx="900" cy="715" r="30" fill="#fff2cc" stroke="#ffc000" stroke-width="3"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1350" y="60.0">lettre suivante</tspan></text>
 <circle cx="1260" cy="150" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="150.0">a</tspan></text>
-<rect x="1325" y="138" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="138" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <circle cx="1260" cy="195" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="195.0">b</tspan></text>
-<rect x="1325" y="183" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="183" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <circle cx="1260" cy="240" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="240.0">c</tspan></text>
-<rect x="1325" y="228" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="228" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <circle cx="1260" cy="285" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="285.0">d</tspan></text>
-<rect x="1325" y="273" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="273" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <circle cx="1260" cy="330" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="330.0">e</tspan></text>
-<rect x="1325" y="318" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="318" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <circle cx="1260" cy="375" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="375.0">h</tspan></text>
-<rect x="1325" y="363" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="363" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <circle cx="1260" cy="420" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="420.0">i</tspan></text>
-<rect x="1325" y="408" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
-<circle cx="1260" cy="465" r="17" fill="#d6eef1" stroke="#0f7c8c" stroke-width="2"/>
+<rect x="1325" y="408" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
+<circle cx="1260" cy="465" r="17" fill="#fff2cc" stroke="#ffc000" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="465.0">m</tspan></text>
-<rect x="1325" y="453" width="13.2" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="453" width="13.2" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1348.2" y="465.0">6 %</tspan></text>
-<circle cx="1260" cy="510" r="17" fill="#d6eef1" stroke="#0f7c8c" stroke-width="2"/>
+<circle cx="1260" cy="510" r="17" fill="#fff2cc" stroke="#ffc000" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="510.0">n</tspan></text>
-<rect x="1325" y="498" width="19.8" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="498" width="19.8" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1354.8" y="510.0">9 %</tspan></text>
-<circle cx="1260" cy="555" r="17" fill="#d6eef1" stroke="#0f7c8c" stroke-width="2"/>
+<circle cx="1260" cy="555" r="17" fill="#fff2cc" stroke="#ffc000" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="555.0">r</tspan></text>
-<rect x="1325" y="543" width="33.0" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="543" width="33.0" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1368.0" y="555.0">15 %</tspan></text>
-<circle cx="1260" cy="600" r="17" fill="#d6eef1" stroke="#0f7c8c" stroke-width="2"/>
+<circle cx="1260" cy="600" r="17" fill="#fff2cc" stroke="#ffc000" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="600.0">s</tspan></text>
-<rect x="1325" y="588" width="8.8" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
+<rect x="1325" y="588" width="8.8" height="24" rx="5" fill="#ffe699"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#6b7489" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="1343.8" y="600.0">4 %</tspan></text>
-<circle cx="1260" cy="645" r="17" fill="#0f7c8c" stroke="#0f7c8c" stroke-width="2"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="645.0">t</tspan></text>
-<rect x="1325" y="633" width="136.4" height="24" rx="5" fill="#0f7c8c"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#0f7c8c" font-weight="bold" text-anchor="start" dominant-baseline="central" style=""><tspan x="1471.4" y="645.0">62 %</tspan></text>
+<circle cx="1260" cy="645" r="17" fill="#ffc000" stroke="#ffc000" stroke-width="2"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#b38600" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="645.0">t</tspan></text>
+<rect x="1325" y="633" width="136.4" height="24" rx="5" fill="#ffc000"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#b38600" font-weight="bold" text-anchor="start" dominant-baseline="central" style=""><tspan x="1471.4" y="645.0">62 %</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1260" y="690.0">⋮</tspan></text>
 <circle cx="1260" cy="735" r="17" fill="#ffffff" stroke="#b8bfcc" stroke-width="2"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1300" y="735.0">z</tspan></text>
-<rect x="1325" y="723" width="3" height="24" rx="5" fill="#b8dfe4"   opacity="1"/>
-<rect x="1275.0" y="80.0" width="150" height="56" rx="12" fill="#0f7c8c"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#ffffff" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1350.0" y="108.0">t</tspan></text>
+<rect x="1325" y="723" width="3" height="24" rx="5" fill="#ffe699"   opacity="1"/>
+<rect x="1275.0" y="80.0" width="150" height="56" rx="12" fill="#ffc000"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1350.0" y="108.0">t</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="32" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="800.0">« c h a »  →  le neurone le plus activé : « t »  →  « chat »</tspan></text>
 </svg>

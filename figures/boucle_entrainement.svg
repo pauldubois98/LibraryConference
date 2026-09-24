@@ -16,13 +16,13 @@
 <polygon points="619.3133709305075,145.42002348280045 603.2,160.4 597.6,142.2" fill="#6b7489" opacity="1"/>
 <rect x="635.0" y="60.0" width="330" height="120" rx="18" fill="#eef1f6"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800.0" y="101.2">Exemple</tspan><tspan x="800.0" y="138.8">(donnée)</tspan></text>
-<rect x="1047.7585280720966" y="253.4752415750147" width="330" height="120" rx="18" fill="#fbe5d3"   opacity="1"/>
+<rect x="1047.7585280720966" y="253.4752415750147" width="330" height="120" rx="18" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1212.7585280720966" y="294.7">Prédiction</tspan><tspan x="1212.7585280720966" y="332.2">du modèle</tspan></text>
-<rect x="890.0987994949332" y="566.5247584249853" width="330" height="120" rx="18" fill="#d6eef1"   opacity="1"/>
+<rect x="890.0987994949332" y="566.5247584249853" width="330" height="120" rx="18" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1055.0987994949332" y="607.8">Comparaison avec</tspan><tspan x="1055.0987994949332" y="645.3">la bonne réponse</tspan></text>
 <rect x="379.90120050506675" y="566.5247584249853" width="330" height="120" rx="18" fill="#f7dcd8"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="544.9012005050668" y="626.5">Erreur</tspan></text>
 <rect x="222.24147192790332" y="253.47524157501476" width="330" height="120" rx="18" fill="#d9f0e3"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#2e8b57" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="387.2414719279033" y="294.7">On ajuste</tspan><tspan x="387.2414719279033" y="332.2">les parametres</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="380.0">× des millions de fois</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#b38600" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="800" y="380.0">× des millions de fois</tspan></text>
 </svg>

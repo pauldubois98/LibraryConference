@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700">
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="46" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="450" y="60.0">Avant</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="46" fill="#b38600" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="450" y="60.0">Avant</tspan></text>
 <rect x="210" y="130" width="180" height="460" rx="12" fill="#eef1f6"   opacity="1"/>
-<rect x="210" y="245.0" width="180" height="345.0" rx="12" fill="#e07a2f"   opacity="1"/>
+<rect x="210" y="245.0" width="180" height="345.0" rx="12" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="300" y="631.2">Produire</tspan><tspan x="300" y="668.8">un contenu</tspan></text>
 <rect x="490" y="130" width="180" height="460" rx="12" fill="#eef1f6"   opacity="1"/>
-<rect x="490" y="337.0" width="180" height="253.00000000000003" rx="12" fill="#0f7c8c"   opacity="1"/>
+<rect x="490" y="337.0" width="180" height="253.00000000000003" rx="12" fill="#ffc000"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="580" y="631.2">Vérifier</tspan><tspan x="580" y="668.8">un contenu</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="450" y="105.0"></tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="46" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1200" y="60.0">Avec l&#x27;IA</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="46" fill="#800080" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1200" y="60.0">Avec l&#x27;IA</tspan></text>
 <rect x="960" y="130" width="180" height="460" rx="12" fill="#eef1f6"   opacity="1"/>
-<rect x="960" y="562.4" width="180" height="27.599999999999998" rx="12" fill="#e07a2f"   opacity="1"/>
+<rect x="960" y="562.4" width="180" height="27.599999999999998" rx="12" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1050" y="631.2">Produire</tspan><tspan x="1050" y="668.8">un contenu</tspan></text>
 <rect x="1240" y="130" width="180" height="460" rx="12" fill="#eef1f6"   opacity="1"/>
-<rect x="1240" y="337.0" width="180" height="253.00000000000003" rx="12" fill="#0f7c8c"   opacity="1"/>
+<rect x="1240" y="337.0" width="180" height="253.00000000000003" rx="12" fill="#ffc000"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1330" y="631.2">Vérifier</tspan><tspan x="1330" y="668.8">un contenu</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="20" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1200" y="105.0"></tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="end" dominant-baseline="central" style="font-style:italic;"><tspan x="120" y="360.0">coût</tspan></text>

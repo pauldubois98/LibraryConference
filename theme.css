@@ -1,6 +1,7 @@
 :root {
   --ink: #1f2a44; --muted: #6b7489; --light: #eef1f6;
-  --teal: #0f7c8c; --teal-l: #d6eef1; --orange: #e07a2f; --orange-l: #fbe5d3;
+  --violet: #800080; --violet-l: #f0d9f0; --orange: #ffc000; --orange-l: #fff2cc;
+  --orange-d: #b38600;  /* orange foncé : texte orange lisible sur fond blanc */
   --red: #c0392b; --red-l: #f7dcd8; --green: #2e8b57; --green-l: #d9f0e3;
   --r-background-color: #ffffff;
   --r-main-font: Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
@@ -9,13 +10,13 @@
   --r-heading-color: #1f2a44;
   --r-heading-text-transform: none;
   --r-heading-font-weight: 800;
-  --r-link-color: #0f7c8c;
+  --r-link-color: #b38600;
   --r-main-font-size: 34px;
 }
 .reveal-viewport { background: #fff; }
 .reveal .slides section { text-align: center; height: 100%; }
 .reveal h2 { font-size: 1.45em; margin-bottom: .45em; }
-.reveal h2::after { content: ""; display: block; width: 90px; height: 6px; background: var(--orange);
+.reveal h2::after { content: ""; display: block; width: 90px; height: 6px; background: var(--violet);
   border-radius: 3px; margin: .25em auto 0; }
 
 /* Figures : occupent l'espace sous le titre */
@@ -25,14 +26,14 @@
 .reveal img.fig-xs { max-height: 250px; }
 
 /* Petite ligne de message sous une figure */
-.reveal .msg { font-size: .85em; color: var(--teal); font-weight: bold; margin-top: .3em; }
+.reveal .msg { font-size: .85em; color: var(--orange-d); font-weight: bold; margin-top: .3em; }
 .reveal .src { position: absolute; bottom: -10px; left: 0; right: 0; font-size: 15px; color: var(--muted); }
 .reveal .src a { color: var(--muted); }
 
 /* Grandes questions posées au public */
 .reveal section.question { padding-top: 190px; }
 .reveal .big-q { font-size: 1.7em; font-weight: 800; line-height: 1.25; color: var(--ink); max-width: 1050px; margin: 0 auto; }
-.reveal .big-q em { color: var(--orange); font-style: normal; }
+.reveal .big-q em { color: var(--violet); font-style: normal; }
 .reveal .emoji-xl { font-size: 3em; line-height: 1.1; }
 
 /* Titre */
@@ -41,7 +42,7 @@
 
 /* Séparateurs de parties */
 .reveal section.divider { padding-top: 250px; }
-.reveal section.divider h2 { font-size: 2.2em; color: var(--teal); }
+.reveal section.divider h2 { font-size: 2.2em; color: var(--orange-d); }
 .reveal section.divider h2::after { width: 140px; height: 8px; margin-top: .35em; }
 
 /* Grilles de cartes */
@@ -53,7 +54,7 @@
 .reveal .card { background: var(--light); border-radius: 22px; padding: 22px 16px; font-size: .8em; }
 .reveal .card .e { font-size: 2.6em; line-height: 1.2; }
 .reveal .card b { display: block; margin-top: .2em; }
-.reveal .card.t { background: var(--teal-l); } .reveal .card.o { background: var(--orange-l); }
+.reveal .card.t { background: var(--orange-l); } .reveal .card.o { background: var(--violet-l); }
 .reveal .card.r { background: var(--red-l); } .reveal .card.g { background: var(--green-l); }
 
 /* Mails de phishing (fictifs) */
@@ -61,10 +62,10 @@
   font-size: 21px; line-height: 1.45; padding: 0; overflow: hidden; box-shadow: 0 6px 20px rgba(0,0,0,.08); }
 .reveal .mail .hd { background: var(--light); padding: 10px 18px; color: var(--muted); font-size: 18px; }
 .reveal .mail .bd { padding: 14px 18px; }
-.reveal .mail .btn { display: inline-block; background: var(--teal); color: #fff; border-radius: 8px; padding: 4px 14px; font-weight: bold; }
+.reveal .mail .btn { display: inline-block; background: var(--orange); color: var(--ink); border-radius: 8px; padding: 4px 14px; font-weight: bold; }
 .reveal .mail .err { text-decoration: underline wavy var(--red); text-decoration-skip-ink: none; }
 .reveal .mail.old { font-family: 'Comic Sans MS', 'DejaVu Sans', sans-serif; }
-.reveal .tag { display: inline-block; font-size: 18px; border-radius: 30px; padding: 3px 14px; margin: 4px; background: var(--orange-l); color: var(--ink); }
+.reveal .tag { display: inline-block; font-size: 18px; border-radius: 30px; padding: 3px 14px; margin: 4px; background: var(--violet-l); color: var(--ink); }
 .reveal .tag.r { background: var(--red-l); }
 
 /* Textes A/B */
@@ -81,21 +82,21 @@
 .reveal ol.retenir li { counter-increment: n; display: grid; grid-template-columns: 70px 1fr; column-gap: 20px;
   align-items: center; margin: 14px 0; font-size: .82em; }
 .reveal ol.retenir li::before { content: counter(n); width: 62px; height: 62px; border-radius: 50%;
-  background: var(--teal); color: #fff; font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 1.1em; }
+  background: var(--orange); color: var(--ink); font-weight: 900; display: flex; align-items: center; justify-content: center; font-size: 1.1em; }
 .reveal ol.retenir li b { color: var(--ink); }
 .reveal ol.retenir li span { color: var(--muted); font-size: .85em; }
 
 .reveal .muted { color: var(--muted); }
-.reveal .orange { color: var(--orange); }
-.reveal .teal { color: var(--teal); }
+.reveal .orange { color: var(--orange-d); }
+.reveal .violet { color: var(--violet); }
 .reveal .slide-number { background: transparent; color: var(--muted); font-size: 16px; }
-.reveal .progress { color: var(--orange); height: 5px; }
+.reveal .progress { color: var(--violet); height: 5px; }
 
 /* Ajustements */
 .reveal section.question h2 { display: none; }
 .reveal #title-slide { padding-top: 200px; }
 .reveal #title-slide .title { font-size: 2.4em; font-weight: 900; color: var(--ink); }
-.reveal #title-slide .title::after { content: ""; display: block; width: 140px; height: 8px; background: var(--orange); border-radius: 4px; margin: .3em auto 0; }
+.reveal #title-slide .title::after { content: ""; display: block; width: 140px; height: 8px; background: var(--violet); border-radius: 4px; margin: .3em auto 0; }
 .reveal #title-slide .subtitle { font-size: 1em; color: var(--muted); max-width: 900px; margin: .6em auto 0; font-style: normal; }
 .reveal img.fig-s { max-height: 470px; }
 .reveal .ab { font-size: 26px; }

@@ -11,20 +11,21 @@
   body { padding: 4px 12px; gap: 4px; user-select: none; }
   svg { flex: 1; width: 100%; display: block; }
   .lab { font-size: 13px; fill: var(--muted); text-anchor: end; dominant-baseline: central; }
-  .lab.on { fill: var(--orange); font-weight: bold; }
+  .lab.on { fill: var(--violet); font-weight: bold; }
   .olab { font-size: 13px; fill: var(--muted); dominant-baseline: central; }
-  .olab.best { fill: var(--teal); font-weight: bold; }
+  .olab.best { fill: var(--orange-d); font-weight: bold; }
   .head { font-size: 17px; fill: var(--muted); text-anchor: middle; }
   .big { font-size: 34px; font-weight: bold; fill: #fff; text-anchor: middle; dominant-baseline: central; }
+  .big.dark { fill: var(--ink); }   /* sur fond orange */
   .pct { font-size: 13px; fill: var(--muted); dominant-baseline: central; }
-  .pct.best { fill: var(--teal); font-weight: bold; }
+  .pct.best { fill: var(--orange-d); font-weight: bold; }
   .in, .out { cursor: pointer; }
   select { font: inherit; font-size: 17px; padding: 6px; border-radius: 8px; max-width: 300px; }
   #bar { display: flex; align-items: center; gap: 12px; height: 52px; }
   #bar button { font-size: 18px; padding: 8px 14px; }
   #text { font-size: 24px; font-family: monospace; background: var(--light); border-radius: 10px; padding: 6px 12px;
     flex: 1; white-space: pre; overflow: hidden; text-overflow: ellipsis; direction: rtl; text-align: left; }
-  #text b { color: var(--orange); }
+  #text b { color: var(--violet); }
   .hint { font-size: 15px; color: var(--muted); }
 </style>
 </head>
@@ -73,13 +74,13 @@ function render() {
   // en-têtes : les 3 lettres lues et la lettre prédite
   IN_X.forEach((x, k) => {
     el("text", {x, y: 16, class: "head"}, `${k + 1}${k ? "e" : "re"} lettre`);
-    el("rect", {x: x - 28, y: 28, width: 56, height: 46, rx: 10, fill: "#e07a2f"});
+    el("rect", {x: x - 28, y: 28, width: 56, height: 46, rx: 10, fill: "#800080"});
     el("text", {x, y: 51, class: "big"}, show(ctx[k]));
   });
   el("text", {x: HID_X, y: 16, class: "head"}, `couche cachée (${H} neurones)`);
   el("text", {x: OUT_X + 60, y: 16, class: "head"}, "lettre suivante");
-  el("rect", {x: OUT_X + 32, y: 28, width: 56, height: 46, rx: 10, fill: "#0f7c8c"});
-  el("text", {x: OUT_X + 60, y: 51, class: "big"}, show(A[best]));
+  el("rect", {x: OUT_X + 32, y: 28, width: 56, height: 46, rx: 10, fill: "#ffc000"});
+  el("text", {x: OUT_X + 60, y: 51, class: "big dark"}, show(A[best]));
   // traits : entrées actives → couche cachée (couleur = signe du poids, opacité = force)
   ctx.forEach((c, k) => {
     const i = A.indexOf(c);
@@ -101,20 +102,20 @@ function render() {
   IN_X.forEach((x, k) => A.split("").forEach((c, i) => {
     const on = ctx[k] === c;
     el("text", {x: x - 12, y: rowY(i), class: "lab" + (on ? " on" : "")}, show(c));
-    const g = el("circle", {cx: x, cy: rowY(i), r: 6, fill: on ? "#e07a2f" : "#fff", stroke: on ? "#e07a2f" : "#b8bfcc",
+    const g = el("circle", {cx: x, cy: rowY(i), r: 6, fill: on ? "#800080" : "#fff", stroke: on ? "#800080" : "#b8bfcc",
                             "stroke-width": 1.5, class: "in"});
     g.onclick = () => { ctx[k] = c; text = text.slice(0, -3) + ctx.join(""); render(); };
   }));
   // couche cachée : couleur = activation
-  h.forEach((v, j) => el("circle", {cx: HID_X, cy: hidY(j), r: 9, fill: `rgba(15,124,140,${v.toFixed(2)})`, stroke: "#0f7c8c", "stroke-width": 1.5}));
+  h.forEach((v, j) => el("circle", {cx: HID_X, cy: hidY(j), r: 9, fill: `rgba(255,192,0,${v.toFixed(2)})`, stroke: "#ffc000", "stroke-width": 1.5}));
   // sorties : une par lettre, barre = probabilité
   A.split("").forEach((c, i) => {
     const b = i === best, y = rowY(i);
-    const o = el("circle", {cx: OUT_X, cy: y, r: 6, fill: b ? "#0f7c8c" : `rgba(15,124,140,${Math.min(1, p[i] * 3).toFixed(2)})`,
-                            stroke: "#0f7c8c", "stroke-width": 1.2, class: "out"});
+    const o = el("circle", {cx: OUT_X, cy: y, r: 6, fill: b ? "#ffc000" : `rgba(255,192,0,${Math.min(1, p[i] * 3).toFixed(2)})`,
+                            stroke: "#ffc000", "stroke-width": 1.2, class: "out"});
     o.onclick = () => push(c);                         // clic sur une sortie : on l'ajoute au texte
     el("text", {x: OUT_X + 12, y, class: "olab" + (b ? " best" : "")}, show(c));
-    el("rect", {x: OUT_X + 28, y: y - 5, width: Math.max(1, 200 * p[i]), height: 10, rx: 3, fill: b ? "#0f7c8c" : "#b8dfe4"});
+    el("rect", {x: OUT_X + 28, y: y - 5, width: Math.max(1, 200 * p[i]), height: 10, rx: 3, fill: b ? "#ffc000" : "#ffe699"});
     if (top.includes(i)) el("text", {x: OUT_X + 34 + 200 * p[i], y, class: "pct" + (b ? " best" : "")}, `${Math.round(100 * p[i])} %`);
   });
   const t = document.getElementById("text");

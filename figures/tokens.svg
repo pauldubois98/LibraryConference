@@ -56,42 +56,42 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1401.4074074074078" y="95.0">.</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#6b7489" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1540" y="95.0">27</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="end" dominant-baseline="central" style=""><tspan x="230" y="245.0">Mots</tspan></text>
-<rect x="260" y="200" width="95.65217391304348" height="90" rx="10" fill="#d6eef1"   opacity="1"/>
+<rect x="260" y="200" width="95.65217391304348" height="90" rx="10" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="307.82608695652175" y="245.0">La</tspan></text>
-<rect x="367.6521739130435" y="200" width="573.9130434782609" height="90" rx="10" fill="#d6eef1"   opacity="1"/>
+<rect x="367.6521739130435" y="200" width="573.9130434782609" height="90" rx="10" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="654.608695652174" y="245.0">bibliothèque</tspan></text>
-<rect x="953.5652173913044" y="200" width="239.1304347826087" height="90" rx="10" fill="#d6eef1"   opacity="1"/>
+<rect x="953.5652173913044" y="200" width="239.1304347826087" height="90" rx="10" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1073.1304347826087" y="245.0">ouvre</tspan></text>
-<rect x="1204.695652173913" y="200" width="47.82608695652174" height="90" rx="10" fill="#d6eef1"   opacity="1"/>
+<rect x="1204.695652173913" y="200" width="47.82608695652174" height="90" rx="10" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1228.6086956521738" y="245.0">à</tspan></text>
-<rect x="1264.5217391304348" y="200" width="95.65217391304348" height="90" rx="10" fill="#d6eef1"   opacity="1"/>
+<rect x="1264.5217391304348" y="200" width="95.65217391304348" height="90" rx="10" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1312.3478260869565" y="245.0">9h</tspan></text>
-<rect x="1372.1739130434783" y="200" width="47.82608695652174" height="90" rx="10" fill="#d6eef1"   opacity="1"/>
+<rect x="1372.1739130434783" y="200" width="47.82608695652174" height="90" rx="10" fill="#fff2cc"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1396.086956521739" y="245.0">.</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1540" y="245.0">6</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#b38600" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1540" y="245.0">6</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="end" dominant-baseline="central" style=""><tspan x="230" y="395.0">Tokens</tspan></text>
-<rect x="260" y="350" width="79.70370370370371" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="260" y="350" width="79.70370370370371" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="299.85185185185185" y="395.0">La</tspan></text>
-<rect x="351.7037037037037" y="350" width="278.962962962963" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="351.7037037037037" y="350" width="278.962962962963" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="491.1851851851852" y="395.0">␣biblio</tspan></text>
-<rect x="642.6666666666667" y="350" width="239.11111111111111" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="642.6666666666667" y="350" width="239.11111111111111" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="762.2222222222223" y="395.0">thèque</tspan></text>
-<rect x="893.7777777777778" y="350" width="239.11111111111111" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="893.7777777777778" y="350" width="239.11111111111111" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1013.3333333333334" y="395.0">␣ouvre</tspan></text>
-<rect x="1144.888888888889" y="350" width="79.70370370370371" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="1144.888888888889" y="350" width="79.70370370370371" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1184.7407407407409" y="395.0">␣à</tspan></text>
-<rect x="1236.5925925925926" y="350" width="79.70370370370371" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="1236.5925925925926" y="350" width="79.70370370370371" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1276.4444444444446" y="395.0">␣9</tspan></text>
-<rect x="1328.2962962962963" y="350" width="39.851851851851855" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="1328.2962962962963" y="350" width="39.851851851851855" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1348.2222222222222" y="395.0">h</tspan></text>
-<rect x="1380.1481481481483" y="350" width="39.851851851851855" height="90" rx="10" fill="#fbe5d3"   opacity="1"/>
+<rect x="1380.1481481481483" y="350" width="39.851851851851855" height="90" rx="10" fill="#f0d9f0"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="34" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1400.0740740740741" y="395.0">.</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1540" y="395.0">8</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#800080" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1540" y="395.0">8</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="24" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1540" y="20.0">unités</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="bold" text-anchor="end" dominant-baseline="central" style=""><tspan x="260" y="510.0">Caractères :</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="280" y="510.0">peu de symboles, mais des séquences très longues</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#0f7c8c" font-weight="bold" text-anchor="end" dominant-baseline="central" style=""><tspan x="260" y="554.0">Mots :</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#b38600" font-weight="bold" text-anchor="end" dominant-baseline="central" style=""><tspan x="260" y="554.0">Mots :</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="280" y="554.0">séquences courtes, mais vocabulaire infini (noms, fautes, néologismes…)</tspan></text>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#e07a2f" font-weight="bold" text-anchor="end" dominant-baseline="central" style=""><tspan x="260" y="598.0">Tokens :</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#800080" font-weight="bold" text-anchor="end" dominant-baseline="central" style=""><tspan x="260" y="598.0">Tokens :</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="280" y="598.0">le compromis : des morceaux fréquents, ~50 000 à 200 000 au total</tspan></text>
 </svg>

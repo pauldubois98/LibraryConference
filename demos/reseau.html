@@ -28,8 +28,8 @@
   td { text-align: center; padding: 3px 4px; border-top: 1px solid var(--light); }
   tr.trow { cursor: pointer; }
   tr.trow:hover td { background: #f7f8fb; }
-  tr.cur td { background: var(--teal-l) !important; }
-  td.tgt { cursor: pointer; font-weight: bold; color: var(--orange); }
+  tr.cur td { background: var(--orange-l) !important; }
+  td.tgt { cursor: pointer; font-weight: bold; color: var(--violet); }
   td.ok { color: var(--green); font-weight: bold; }
   td.ko { color: var(--red); font-weight: bold; }
   td.sep { border-left: 2px solid var(--light); }
@@ -183,7 +183,7 @@ function render() {
     if (w === 0) el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: "#c9cfdb", "stroke-width": 2, "stroke-dasharray": "6 6"});
     else el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: w > 0 ? "#2e8b57" : "#c0392b",
                      "stroke-width": 1.5 + Math.abs(w) * 4, "stroke-linecap": "round"});
-    if (active || hov) el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: "#e07a2f", "stroke-width": 3, opacity: .7});
+    if (active || hov) el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: "#800080", "stroke-width": 3, opacity: .7});
     const h = el("line", {x1: ax, y1: ay, x2: bx, y2: by, class: "hit"});
     h.onpointerdown = e => startDrag(e, {kind: "w", l, i, j});
     h.onpointerenter = () => setHover({kind: "w", l, i, j});
@@ -213,7 +213,7 @@ function render() {
     const g = el("g", {class: "wlab", "pointer-events": "none"}), txt = (pre || "") + fmt(w);
     const wdt = 14 + txt.length * 11;
     el("rect", {x: x - wdt / 2, y: y - 15, width: wdt, height: 30, rx: 15,
-                stroke: strong ? "#e07a2f" : (w >= 0 ? "#2e8b57" : "#c0392b")}, g);
+                stroke: strong ? "#800080" : (w >= 0 ? "#2e8b57" : "#c0392b")}, g);
     el("text", {x, y, fill: w >= 0 ? "#2e8b57" : "#c0392b"}, g).textContent = txt;
   });
   if (hover && hover.kind === "n") refreshTip(F);
@@ -334,7 +334,7 @@ function renderPanel() {
 function drawActPlot() {
   const c = document.getElementById("actplot"), g = c.getContext("2d"), W = c.width, H = c.height;
   g.clearRect(0, 0, W, H); g.strokeStyle = "#ddd"; g.beginPath(); g.moveTo(0, H / 2); g.lineTo(W, H / 2); g.moveTo(W / 2, 0); g.lineTo(W / 2, H); g.stroke();
-  g.strokeStyle = "#0f7c8c"; g.lineWidth = 2; g.beginPath();
+  g.strokeStyle = "#ffc000"; g.lineWidth = 2; g.beginPath();
   for (let px = 0; px <= W; px++) { const x = (px / W - .5) * 6, y = H / 2 - ACT[S.act](x) * H / 3.2; px ? g.lineTo(px, y) : g.moveTo(px, y); }
   g.stroke();
 }

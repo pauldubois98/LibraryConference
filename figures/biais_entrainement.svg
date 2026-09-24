@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" width="1600" height="720">
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#0f7c8c" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="420" y="40.0">Textes d&#x27;entrainement</tspan></text>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#b38600" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="420" y="40.0">Textes d&#x27;entrainement</tspan></text>
 <rect x="120" y="80" width="480" height="66" rx="18" fill="#d9f0e3"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="360.0" y="113.0">Pages web</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#2e8b57" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="650" y="113.0">✓</tspan></text>
@@ -23,17 +23,17 @@
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#6b7489" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="360.0" y="605.0">Textes en d&#x27;autres langues</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="44" fill="#c0392b" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="650" y="605.0">✗</tspan></text>
 <line x1="150" y1="605" x2="570" y2="605" stroke="#c0392b" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#e07a2f" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1130" y="40.0">Poid associé</tspan></text>
-<rect x="800" y="110" width="297.0" height="120" rx="4" fill="#0f7c8c"   opacity="1"/>
-<rect x="1097.0" y="110" width="99.0" height="120" rx="4" fill="#e07a2f"   opacity="1"/>
-<rect x="1196.0" y="110" width="52.800000000000004" height="120" rx="4" fill="#6c4fb3"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#800080" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="1130" y="40.0">Poid associé</tspan></text>
+<rect x="800" y="110" width="297.0" height="120" rx="4" fill="#ffc000"   opacity="1"/>
+<rect x="1097.0" y="110" width="99.0" height="120" rx="4" fill="#800080"   opacity="1"/>
+<rect x="1196.0" y="110" width="52.800000000000004" height="120" rx="4" fill="#2e6fb3"   opacity="1"/>
 <rect x="1248.8" y="110" width="112.2" height="120" rx="4" fill="#2e8b57"   opacity="1"/>
 <rect x="1361.0" y="110" width="99.0" height="120" rx="4" fill="#c0392b"   opacity="1"/>
-<rect x="830" y="264" width="32" height="32" rx="6" fill="#0f7c8c"   opacity="1"/>
+<rect x="830" y="264" width="32" height="32" rx="6" fill="#ffc000"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="880" y="280.0">Pages web : 45 %</tspan></text>
-<rect x="830" y="314" width="32" height="32" rx="6" fill="#e07a2f"   opacity="1"/>
+<rect x="830" y="314" width="32" height="32" rx="6" fill="#800080"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="880" y="330.0">Livres : 15 %</tspan></text>
-<rect x="830" y="364" width="32" height="32" rx="6" fill="#6c4fb3"   opacity="1"/>
+<rect x="830" y="364" width="32" height="32" rx="6" fill="#2e6fb3"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="880" y="380.0">Wikipédia : 8 %</tspan></text>
 <rect x="830" y="414" width="32" height="32" rx="6" fill="#2e8b57"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="start" dominant-baseline="central" style=""><tspan x="880" y="430.0">Code : 17 %</tspan></text>
