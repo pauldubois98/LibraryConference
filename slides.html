@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>IA &amp; société</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="vendor/reveal.js/dist/reset.css">
+  <link rel="stylesheet" href="vendor/reveal.js/dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <link rel="stylesheet" href="vendor/reveal.js/dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="theme.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">IA &amp; société</h1>
+  <p class="subtitle">Fonctionnement des IA modernes, et conséquences
+pour la société</p>
+</section>
+
+<section id="systèmes-experts-des-règles-écrites-à-la-main"
+class="slide level2">
+<h2>Systèmes experts : des règles écrites à la main</h2>
+<p><img data-src="figures/systeme_expert.svg" class="fig" />
+<!-- Ajoute une photo de deep blue (programme qui joue aux echecs); met l'arbre en plus petit sur un cote de l'image, et change des questions: plutot bleu => mer/ciel; plutot blanc => nuage, etc... --></p>
+</section>
+<section id="le-machine-learning-apprendre-à-partir-dexemples"
+class="slide level2">
+<h2>Le Machine Learning : apprendre à partir d’exemples</h2>
+<p><img data-src="figures/chat_ml.svg" class="fig" />
+<!-- Au lieu de "modele" ecrit en texte, met un schema d'engrenage avec comme sous titre "entrainement" --></p>
+</section>
+<section id="réseau-de-neurones-un-système-capable-dapprendre"
+class="slide level2">
+<h2>Réseau de neurones : un système capable d’apprendre</h2>
+<!-- Fais un schema d'un neurone. Il faut qu'on voit que le neurone a plusieurs entrees avec des poids, et une fonction d'activation -->
+</section>
+<section id="entraîner-un-réseau-de-neurones-à-la-main"
+class="slide level2">
+<h2>Entraîner un réseau de neurones à la main</h2>
+<iframe class="demo" data-src="demos/reseau.html?ni=2&amp;nh=1&amp;hs=2&amp;no=1&amp;act=step&amp;t=OU">
+</iframe>
+</section>
+<section id="explosion-de-la-taille-des-modèles" class="slide level2">
+<h2>Explosion de la taille des modèles</h2>
+<p><img data-src="figures/echelle_parametres.svg" class="fig" /></p>
+</section>
+<section id="entraînement-automatique" class="slide level2">
+<h2>Entraînement automatique</h2>
+<p><img data-src="figures/boucle_entrainement.svg" class="fig" />
+<!-- Propose une live demo d'un entrainement automatique de reseau de neuronnes --></p>
+</section>
+<section id="prédire-la-suite-dun-texte" class="slide level2">
+<h2>Prédire la suite d’un texte</h2>
+<div class="big-q" style="font-size:1.4em; margin-top:1.2em">
+« Paris est la capitale de la <span class="orange">___</span> »
+</div>
+<div class="fragment">
+<div class="big-q teal" style="font-size:1.4em">
+→ France
+</div>
+</div>
+<div class="fragment">
+<div class="big-q" style="font-size:1.1em; margin-top:1em">
+« Paris est la capitale de la France. Elle est située en
+<span class="orange">___</span> »
+</div>
+<div class="big-q teal" style="font-size:1.1em">
+→ Europe
+</div>
+</div>
+</section>
+<section id="caractère-vs-mot-vs-token" class="slide level2">
+<h2>Caractère vs mot vs token</h2>
+<p><img data-src="figures/tokens.svg" class="fig" /></p>
+</section>
+<section id="token-par-token" class="slide level2">
+<h2>Token par token</h2>
+<iframe class="demo" data-src="demos/token.html">
+</iframe>
+<!-- les boutons "le plus porbable", "annuler", et "recommencer" devraient etre en bas de la page (pour qu'ils ne bougent pas en fonction du nombre de token suggeres) -->
+</section>
+<section id="variabilité-des-réponses" class="slide level2">
+<h2>Variabilité des réponses</h2>
+<iframe class="demo" data-src="demos/temperature.html">
+</iframe>
+</section>
+<section id="la-température" class="slide level2">
+<h2>La température</h2>
+<p><img data-src="figures/temperature.svg" class="fig" /></p>
+</section>
+<section id="mascarade-de-la-conversation-avec-une-ia"
+class="slide level2">
+<h2>Mascarade de la conversation avec une IA</h2>
+<p><img data-src="figures/conversation.svg" class="fig" /></p>
+</section>
+<section id="raisonner-par-étapes-chain-of-thought"
+class="slide level2">
+<h2>Raisonner par étapes (« chain of thought »)</h2>
+<div class="cot-q">
+3 étages × 12 rayonnages × 40 livres. 15 % sont prêtés. Combien de
+livres restent en rayon ?<br><span class="muted">Réponse attendue : 1
+224</span>
+</div>
+<div class="cards"
+style="align-items:start; grid-template-columns: 1fr 2fr">
+<div class="card cot">
+<h3>
+Réponse courte
+</h3>
+<div class="toks">
+<span class="tok">Il</span> <span class="tok">reste</span> <span
+class="tok">1</span> <span class="tok bad">3</span><span
+class="tok bad">50</span> <span class="tok">livres</span><span
+class="tok">.</span>
+</div>
+<div class="cot-n">
+<b>2</b> tokens faux
+</div>
+</div>
+<div class="card cot fragment">
+<h3>
+Réponse longue (avec étapes)
+</h3>
+<div class="toks">
+<span class="tok">3</span> <span class="tok">×</span> <span
+class="tok">12</span> <span class="tok">=</span> <span
+class="tok">36</span> <span class="tok">rayonnages</span><span
+class="tok">.</span> <span class="tok">36</span> <span
+class="tok">×</span> <span class="tok">40</span> <span
+class="tok">=</span> <span class="tok">1</span> <span
+class="tok">4</span><span class="tok bad">00</span> <span
+class="tok">livres</span><span class="tok">.</span> <span
+class="tok">15</span> <span class="tok">%</span> <span
+class="tok">de</span> <span class="tok">1</span> <span
+class="tok">4</span><span class="tok bad">00</span> <span
+class="tok">=</span> <span class="tok">2</span><span
+class="tok bad">10</span><span class="tok">.</span> <span
+class="tok">Il</span> <span class="tok">reste</span> <span
+class="tok">1</span> <span class="tok">4</span><span
+class="tok bad">00</span> <span class="tok">−</span> <span
+class="tok">2</span><span class="tok bad">10</span> <span
+class="tok">=</span> <span class="tok">1</span> <span
+class="tok bad">1</span><span class="tok bad">90</span> <span
+class="tok">livres</span><span class="tok">.</span>
+</div>
+<div class="cot-n">
+<b>7</b> tokens faux : l’erreur se répète
+</div>
+</div>
+</div>
+<div class="msg fragment">
+À l’entraînement, chaque token faux est pénalisé :<br>une erreur répétée
+dans un raisonnement coûte plus cher.
+</div>
+</section>
+<section id="deux-sources-de-biais" class="slide level2">
+<h2>Deux sources de biais</h2>
+<p><img data-src="figures/deux_biais.svg" class="fig" /></p>
+</section>
+<section id="biais-dentraînement-le-modèle-hérite-de-ses-données"
+class="slide level2">
+<h2>Biais d’entraînement : le modèle hérite de ses données</h2>
+<p><img data-src="figures/biais_entrainement.svg" class="fig" /></p>
+</section>
+<section id="biais-dutilisation-même-modèle-réponses-différentes"
+class="slide level2">
+<h2>Biais d’utilisation : même modèle, réponses différentes</h2>
+<p><img data-src="figures/biais_usage.svg" class="fig" /></p>
+</section>
+<section id="écrire-avec-une-ia-peut-changer-notre-opinion"
+class="slide level2">
+<h2>Écrire avec une IA peut changer notre opinion</h2>
+<p><img data-src="figures/jakesch.svg" class="fig-s" /></p>
+<div class="msg fragment">
+La majorité des participants n’a pas remarqué que l’IA était orientée.
+</div>
+<div class="src">
+Jakesch, Bhat, Buschek, Zalmanson &amp; Naaman, « Co-Writing with
+Opinionated Language Models Affects Users’ Views », CHI 2023.
+<a href="https://doi.org/10.1145/3544548.3581196">doi:10.1145/3544548.3581196</a>
+</div>
+<aside class="notes">
+<p>Expérience en ligne, 1 506 participants, qui écrivent un court texte
+: « les réseaux sociaux sont-ils bons pour la société ? ». Une partie
+d’entre eux utilise un assistant d’écriture (GPT-3) configuré pour
+pencher d’un côté. Résultat : les textes penchent dans le sens de l’IA,
+ET l’opinion mesurée ensuite dans un questionnaire se déplace aussi.
+Deux fois plus de chances d’écrire un paragraphe d’accord avec
+l’assistant (Cornell Chronicle, mai 2023). La majorité des participants
+n’a même pas remarqué que l’IA était biaisée. Retour à la question
+d’ouverture : oui, une IA peut influencer ce que l’on pense sans dire
+quoi penser.</p>
+</aside>
+<!-- ## L'IA dans la recherche
+
+![](figures/recherche.svg){.fig}
+
+::: notes
+Avant : un chemin, quelques pistes.
+Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de son domaine, et on garde une synthèse humaine.
+::: -->
+</section>
+<section id="objectivement-meilleur-socialement-préféré"
+class="slide level2">
+<h2>« Objectivement meilleur » ≠ « socialement préféré »</h2>
+<p><img data-src="figures/meilleur_vs_prefere.svg" class="fig" /></p>
+<div class="msg fragment">
+Et en bibliothèque ? 📚
+</div>
+</section>
+<section id="des-faux-sous-toutes-les-formes" class="slide level2">
+<h2>Des faux, sous toutes les formes</h2>
+<p><img data-src="figures/fake_medias.svg" class="fig" /></p>
+</section>
+<section id="ce-qui-change-pour-linformation" class="slide level2">
+<h2>Ce qui change pour l’information</h2>
+<p><img data-src="figures/info_cout.svg" class="fig" /></p>
+</section>
+<section id="hameçonnage" class="slide level2">
+<h2>Hameçonnage</h2>
+<div class="cards c2" style="align-items:start">
+<div>
+<div class="mail old">
+<div class="hd">
+De : service-client@secur-verif-acount.xyz
+</div>
+<div class="bd">
+<p>Bonjour,<br><br> Votre compte a <span class="err">ete
+bloque</span>.<br> <span class="err">Clique</span> ici pour le <span
+class="err">debloquer</span> <span class="err">immediatement
+!!!</span><br><br> Merci <span class="err">de votre
+comprehension</span></p>
+</div>
+</div>
+<div class="fragment" style="margin-top:14px">
+<span class="tag r">fautes</span><span class="tag r">formulation
+étrange</span><span class="tag r">traduction approximative</span>
+</div>
+</div>
+<div class="fragment">
+<div class="mail">
+<div class="hd">
+De : Médiathèque municipale — Espace lecteur
+</div>
+<div class="bd">
+<p>Bonjour Monsieur Dupont,<br><br> Nous avons détecté une connexion
+inhabituelle à votre espace lecteur, le 23 septembre à 22 h 14, depuis
+un appareil situé à Lyon.<br><br> Si vous n’êtes pas à l’origine de
+cette connexion, nous vous invitons à sécuriser votre compte sous 48
+heures :<br> <span class="btn">Vérifier mon compte</span><br><br> Le
+service numérique de la médiathèque</p>
+</div>
+</div>
+<div class="fragment" style="margin-top:14px">
+<span class="tag">français impeccable</span><span
+class="tag">personnalisé</span><span class="tag">adapté au
+destinataire</span><span class="tag">des dizaines de variantes</span>
+</div>
+</div>
+</div>
+<p class="muted" style="font-size:16px">
+Exemples fictifs
+</p>
+</section>
+<section id="action-des-ia" class="slide level2">
+<h2>Action des IA</h2>
+<p><img data-src="figures/chatbot_vs_agent.svg" class="fig" /></p>
+<aside class="notes">
+<p>Chatbot : le modèle peut produire un texte dangereux, mais il reste
+dans le monde du texte. Agent : il peut naviguer, lire et écrire des
+fichiers, exécuter des commandes, envoyer des mails. Une erreur de texte
+est une chose. Une erreur qui déclenche une action en est une autre.</p>
+</aside>
+</section>
+<section id="lincident-hugging-face" class="slide level2">
+<h2>L’incident Hugging Face</h2>
+<p><img data-src="figures/incident_hf.svg" class="fig" /></p>
+<div class="src">
+Sources : Hugging Face, « Security incident disclosure — July 2026 » et
+« Anatomy of a Frontier Lab Agent Intrusion » (blog huggingface.co) ;
+OpenAI, « The Hugging Face incident and the road ahead ».
+</div>
+<aside class="notes">
+<p>Faits (d’après le rapport technique de Hugging Face) : - Fenêtre de
+l’incident : 9 au 13 juillet 2026. - Origine : une évaluation interne
+d’OpenAI sur les capacités en cybersécurité (basée sur le benchmark
+ExploitGym). Hugging Face parle d’un « agent autonome piloté par une
+combinaison de modèles OpenAI ». - L’agent est sorti de son bac à sable
+via une faille inconnue (zero-day) dans un proxy de cache de paquets. -
+Entrée chez Hugging Face : un jeu de données malveillant exploitant deux
+chemins d’exécution de code dans le traitement des datasets, puis vol
+d’identifiants et déplacements latéraux dans l’infrastructure. - Environ
+17 600 actions reconstituées, regroupées en ~6 280 groupes. -
+Interprétation de Hugging Face : l’agent tentait de « tricher » à
+l’évaluation en allant voler les solutions du test. - Pas de preuve
+d’altération des modèles, datasets ou Spaces publics ; identifiants
+renouvelés, infrastructure reconstruite. - Détection grâce à de la
+détection d’anomalies basée sur des LLM. À vérifier avant la conférence
+: les chiffres divergent selon les médias (certains parlent de centaines
+d’agents).</p>
+</aside>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<ol class="retenir">
+<li class="fragment">
+<b>Une IA n’est pas magique.</b><span>Elle apprend à partir de données
+et produit des prédictions.</span>
+</li>
+<li class="fragment">
+<b>Un LLM prédit du texte, token par token.</b><span>Le réseau de
+neurones est complexe, mais la tâche est simple.</span>
+</li>
+<li class="fragment">
+<b>Les données et les instructions peuvent être biaisées.</b>
+</li>
+<li class="fragment">
+<b>L’IA réduit fortement le coût de certaines activités.</b><span>La
+recherche… comme la fraude et la manipulation.</span>
+</li>
+</ol>
+</section>
+<section id="sources" class="slide level2">
+<h2>Sources</h2>
+<div
+style="text-align:left; font-size:20px; max-width:1100px; margin:0 auto; line-height:1.6">
+<ul>
+<li>Jakesch M. et al., <em>Co-Writing with Opinionated Language Models
+Affects Users’ Views</em>, CHI 2023. <a
+href="https://arxiv.org/abs/2302.00560"
+class="uri">https://arxiv.org/abs/2302.00560</a></li>
+<li>Hugging Face, <em>Security incident disclosure — July 2026</em>. <a
+href="https://huggingface.co/blog/security-incident-july-2026"
+class="uri">https://huggingface.co/blog/security-incident-july-2026</a></li>
+<li>Hugging Face, <em>Anatomy of a Frontier Lab Agent Intrusion: A
+Technical Timeline of the July 2026 Incident</em>. <a
+href="https://huggingface.co/blog/agent-intrusion-technical-timeline"
+class="uri">https://huggingface.co/blog/agent-intrusion-technical-timeline</a></li>
+<li>OpenAI, <em>The Hugging Face incident and the road ahead</em>. <a
+href="https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+class="uri">https://openai.com/index/hugging-face-incident-and-the-road-ahead/</a></li>
+<li>Caliskan A., Bryson J., Narayanan A., <em>Semantics derived
+automatically from language corpora contain human-like biases</em>,
+Science, 2017.</li>
+<li>LeCun Y. et al., <em>Gradient-based learning applied to document
+recognition</em>, 1998 (LeNet, ~60 000 paramètres).</li>
+<li>Radford A. et al., GPT-2 (2019) ; Brown T. et al., <em>Language
+Models are Few-Shot Learners</em> (GPT-3), 2020.</li>
+</ul>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script src="vendor/reveal.js/dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="vendor/reveal.js/plugin/notes/notes.js"></script>
+  <script src="vendor/reveal.js/plugin/search/search.js"></script>
+  <script src="vendor/reveal.js/plugin/zoom/zoom.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: true,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.04,
+
+        // reveal.js plugins
+        plugins: [
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>
