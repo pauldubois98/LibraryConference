@@ -45,19 +45,30 @@ pour la société</p>
 <section id="systèmes-experts-des-règles-écrites-à-la-main"
 class="slide level2">
 <h2>Systèmes experts : des règles écrites à la main</h2>
-<p><img data-src="figures/systeme_expert.svg" class="fig" />
-<!-- Ajoute une photo de deep blue (programme qui joue aux echecs); met l'arbre en plus petit sur un cote de l'image, et change des questions: plutot bleu => mer/ciel; plutot blanc => nuage, etc... --></p>
+<div class="cols" style="grid-template-columns: 330px 1fr">
+<figure class="photo">
+<img src="images/deep_blue.jpg" alt="Deep Blue, IBM">
+<figcaption>
+<b>Deep Blue</b> (IBM) bat Garry Kasparov aux échecs en 1997
+</figcaption>
+</figure>
+<div>
+<img class="fig" src="figures/systeme_expert.svg" alt="">
+</div>
+</div>
+<div class="src">
+Photo : James the photographer, CC BY 2.0, via Wikimedia Commons
+</div>
 </section>
 <section id="le-machine-learning-apprendre-à-partir-dexemples"
 class="slide level2">
 <h2>Le Machine Learning : apprendre à partir d’exemples</h2>
-<p><img data-src="figures/chat_ml.svg" class="fig" />
-<!-- Au lieu de "modele" ecrit en texte, met un schema d'engrenage avec comme sous titre "entrainement" --></p>
+<p><img data-src="figures/chat_ml.svg" class="fig" /></p>
 </section>
 <section id="réseau-de-neurones-un-système-capable-dapprendre"
 class="slide level2">
 <h2>Réseau de neurones : un système capable d’apprendre</h2>
-<!-- Fais un schema d'un neurone. Il faut qu'on voit que le neurone a plusieurs entrees avec des poids, et une fonction d'activation -->
+<p><img data-src="figures/neurone.svg" class="fig" /></p>
 </section>
 <section id="entraîner-un-réseau-de-neurones-à-la-main"
 class="slide level2">
@@ -71,8 +82,21 @@ class="slide level2">
 </section>
 <section id="entraînement-automatique" class="slide level2">
 <h2>Entraînement automatique</h2>
-<p><img data-src="figures/boucle_entrainement.svg" class="fig" />
-<!-- Propose une live demo d'un entrainement automatique de reseau de neuronnes --></p>
+<p><img data-src="figures/boucle_entrainement.svg" class="fig" /></p>
+</section>
+<section id="démo-la-machine-règle-les-boutons" class="slide level2">
+<h2>Démo : la machine règle les boutons</h2>
+<iframe class="demo" data-src="demos/entrainement.html">
+</iframe>
+<aside class="notes">
+<p>Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés,
+1 sortie, activation sigmoïde). Poids tirés au hasard, puis à chaque
+étape : prédiction sur les 4 exemples, calcul de l’erreur, chaque poids
+est ajusté un peu dans la direction qui réduit l’erreur (descente de
+gradient). XOR : environ 300 étapes en moyenne. Vitesse = nombre
+d’étapes par image. Relancer « Nouveaux poids » montre que le point de
+départ change, mais l’erreur finit par descendre.</p>
+</aside>
 </section>
 <section id="prédire-la-suite-dun-texte" class="slide level2">
 <h2>Prédire la suite d’un texte</h2>
@@ -102,7 +126,6 @@ class="slide level2">
 <h2>Token par token</h2>
 <iframe class="demo" data-src="demos/token.html">
 </iframe>
-<!-- les boutons "le plus porbable", "annuler", et "recommencer" devraient etre en bas de la page (pour qu'ils ne bougent pas en fonction du nombre de token suggeres) -->
 </section>
 <section id="variabilité-des-réponses" class="slide level2">
 <h2>Variabilité des réponses</h2>

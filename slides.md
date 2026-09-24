@@ -6,21 +6,24 @@ lang: fr
 
 ## Systèmes experts : des règles écrites à la main
 
-![](figures/systeme_expert.svg){.fig}
-<!-- Ajoute une photo de deep blue (programme qui joue aux echecs); met l'arbre en plus petit sur un cote de l'image, et change des questions: plutot bleu => mer/ciel; plutot blanc => nuage, etc... -->
+<div class="cols" style="grid-template-columns: 330px 1fr">
+<figure class="photo"><img src="images/deep_blue.jpg" alt="Deep Blue, IBM"><figcaption><b>Deep Blue</b> (IBM) bat Garry Kasparov aux échecs en 1997</figcaption></figure>
+<div><img class="fig" src="figures/systeme_expert.svg" alt=""></div>
+</div>
+
+<div class="src">Photo : James the photographer, CC BY 2.0, via Wikimedia Commons</div>
 
 ## Le Machine Learning : apprendre à partir d'exemples
 
 ![](figures/chat_ml.svg){.fig}
-<!-- Au lieu de "modele" ecrit en texte, met un schema d'engrenage avec comme sous titre "entrainement" -->
 
 ## Réseau de neurones : un système capable d'apprendre
 
-<!-- Fais un schema d'un neurone. Il faut qu'on voit que le neurone a plusieurs entrees avec des poids, et une fonction d'activation -->
+![](figures/neurone.svg){.fig}
 
 ## Entraîner un réseau de neurones à la main
 
-DEMO_RESEAU
+<iframe class="demo" data-src="demos/reseau.html?ni=2&nh=1&hs=2&no=1&act=step&t=OU"></iframe>
 
 ## Explosion de la taille des modèles
 
@@ -29,7 +32,18 @@ DEMO_RESEAU
 ## Entraînement automatique
 
 ![](figures/boucle_entrainement.svg){.fig}
-<!-- Propose une live demo d'un entrainement automatique de reseau de neuronnes -->
+
+## Démo : la machine règle les boutons
+
+<iframe class="demo" data-src="demos/entrainement.html"></iframe>
+
+::: notes
+Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés, 1 sortie, activation sigmoïde).
+Poids tirés au hasard, puis à chaque étape : prédiction sur les 4 exemples, calcul de l'erreur,
+chaque poids est ajusté un peu dans la direction qui réduit l'erreur (descente de gradient).
+XOR : environ 300 étapes en moyenne. Vitesse = nombre d'étapes par image.
+Relancer « Nouveaux poids » montre que le point de départ change, mais l'erreur finit par descendre.
+:::
 
 ## Prédire la suite d'un texte
 
@@ -51,7 +65,6 @@ DEMO_RESEAU
 ## Token par token
 
 <iframe class="demo" data-src="demos/token.html"></iframe>
-<!-- les boutons "le plus porbable", "annuler", et "recommencer" devraient etre en bas de la page (pour qu'ils ne bougent pas en fonction du nombre de token suggeres) -->
 
 ## Variabilité des réponses
 
