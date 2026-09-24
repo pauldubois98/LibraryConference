@@ -12,28 +12,6 @@ def out(name):
     return os.path.join(OUT, name)
 
 
-# ---------------------------------------------------------------- fil conducteur
-ROADMAP = ["Comment\nça marche ?", "Pourquoi ça\nfonctionne ?", "Quels\nbiais ?",
-           "Quels\nusages ?", "Quels risques pour\nla démocratie ?"]
-
-
-def roadmap(active=None, name="roadmap.svg"):
-    s = SVG(1600, 360)
-    n = len(ROADMAP)
-    w, h, gap = 260, 170, 60
-    x0 = (1600 - (n * w + (n - 1) * gap)) / 2
-    for i, lab in enumerate(ROADMAP):
-        x = x0 + i * (w + gap)
-        on = active is None or active == i
-        fill = TEAL if (active == i) else (TEAL_L if on else LIGHT)
-        col = WHITE if active == i else (INK if on else MUTED)
-        s.box(x, 95, w, h, lab, fill=fill, fs=30, color=col, weight="bold")
-        s.text(x + w / 2, 45, str(i + 1), fs=34, color=TEAL if on else MUTED, weight="bold")
-        if i < n - 1:
-            s.arrow(x + w + 8, 180, x + w + gap - 8, 180, color=MUTED)
-    s.save(out(name))
-
-
 # ---------------------------------------------------------------- info : coût
 def info_balance():
     s = SVG(1600, 700)
@@ -70,22 +48,6 @@ def expert_system():
     s.save(out("systeme_expert.svg"))
 
 
-def classic_vs_ml():
-    s = SVG(1600, 720)
-    for k, (title, a, b, res, col, colL) in enumerate([
-            ("Programmation classique / système expert", "Règles", "Données", "Réponses", TEAL, TEAL_L),
-            ("Apprentissage automatique (Machine Learning)", "Données", "Réponses", "Règles", ORANGE, ORANGE_L)]):
-        y = 60 + k * 340
-        s.text(800, y, title, fs=40, weight="bold", color=col)
-        s.box(120, y + 50, 300, 90, a, fill=colL, fs=36)
-        s.box(120, y + 160, 300, 90, b, fill=colL, fs=36)
-        s.arrow(430, y + 95, 590, y + 150); s.arrow(430, y + 205, 590, y + 160)
-        s.box(600, y + 90, 400, 120, "Ordinateur", fill=col, fs=40, color=WHITE, weight="bold")
-        s.arrow(1010, y + 150, 1170, y + 150)
-        s.box(1180, y + 90, 320, 120, res, fill=WHITE, stroke=col, sw=5, fs=40, weight="bold")
-    s.save(out("classique_vs_ml.svg"))
-
-
 def cats_ml():
     s = SVG(1600, 640)
     ex = [("🐱", "chat", GREEN), ("🐶", "pas chat", RED), ("🐈", "chat", GREEN),
@@ -109,40 +71,6 @@ def cats_ml():
 
 
 # ---------------------------------------------------------------- réseau de neurones
-def tiny_network(name="reseau_mini.svg", weights=True):
-    s = SVG(1600, 720)
-    xs = [(250, 120 + i * 160) for i in range(4)]
-    hs = [(800, 200), (800, 520)]
-    o = (1330, 360)
-    W = [[0.8, -0.3, None, None], [None, None, 1.2, 0.5]]
-    for j, (hx, hy) in enumerate(hs):
-        for i, (xx, xy) in enumerate(xs):
-            w = W[j][i]
-            if w is None:
-                continue
-            col = TEAL if w > 0 else RED
-            s.line(xx + 50, xy, hx - 70, hy, color=col, sw=3 + 5 * abs(w))
-            if weights:
-                mx, my = (xx + hx) / 2, (xy + hy) / 2
-                s.cbox(mx, my - 5, 90, 50, f"{w:+.1f}", fill=WHITE, stroke=col, fs=26, rx=25)
-    for j, (hx, hy) in enumerate(hs):
-        w = [0.9, -0.6][j]
-        col = TEAL if w > 0 else RED
-        s.line(hx + 70, hy, o[0] - 70, o[1], color=col, sw=3 + 5 * abs(w))
-        if weights:
-            s.cbox((hx + o[0]) / 2, (hy + o[1]) / 2, 90, 50, f"{w:+.1f}", fill=WHITE, stroke=col, fs=26, rx=25)
-    for i, (xx, xy) in enumerate(xs):
-        s.circle(xx, xy, 50, fill=LIGHT, stroke=INK)
-        s.text(xx, xy, f"x{'₁₂₃₄'[i]}", fs=34)
-    for hx, hy in hs:
-        s.circle(hx, hy, 70, fill=ORANGE_L, stroke=ORANGE, sw=5)
-        s.text(hx, hy, "neurone", fs=26)
-    s.circle(o[0], o[1], 70, fill=TEAL, stroke=INK)
-    s.text(o[0], o[1], "sortie", fs=28, color=WHITE, weight="bold")
-    s.text(250, 700, "entrées", fs=28, color=MUTED, italic=True)
-    if weights:
-        s.text(1060, 690, "les poids = les « boutons » à régler", fs=30, color=TEAL, italic=True)
-    s.save(out(name))
 
 
 def scale_params():
@@ -193,37 +121,6 @@ def training_loop():
     s.save(out("boucle_entrainement.svg"))
 
 
-def pipeline():
-    s = SVG(1600, 560)
-    steps = [("Données", "collecter\ndes textes", LIGHT),
-             ("Préparation", "nettoyer,\nfiltrer, découper", LIGHT),
-             ("Pré-entraînement", "prédire la suite\nsur des milliards\nde phrases", ORANGE_L),
-             ("Fine-tuning", "apprendre\nà répondre\n(dialogues)", TEAL_L),
-             ("Alignement", "préférences\nhumaines :\nutile, honnête,\nprudent", PURPLE_L),
-             ("Évaluation", "tests, mesures,\nrecherche\nde failles", GREEN_L),
-             ("Déploiement", "mise à\ndisposition\ndu public", LIGHT)]
-    w, gap = 200, 22
-    x0 = (1600 - (7 * w + 6 * gap)) / 2
-    for i, (t, d, c) in enumerate(steps):
-        x = x0 + i * (w + gap)
-        s.box(x, 60, w, 120, t if len(t) < 12 else t.replace("-", "-\n"), fill=c, fs=29, weight="bold")
-        s.text(x + w / 2, 320, d, fs=29, color=MUTED)
-        if i < 6:
-            s.arrow(x + w + 3, 120, x + w + gap - 3, 120, sw=4, head=14)
-    s.text(800, 500, "chaque étape façonne le comportement final", fs=32, italic=True, color=TEAL)
-    s.save(out("pipeline.svg"))
-
-
-def data_model_behavior():
-    s = SVG(1600, 400)
-    labs = [("Données", LIGHT, INK), ("Modèle", ORANGE, WHITE), ("Comportement", TEAL, WHITE)]
-    for i, (l, f, c) in enumerate(labs):
-        s.cbox(300 + i * 500, 200, 360, 150, l, fill=f, color=c, fs=44, weight="bold")
-        if i < 2:
-            s.arrow(490 + i * 500, 200, 610 + i * 500, 200, sw=8, head=28)
-    s.save(out("donnees_modele.svg"))
-
-
 # ---------------------------------------------------------------- LLM
 def tokens_split():
     s = SVG(1600, 640)
@@ -255,21 +152,6 @@ def tokens_split():
         s.text(260, y, a + " :", fs=28, anchor="end", weight="bold", color=c)
         s.text(280, y, b, fs=28, anchor="start", color=INK)
     s.save(out("tokens.svg"))
-
-
-def bars(name, title, items, highlight=None, question=False, colors=None):
-    s = SVG(1600, 120 + 95 * len(items))
-    s.text(800, 50, title, fs=44, weight="bold")
-    mx = max(p for _, p in items)
-    for i, (t, p) in enumerate(items):
-        y = 120 + i * 95
-        s.text(360, y + 35, t, fs=38, anchor="end")
-        col = ORANGE if (highlight is not None and i in highlight) else TEAL
-        s.rect(390, y, 950 * p / mx, 70, fill=col, rx=8)
-        s.text(390 + 950 * p / mx + 20, y + 35, f"{p:.0f} %", fs=34, anchor="start", weight="bold", color=col)
-    if question:
-        s.text(1520, 120 + 95, "?", fs=150, color=ORANGE, weight="bold")
-    s.save(out(name))
 
 
 def softmax_T(logits, T):
@@ -319,45 +201,6 @@ def chat_as_text():
     s.text(1210, 550, "un seul long texte → prédire la suite", fs=28, italic=True, color=ORANGE)
     s.text(800, 660, "Pas de mémoire propre : tout l'historique est relu à chaque réponse.", fs=30, color=MUTED)
     s.save(out("conversation.svg"))
-
-
-def human_like():
-    s = SVG(1600, 740)
-    cx, cy = 800, 380
-    s.circle(cx, cy, 150, fill=ORANGE, stroke=None)
-    s.text(cx, cy, "Impression\nd'intelligence", fs=36, color=WHITE, weight="bold")
-    items = [("Langage fluide", "🗣️"), ("Contexte", "📚"), ("Continuité", "🔗"),
-             ("Raisonnement\napparent", "🧩"), ("S'adapte à\nl'interlocuteur", "🤝")]
-    for i, (t, e) in enumerate(items):
-        a = -np.pi / 2 + 2 * np.pi * i / len(items)
-        x, y = cx + 560 * np.cos(a), cy + 290 * np.sin(a)
-        s.line(cx + 150 * np.cos(a), cy + 150 * np.sin(a), x - 130 * np.cos(a), y - 60 * np.sin(a), color=MUTED, sw=3, dash="8 8")
-        s.cbox(x, y, 330, 130, "", fill=TEAL_L)
-        s.text(x - 110, y, e, fs=50)
-        s.text(x + 40, y, t, fs=30, weight="bold")
-    s.save(out("humain.svg"))
-
-
-def chain_of_thought():
-    s = SVG(1600, 760)
-    s.box(100, 20, 1400, 130, "3 étages × 12 rayonnages × 40 livres. 15 % sont prêtés.\nCombien de livres restent en rayon ?",
-          fill=LIGHT, fs=34)
-    # direct
-    s.text(380, 210, "Réponse directe", fs=34, weight="bold", color=RED)
-    s.arrow(380, 240, 380, 330)
-    s.cbox(380, 400, 360, 120, "« 1 260 »  ✗", fill=RED_L, stroke=RED, fs=40, weight="bold")
-    # étapes
-    s.text(1120, 210, "Avec étapes intermédiaires", fs=34, weight="bold", color=GREEN)
-    steps = ["3 × 12 = 36 rayonnages", "36 × 40 = 1 440 livres", "15 % de 1 440 = 216", "1 440 − 216 = 1 224"]
-    for i, st in enumerate(steps):
-        y = 250 + i * 95
-        s.cbox(1120, y + 35, 520, 72, st, fill=GREEN_L if i < 3 else GREEN, fs=30,
-               color=INK if i < 3 else WHITE, weight="bold" if i == 3 else "normal")
-        if i < 3:
-            s.arrow(1120, y + 72, 1120, y + 95, head=14, sw=4)
-    s.text(800, 690, "Chaque étape écrite devient du contexte pour prédire la suivante.",
-           fs=32, italic=True, color=TEAL)
-    s.save(out("chain_of_thought.svg"))
 
 
 # ---------------------------------------------------------------- biais
@@ -448,19 +291,6 @@ def usage_bias():
     s.save(out("biais_usage.svg"))
 
 
-def agents_fanout(name, instructions, synth="Synthèse\nhumaine", title_left="Même\nproblème"):
-    s = SVG(1600, 700)
-    n = len(instructions)
-    s.cbox(160, 350, 250, 160, title_left, fill=LIGHT, fs=34, weight="bold")
-    for i, t in enumerate(instructions):
-        y = 350 + (i - (n - 1) / 2) * 125
-        s.arrow(290, 350, 450, y, sw=4)
-        s.box(460, y - 50, 560, 100, t, fill=TEAL_L if i % 2 == 0 else ORANGE_L, fs=28)
-        s.arrow(1030, y, 1230, 350, sw=4, color=MUTED)
-    s.cbox(1380, 350, 280, 180, synth, fill=GREEN, color=WHITE, fs=34, weight="bold")
-    s.save(out(name))
-
-
 def research_before_after():
     s = SVG(1600, 760)
     s.text(270, 40, "Avant", fs=40, weight="bold", color=TEAL)
@@ -482,22 +312,6 @@ def research_before_after():
         s.arrow(1330, y + 40, 1410, 380, sw=3)
     s.cbox(1490, 380, 170, 150, "Synthèse\nhumaine", fill=GREEN, color=WHITE, fs=28, weight="bold")
     s.save(out("recherche.svg"))
-
-
-def shared_source():
-    s = SVG(1600, 700)
-    rng = np.random.default_rng(3)
-    cx, cy = 800, 560
-    s.cbox(cx, cy, 560, 140, "Même modèle · mêmes données\nmêmes angles morts", fill=RED_L, stroke=RED, fs=32, weight="bold")
-    for i in range(50):
-        a = np.pi * (0.06 + 0.88 * i / 49)
-        r = 520 + rng.uniform(-40, 40)
-        x, y = cx - r * np.cos(a) * 1.35, cy - 80 - r * np.sin(a) * 0.9
-        s.line(x, y, cx + (x - cx) * 0.15, cy - 70, color=RED, sw=1.5, opacity=0.35)
-        s.circle(x, y, 17, fill=ORANGE, stroke=None)
-    s.text(800, 250, "50 agents", fs=54, weight="bold", color=ORANGE)
-    s.text(800, 315, "≠ 50 avis indépendants", fs=40, color=INK)
-    s.save(out("agents_biais_communs.svg"))
 
 
 # ---------------------------------------------------------------- humain
@@ -522,24 +336,6 @@ def better_vs_preferred():
     s.save(out("meilleur_vs_prefere.svg"))
 
 
-def teacher():
-    s = SVG(1600, 760)
-    for k, (t, steps, col, colL) in enumerate([
-            ("AVANT", ["Produire l'explication", "Faire l'exercice", "Corriger"], TEAL, TEAL_L),
-            ("APRÈS", ["Choisir l'explication", "Accompagner", "Motiver", "Repérer les difficultés", "Interagir"], ORANGE, ORANGE_L)]):
-        x = 420 + k * 760
-        s.text(x, 45, t, fs=44, weight="bold", color=col)
-        n = len(steps)
-        for i, st in enumerate(steps):
-            y = 100 + i * (620 / n)
-            s.cbox(x, y + 45, 480, 88, st, fill=colL, fs=32)
-            if i < n - 1:
-                s.arrow(x, y + 92, x, y + 620 / n - 2, head=14, sw=4)
-    s.arrow(700, 380, 900, 380, sw=8, head=28, color=MUTED)
-    s.text(800, 330, "l'IA", fs=30, color=MUTED, italic=True)
-    s.save(out("professeur.svg"))
-
-
 # ---------------------------------------------------------------- manipulation
 def fake_media():
     s = SVG(1600, 380)
@@ -550,32 +346,6 @@ def fake_media():
         s.text(x + 120, 140, e, fs=110)
         s.text(x + 120, 250, t, fs=32, weight="bold")
     s.save(out("fake_medias.svg"))
-
-
-def cost_bars():
-    s = SVG(1600, 720)
-    tasks = [("Créer un faux site crédible", 40, 1.5), ("Rédiger 100 mails sans fautes", 30, 0.5),
-             ("Traduire", 10, 0.1), ("Personnaliser chaque message", 50, 0.3), ("Générer des variantes", 20, 0.1)]
-    cols = [TEAL, ORANGE, PURPLE, GREEN, RED]
-    tot = sum(t[1] for t in tasks)
-    scale = 1150 / tot
-    for k, (lab, idx) in enumerate([("Avant", 1), ("Avec l'IA", 2)]):
-        y = 150 + k * 250
-        s.text(260, y + 60, lab, fs=42, weight="bold", anchor="end")
-        x = 300
-        for (t, *v), c in zip(tasks, cols):
-            w = v[idx - 1] * scale
-            s.rect(x, y, max(w, 4), 120, fill=c, rx=4)
-            x += w
-        if k == 1:
-            s.text(x + 30, y + 60, "← le coût marginal s'effondre", fs=34, anchor="start", color=RED, weight="bold")
-    for i, (t, *_), in enumerate(tasks):
-        x = 120 + (i % 3) * 490
-        y = 600 + (i // 3) * 60
-        s.rect(x, y - 18, 36, 36, fill=cols[i], rx=6)
-        s.text(x + 50, y, t, fs=26, anchor="start")
-    s.text(800, 60, "Effort humain nécessaire (ordres de grandeur illustratifs)", fs=32, color=MUTED, italic=True)
-    s.save(out("cout_manipulation.svg"))
 
 
 def chatbot_vs_agent():
@@ -629,35 +399,6 @@ def hf_incident():
     s.save(out("incident_hf.svg"))
 
 
-def personalization():
-    s = SVG(1600, 700)
-    s.text(800, 45, "« Donne-moi les arguments sur X »", fs=38, italic=True, weight="bold")
-    for k, (who, e, col, colL) in enumerate([("Personne A", "🧑", TEAL, TEAL_L), ("Personne B", "👩", ORANGE, ORANGE_L)]):
-        y = 150 + k * 290
-        s.text(110, y + 90, e, fs=100)
-        s.text(110, y + 190, who, fs=28, weight="bold", color=col)
-        s.arrow(210, y + 100, 470, 340 + (k * 2 - 1) * 60, sw=4, color=col)
-        s.box(1130, y + 20, 400, 170, f"Réponse {'AB'[k]}", fill=colL, fs=38, weight="bold")
-        s.arrow(890, 340 + (k * 2 - 1) * 60, 1120, y + 105, sw=4, color=col)
-    s.cbox(680, 360, 420, 300, "", fill=LIGHT)
-    for i, t in enumerate(["contexte", "historique", "formulation", "sources", "préférences implicites"]):
-        s.text(680, 240 + i * 58, t, fs=30, color=INK if i < 4 else PURPLE)
-    s.save(out("personnalisation.svg"))
-
-
-def same_event():
-    s = SVG(1600, 700)
-    s.cbox(800, 80, 440, 110, "Même événement", fill=INK, color=WHITE, fs=38, weight="bold")
-    for k, (p, col, colL) in enumerate([("Personne A", TEAL, TEAL_L), ("Personne B", ORANGE, ORANGE_L)]):
-        x = 420 + k * 760
-        s.arrow(800, 140, x, 250, sw=5)
-        s.cbox(x, 300, 360, 100, p, fill=colL, fs=34, weight="bold")
-        s.arrow(x, 355, x, 440, sw=5, color=col)
-        s.cbox(x, 520, 420, 150, f"Contenu {'AB'[k]}", fill=col, color=WHITE, fs=40, weight="bold")
-    s.text(800, 520, "≠", fs=110, weight="bold", color=MUTED)
-    s.save(out("meme_evenement.svg"))
-
-
 def jakesch():
     s = SVG(1600, 720)
     s.cbox(190, 340, 300, 180, "1 506\nparticipants", fill=LIGHT, fs=36, weight="bold")
@@ -676,50 +417,22 @@ def jakesch():
     s.save(out("jakesch.svg"))
 
 
-def takeaways_icon():
-    pass
-
-
 if __name__ == "__main__":
-    roadmap()
-    for i in range(5):
-        roadmap(i, f"roadmap_{i + 1}.svg")
     info_balance()
     expert_system()
-    classic_vs_ml()
     cats_ml()
-    tiny_network()
     scale_params()
     training_loop()
-    pipeline()
-    data_model_behavior()
     tokens_split()
-    bars("proba_chat.svg", "« Le chat est sur le … »",
-         [("sol", 42), ("canapé", 38), ("lit", 15), ("toit", 3), ("…", 2)])
-    bars("proba_egalite.svg", "« Pour le petit-déjeuner, je prends un … »",
-         [("café", 34), ("thé", 33), ("croissant", 18), ("jus", 9), ("…", 6)],
-         highlight={0, 1}, question=True)
     temperature_static()
     chat_as_text()
-    human_like()
-    chain_of_thought()
     two_biases()
     training_bias()
     usage_bias()
-    agents_fanout("agents_consignes.svg",
-                  ["« Essaie de démontrer A »", "« Démontre le contraire »",
-                   "« Approche statistique »", "« Approche d'un autre domaine »",
-                   "« Cherche les objections »"],
-                  synth="Plus de\nperspectives")
     research_before_after()
-    shared_source()
     better_vs_preferred()
-    teacher()
     fake_media()
-    cost_bars()
     chatbot_vs_agent()
     hf_incident()
-    personalization()
-    same_event()
     jakesch()
     print("figures générées dans", OUT)
