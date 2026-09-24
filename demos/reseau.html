@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Réseau de neurones à la main</title>
+<!-- Adapté de https://pauldubois98.github.io/TrainingAI/TrainNeuralNetwork.html pour un format 16:9 :
+     les poids se règlent en glissant verticalement sur un trait, les biais en glissant sur un neurone. -->
+<link rel="stylesheet" href="common.css">
+<style>
+  body { flex-direction: row; gap: 18px; padding: 8px 12px; position: relative; user-select: none; }
+  #net { flex: 1; position: relative; }
+  #svg { width: 100%; height: 100%; display: block; }
+  .hit { stroke: transparent; stroke-width: 22; cursor: ns-resize; }
+  .neuron { cursor: ns-resize; }
+  .neuron.input { cursor: pointer; }
+  .layer-lab { font-size: 22px; fill: var(--muted); text-anchor: middle; }
+  .val { font-size: 22px; font-weight: bold; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+  .wlab rect { fill: #fff; stroke-width: 2; }
+  .wlab text { font-size: 20px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
+  #hint { position: absolute; bottom: 4px; left: 0; right: 0; text-align: center; font-size: 16px; color: var(--muted); }
+
+  /* Objectif */
+  #goal { width: 330px; display: flex; flex-direction: column; gap: 8px; }
+  #goal h3 { margin: 0; font-size: 24px; }
+  #goal select { font: inherit; font-size: 20px; padding: 4px 6px; border-radius: 8px; }
+  table { border-collapse: collapse; font-size: 22px; width: 100%; }
+  th { font-size: 17px; color: var(--muted); font-weight: normal; padding: 2px 4px; }
+  td { text-align: center; padding: 3px 4px; border-top: 1px solid var(--light); }
+  tr.trow { cursor: pointer; }
+  tr.trow:hover td { background: #f7f8fb; }
+  tr.cur td { background: var(--teal-l) !important; }
+  td.tgt { cursor: pointer; font-weight: bold; color: var(--orange); }
+  td.ok { color: var(--green); font-weight: bold; }
+  td.ko { color: var(--red); font-weight: bold; }
+  td.sep { border-left: 2px solid var(--light); }
+  #score { font-size: 24px; font-weight: bold; text-align: center; padding: 8px; border-radius: 12px; background: var(--light); }
+  #score.win { background: var(--green); color: #fff; }
+  #goal .small { font-size: 16px; color: var(--muted); }
+
+  /* Réglages repliables */
+  #gear { position: absolute; top: 6px; left: 8px; z-index: 5; font-size: 22px; padding: 4px 10px;
+    background: var(--light); color: var(--ink); }
+  #panel { position: absolute; top: 48px; left: 8px; z-index: 5; background: #fff; border: 2px solid var(--light);
+    border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 12px 16px; display: none;
+    font-size: 19px; width: 380px; }
+  #panel.open { display: block; }
+  #panel .r { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 0; }
+  #panel input[type=number] { width: 70px; font: inherit; font-size: 19px; }
+  #panel input[type=text] { width: 110px; font: inherit; font-size: 17px; }
+  #panel select { font: inherit; font-size: 18px; }
+  #panel button { font-size: 17px; padding: 6px 12px; }
+  #cfg { font-family: monospace; font-size: 13px; word-break: break-all; color: var(--muted); margin-top: 6px; }
+  canvas { border: 1px solid var(--light); border-radius: 6px; }
+
+  #tip { position: absolute; display: none; z-index: 10; background: #fff; border: 2px solid var(--light);
+    border-radius: 10px; padding: 8px 12px; font-size: 17px; box-shadow: 0 6px 18px rgba(0,0,0,.12); pointer-events: none; }
+  #tip td { border: 0; padding: 0 4px; text-align: right; }
+  #tip td.m { color: var(--muted); text-align: left; }
+</style>
+</head>
+<body>
+<button id="gear" class="alt" title="Réglages">⚙</button>
+<div id="panel">
+  <div class="r"><label>Activation</label>
+    <select id="act">
+      <option value="step">Marche (seuil)</option><option value="relu">ReLU</option>
+      <option value="sigmoid">Sigmoïde</option><option value="tanh">Tanh</option><option value="linear">Linéaire</option>
+    </select>
+    <canvas id="actplot" width="90" height="56"></canvas></div>
+  <div class="r"><label>Valeurs d'entrée</label>
+    <select id="ivs"><option value="binary">{0, 1}</option><option value="ternary">{−1, 0, 1}</option><option value="custom">Autres…</option></select>
+    <input type="text" id="ivsCustom" value="0,1" style="display:none"></div>
+  <div class="r"><label>Neurones d'entrée</label><input type="number" id="ni" min="1" max="6"></div>
+  <div class="r"><label>Couches cachées</label><input type="number" id="nh" min="0" max="3"></div>
+  <div id="hsCtl"></div>
+  <div class="r"><label>Neurones de sortie</label><input type="number" id="no" min="1" max="4"></div>
+  <div class="r"><label>Afficher tous les poids</label><input type="checkbox" id="showAll"></div>
+  <div class="r"><button id="zero" class="alt">Tout remettre à 0</button><button id="copy">Copier la config</button></div>
+  <div id="cfg"></div>
+</div>
+
+<div id="net"><svg id="svg"></svg><div id="hint">Glisser ↕ un trait = poids · un neurone = biais · clic sur une entrée = changer sa valeur · double-clic = 0</div></div>
+
+<div id="goal">
+  <h3>Objectif</h3>
+  <select id="target"></select>
+  <div id="tableWrap"></div>
+  <div id="score"></div>
+  <div class="small">Clic sur une ligne : l'envoyer dans le réseau.<br>Clic sur une cible : la modifier.</div>
+</div>
+<div id="tip"></div>
+
+<script>
+// ------------------------------------------------------------------ état
+const ACT = {
+  step: x => x > 0 ? 1 : 0, relu: x => Math.max(0, x),
+  sigmoid: x => 1 / (1 + Math.exp(-x)), tanh: x => Math.tanh(x), linear: x => x,
+};
+const ACT_NAME = { step: "marche", relu: "ReLU", sigmoid: "sigmoïde", tanh: "tanh", linear: "linéaire" };
+const WMAX = 2, PX_PER_UNIT = 90;   // amplitude des poids et sensibilité de la souris
+let S = { ni: 2, hs: [2], no: 1, act: "step", ivs: [0, 1], ivsName: "binary",
+          inputs: [0, 0], W: [], B: [], target: "OU", custom: null, showAll: false };
+
+const sizes = () => [S.ni, ...S.hs, S.no];
+function initWeights() {
+  const z = sizes();
+  S.W = []; S.B = [];
+  for (let l = 0; l < z.length - 1; l++) {
+    S.W[l] = Array.from({length: z[l]}, () => new Array(z[l + 1]).fill(0));
+    S.B[l] = new Array(z[l + 1]).fill(0);
+  }
+}
+function forward(inp) {
+  const z = sizes(); let a = [...inp]; const acts = [a], sums = [];
+  for (let l = 0; l < z.length - 1; l++) {
+    const s = [], n = [];
+    for (let j = 0; j < z[l + 1]; j++) {
+      let v = S.B[l][j];
+      for (let i = 0; i < z[l]; i++) v += a[i] * S.W[l][i][j];
+      s.push(v); n.push(ACT[S.act](v));
+    }
+    sums.push(s); acts.push(n); a = n;
+  }
+  return { acts, sums };
+}
+const fmt = v => { const r = Math.round(v * 100) / 100; return (Object.is(r, -0) ? 0 : r).toString().replace(".", ","); };
+
+// ------------------------------------------------------------------ cibles
+function combos() {
+  let rows = [[]];
+  for (let i = 0; i < S.ni; i++) rows = rows.flatMap(r => S.ivs.map(v => [...r, v]));
+  return rows;
+}
+const TARGETS = {
+  "OU":  r => r.some(v => v > 0) ? 1 : 0,
+  "ET":  r => r.every(v => v > 0) ? 1 : 0,
+  "XOR (ou exclusif)": r => r.filter(v => v > 0).length % 2,
+  "NON-ET": r => r.every(v => v > 0) ? 0 : 1,
+  "Personnalisée": null,
+  "Aucune": null,
+};
+function targetFor(k, row) {
+  if (S.target === "Aucune") return null;
+  if (S.target === "Personnalisée" || !TARGETS[S.target]) return S.custom ? S.custom[k] : 0;
+  return TARGETS[S.target](row);
+}
+
+// ------------------------------------------------------------------ dessin du réseau
+const svg = document.getElementById("svg"), tip = document.getElementById("tip");
+const NS = "http://www.w3.org/2000/svg";
+let pos = [], hover = null, drag = null;
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  (parent || svg).appendChild(e); return e;
+}
+function colorFor(v) {
+  const t = Math.min(1, Math.abs(v)), G = [221, 221, 221], T = v >= 0 ? [46, 139, 87] : [192, 57, 43];
+  return `rgb(${G.map((g, i) => Math.round(g + t * (T[i] - g))).join(",")})`;
+}
+function layout() {
+  const W = svg.clientWidth, H = svg.clientHeight, z = sizes();
+  const x0 = 90, x1 = W - 90, top = 70, bot = H - 50;
+  pos = z.map((n, l) => {
+    const x = z.length === 1 ? W / 2 : x0 + (x1 - x0) * l / (z.length - 1);
+    const gap = Math.min(120, (bot - top) / Math.max(n, 1));
+    const y0 = (top + bot) / 2 - gap * (n - 1) / 2;
+    return Array.from({length: n}, (_, j) => [x, y0 + j * gap]);
+  });
+  return Math.min(34, Math.max(20, (bot - top) / Math.max(...z) / 2.6));
+}
+function render() {
+  svg.innerHTML = "";
+  const R = layout(), z = sizes(), F = forward(S.inputs);
+  z.forEach((_, l) => el("text", {x: pos[l][0][0], y: 30, class: "layer-lab"}).textContent =
+    l === 0 ? "Entrées" : l === z.length - 1 ? "Sortie" : (S.hs.length > 1 ? `Couche cachée ${l}` : "Couche cachée"));
+  // traits
+  const labels = [];
+  for (let l = 0; l < z.length - 1; l++) for (let i = 0; i < z[l]; i++) for (let j = 0; j < z[l + 1]; j++) {
+    const [ax, ay] = pos[l][i], [bx, by] = pos[l + 1][j], w = S.W[l][i][j];
+    const active = drag && drag.kind === "w" && drag.l === l && drag.i === i && drag.j === j;
+    const hov = hover && hover.kind === "w" && hover.l === l && hover.i === i && hover.j === j;
+    if (w === 0) el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: "#c9cfdb", "stroke-width": 2, "stroke-dasharray": "6 6"});
+    else el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: w > 0 ? "#2e8b57" : "#c0392b",
+                     "stroke-width": 1.5 + Math.abs(w) * 4, "stroke-linecap": "round"});
+    if (active || hov) el("line", {x1: ax, y1: ay, x2: bx, y2: by, stroke: "#e07a2f", "stroke-width": 3, opacity: .7});
+    const h = el("line", {x1: ax, y1: ay, x2: bx, y2: by, class: "hit"});
+    h.onpointerdown = e => startDrag(e, {kind: "w", l, i, j});
+    h.onpointerenter = () => setHover({kind: "w", l, i, j});
+    h.ondblclick = () => { S.W[l][i][j] = 0; update(); };
+    if (S.showAll || active || hov) labels.push([ax + (bx - ax) * .3, ay + (by - ay) * .3, w, active || hov]);
+  }
+  // neurones
+  for (let l = 0; l < z.length; l++) for (let j = 0; j < z[l]; j++) {
+    const [x, y] = pos[l][j], v = F.acts[l][j], g = el("g", {class: "neuron" + (l === 0 ? " input" : "")});
+    if (l > 0) {
+      const b = S.B[l - 1][j];
+      if (b !== 0) el("circle", {cx: x, cy: y, r: R + 3 + Math.abs(b) * 4, fill: b > 0 ? "#2e8b57" : "#c0392b"}, g);
+    }
+    el("circle", {cx: x, cy: y, r: R, fill: colorFor(v), stroke: "#fff", "stroke-width": 3}, g);
+    el("text", {x, y, class: "val", fill: Math.abs(v) > .4 ? "#fff" : "#1f2a44"}, g).textContent = fmt(v);
+    if (l === 0) g.onclick = () => { const k = S.ivs.indexOf(S.inputs[j]); S.inputs[j] = S.ivs[(k + 1) % S.ivs.length]; update(); };
+    else {
+      g.onpointerdown = e => startDrag(e, {kind: "b", l: l - 1, j});
+      g.ondblclick = () => { S.B[l - 1][j] = 0; update(); };
+    }
+    g.onpointerenter = e => { setHover({kind: "n", l, j}); showTip(e); };
+    g.onpointermove = e => { if (!drag) moveTip(e); };
+    if (S.showAll && l > 0 && S.B[l - 1][j] !== 0) labels.push([x, y - R - 22, S.B[l - 1][j], false, "b = "]);
+  }
+  // étiquettes par-dessus
+  labels.forEach(([x, y, w, strong, pre]) => {
+    const g = el("g", {class: "wlab", "pointer-events": "none"}), txt = (pre || "") + fmt(w);
+    const wdt = 14 + txt.length * 11;
+    el("rect", {x: x - wdt / 2, y: y - 15, width: wdt, height: 30, rx: 15,
+                stroke: strong ? "#e07a2f" : (w >= 0 ? "#2e8b57" : "#c0392b")}, g);
+    el("text", {x, y, fill: w >= 0 ? "#2e8b57" : "#c0392b"}, g).textContent = txt;
+  });
+  if (hover && hover.kind === "n") refreshTip(F);
+}
+
+// Survol : on ne redessine que si l'élément survolé change (le SVG est reconstruit à chaque rendu).
+function setHover(h) {
+  if (JSON.stringify(h) === JSON.stringify(hover)) return;
+  hover = h;
+  if (!h || h.kind !== "n") tip.style.display = "none";
+  if (!drag) render();
+}
+svg.addEventListener("pointermove", e => { if (!drag && e.target === svg) setHover(null); });
+svg.addEventListener("pointerleave", () => { if (!drag) setHover(null); });
+
+// ------------------------------------------------------------------ glisser haut / bas
+function startDrag(e, target) {
+  e.preventDefault();
+  const v0 = target.kind === "w" ? S.W[target.l][target.i][target.j] : S.B[target.l][target.j];
+  drag = {...target, y0: e.clientY, v0, moved: false};
+  window.addEventListener("pointermove", onDrag);
+  window.addEventListener("pointerup", endDrag, {once: true});
+}
+function onDrag(e) {
+  const dy = drag.y0 - e.clientY;
+  if (Math.abs(dy) > 2) drag.moved = true;
+  let v = Math.round((drag.v0 + dy / PX_PER_UNIT) * 10) / 10;
+  v = Math.max(-WMAX, Math.min(WMAX, v));
+  if (drag.kind === "w") S.W[drag.l][drag.i][drag.j] = v; else S.B[drag.l][drag.j] = v;
+  if (hover && hover.kind === "n") moveTip(e);
+  update();
+}
+function endDrag() { window.removeEventListener("pointermove", onDrag); drag = null; update(); }
+
+// ------------------------------------------------------------------ infobulle de calcul
+function showTip(e) { tip.style.display = "block"; refreshTip(forward(S.inputs)); moveTip(e); }
+function moveTip(e) {
+  const W = document.body.clientWidth, r = tip.getBoundingClientRect();
+  let x = e.clientX + 16, y = e.clientY + 16;
+  if (x + r.width > W - 8) x = e.clientX - r.width - 16;
+  if (y + r.height > document.body.clientHeight - 8) y = e.clientY - r.height - 16;
+  tip.style.left = x + "px"; tip.style.top = y + "px";
+}
+function refreshTip(F) {
+  const {l, j} = hover;
+  if (l === 0) { tip.innerHTML = `<b>Entrée</b> : ${fmt(S.inputs[j])}<br><span style="color:#6b7489">clic pour changer</span>`; return; }
+  const z = sizes(); let h = "<table>";
+  for (let i = 0; i < z[l - 1]; i++) {
+    const a = F.acts[l - 1][i], w = S.W[l - 1][i][j], c = a * w;
+    h += `<tr><td>${i ? (c >= 0 ? "+ " : "− ") : (c < 0 ? "− " : "")}${fmt(Math.abs(c))}</td><td class="m">(${fmt(a)} × ${fmt(w)})</td></tr>`;
+  }
+  const b = S.B[l - 1][j];
+  h += `<tr><td style="border-top:1px solid #ccc">${b >= 0 ? "+ " : "− "}${fmt(Math.abs(b))}</td><td class="m" style="border-top:1px solid #ccc">(biais)</td></tr>`;
+  h += `<tr><td><b>= ${fmt(F.sums[l - 1][j])}</b></td><td class="m">(somme)</td></tr></table>`;
+  h += `${ACT_NAME[S.act]}(${fmt(F.sums[l - 1][j])}) = <b>${fmt(F.acts[l][j])}</b>`;
+  tip.innerHTML = h;
+}
+
+// ------------------------------------------------------------------ table objectif
+function renderGoal() {
+  const rows = combos(), wrap = document.getElementById("tableWrap"), score = document.getElementById("score");
+  if (rows.length > 16) { wrap.innerHTML = `<p class="small">${rows.length} combinaisons : trop pour les afficher.</p>`; score.textContent = ""; return; }
+  const hasT = S.target !== "Aucune" && S.no === 1;
+  if (S.custom === null || S.custom.length !== rows.length) S.custom = rows.map(r => TARGETS["OU"](r));
+  let h = "<table><tr>" + rows[0].map((_, i) => `<th>x${i + 1}</th>`).join("") +
+    Array.from({length: S.no}, (_, k) => `<th class="${k ? "" : "sep"}">sortie${S.no > 1 ? " " + (k + 1) : ""}</th>`).join("") +
+    (hasT ? "<th>cible</th><th></th>" : "") + "</tr>";
+  let ok = 0;
+  rows.forEach((r, k) => {
+    const out = forward(r).acts.at(-1), cur = r.every((v, i) => v === S.inputs[i]);
+    h += `<tr class="trow${cur ? " cur" : ""}" data-k="${k}">` + r.map(v => `<td>${fmt(v)}</td>`).join("") +
+      out.map((v, i) => `<td class="${i ? "" : "sep"}">${fmt(v)}</td>`).join("");
+    if (hasT) {
+      const t = targetFor(k, r), good = Math.abs(out[0] - t) < 0.2;
+      ok += good;
+      h += `<td class="tgt" data-t="${k}">${fmt(t)}</td><td class="${good ? "ok" : "ko"}">${good ? "✓" : "✗"}</td>`;
+    }
+    h += "</tr>";
+  });
+  wrap.innerHTML = h + "</table>";
+  wrap.querySelectorAll("tr.trow").forEach(tr => tr.onclick = e => {
+    if (e.target.dataset.t !== undefined) return;
+    S.inputs = [...rows[+tr.dataset.k]]; update();
+  });
+  wrap.querySelectorAll("td.tgt").forEach(td => td.onclick = () => {
+    const k = +td.dataset.t;
+    if (S.target !== "Personnalisée") { S.custom = rows.map((r, i) => targetFor(i, r)); S.target = "Personnalisée"; syncTargetSelect(); }
+    const i = S.ivs.indexOf(S.custom[k]); S.custom[k] = S.ivs[(i + 1) % S.ivs.length]; update();
+  });
+  score.className = hasT && ok === rows.length ? "win" : "";
+  score.textContent = !hasT ? "" : ok === rows.length ? "🎉 Tout est correct !" : `${ok} / ${rows.length} corrects`;
+}
+function syncTargetSelect() {
+  const sel = document.getElementById("target");
+  if (!sel.options.length) Object.keys(TARGETS).forEach(k => sel.add(new Option(k, k)));
+  sel.value = S.target; sel.disabled = S.no !== 1;
+}
+
+// ------------------------------------------------------------------ réglages
+function renderPanel() {
+  document.getElementById("act").value = S.act;
+  document.getElementById("ivs").value = S.ivsName;
+  const cu = document.getElementById("ivsCustom");
+  cu.style.display = S.ivsName === "custom" ? "" : "none"; cu.value = S.ivs.join(",");
+  document.getElementById("ni").value = S.ni;
+  document.getElementById("nh").value = S.hs.length;
+  document.getElementById("no").value = S.no;
+  document.getElementById("showAll").checked = S.showAll;
+  const hc = document.getElementById("hsCtl"); hc.innerHTML = "";
+  S.hs.forEach((n, l) => {
+    const d = document.createElement("div"); d.className = "r";
+    d.innerHTML = `<label>&nbsp;&nbsp;neurones couche ${l + 1}</label><input type="number" min="1" max="6" value="${n}">`;
+    d.querySelector("input").onchange = e => { S.hs[l] = clamp(+e.target.value, 1, 6); reshape(); };
+    hc.appendChild(d);
+  });
+  drawActPlot();
+}
+function drawActPlot() {
+  const c = document.getElementById("actplot"), g = c.getContext("2d"), W = c.width, H = c.height;
+  g.clearRect(0, 0, W, H); g.strokeStyle = "#ddd"; g.beginPath(); g.moveTo(0, H / 2); g.lineTo(W, H / 2); g.moveTo(W / 2, 0); g.lineTo(W / 2, H); g.stroke();
+  g.strokeStyle = "#0f7c8c"; g.lineWidth = 2; g.beginPath();
+  for (let px = 0; px <= W; px++) { const x = (px / W - .5) * 6, y = H / 2 - ACT[S.act](x) * H / 3.2; px ? g.lineTo(px, y) : g.moveTo(px, y); }
+  g.stroke();
+}
+const clamp = (v, a, b) => Math.max(a, Math.min(b, Math.round(v) || a));
+function reshape() {
+  S.inputs = Array.from({length: S.ni}, (_, i) => S.ivs.includes(S.inputs[i]) ? S.inputs[i] : S.ivs[0]);
+  S.custom = null; initWeights(); renderPanel(); update();
+}
+document.getElementById("gear").onclick = () => document.getElementById("panel").classList.toggle("open");
+document.getElementById("act").onchange = e => { S.act = e.target.value; drawActPlot(); update(); };
+document.getElementById("ivs").onchange = e => {
+  S.ivsName = e.target.value;
+  S.ivs = S.ivsName === "binary" ? [0, 1] : S.ivsName === "ternary" ? [-1, 0, 1] : parseList(document.getElementById("ivsCustom").value);
+  renderPanel(); S.custom = null;
+  S.inputs = S.inputs.map(v => S.ivs.includes(v) ? v : S.ivs[0]); update();
+};
+document.getElementById("ivsCustom").onchange = e => { S.ivs = parseList(e.target.value); S.custom = null; S.inputs = S.inputs.map(v => S.ivs.includes(v) ? v : S.ivs[0]); update(); };
+const parseList = s => { const v = s.split(",").map(Number).filter(n => !isNaN(n)); return v.length ? v : [0, 1]; };
+document.getElementById("ni").onchange = e => { S.ni = clamp(+e.target.value, 1, 6); reshape(); };
+document.getElementById("nh").onchange = e => { const n = clamp(+e.target.value, 0, 3); S.hs = S.hs.slice(0, n); while (S.hs.length < n) S.hs.push(2); reshape(); };
+document.getElementById("no").onchange = e => { S.no = clamp(+e.target.value, 1, 4); reshape(); };
+document.getElementById("showAll").onchange = e => { S.showAll = e.target.checked; update(); };
+document.getElementById("zero").onclick = () => { initWeights(); update(); };
+document.getElementById("target").onchange = e => { S.target = e.target.value; update(); };
+document.getElementById("copy").onclick = () => {
+  const q = toQuery(); document.getElementById("cfg").textContent = "?" + q;
+  navigator.clipboard && navigator.clipboard.writeText("?" + q).catch(() => {});
+};
+
+// ------------------------------------------------------------------ URL (mêmes clés que la page d'origine, + t, tc, all)
+function toQuery() {
+  const p = new URLSearchParams({ni: S.ni, no: S.no, nh: S.hs.length, act: S.act,
+    ivs: S.ivsName === "custom" ? "custom:" + S.ivs.join(",") : S.ivsName, inp: S.inputs.join(",")});
+  if (S.hs.length) p.set("hs", S.hs.join(","));
+  p.set("w", S.W.flatMap(l => l.flat()).join(",")); p.set("b", S.B.flat().join(","));
+  p.set("t", S.target); if (S.target === "Personnalisée") p.set("tc", S.custom.join(","));
+  if (S.showAll) p.set("all", 1);
+  return p.toString().replace(/%2C/g, ",");
+}
+function fromQuery() {
+  const p = new URLSearchParams(location.search);
+  if (p.has("ni")) S.ni = clamp(+p.get("ni"), 1, 6);
+  if (p.has("no")) S.no = clamp(+p.get("no"), 1, 4);
+  const nh = p.has("nh") ? clamp(+p.get("nh"), 0, 3) : S.hs.length;
+  const hs = p.has("hs") ? p.get("hs").split(",").map(Number) : [];
+  S.hs = Array.from({length: nh}, (_, i) => clamp(hs[i] || 2, 1, 6));
+  if (p.has("act") && ACT[p.get("act")]) S.act = p.get("act");
+  const ivs = p.get("ivs");
+  if (ivs === "ternary") { S.ivsName = "ternary"; S.ivs = [-1, 0, 1]; }
+  else if (ivs && ivs.startsWith("custom:")) { S.ivsName = "custom"; S.ivs = parseList(ivs.slice(7)); }
+  const inp = p.has("inp") ? p.get("inp").split(",").map(Number) : [];
+  S.inputs = Array.from({length: S.ni}, (_, i) => S.ivs.includes(inp[i]) ? inp[i] : S.ivs[0]);
+  initWeights();
+  if (p.has("w")) { const w = p.get("w").split(",").map(Number); let k = 0; S.W.forEach(l => l.forEach(r => r.forEach((_, j) => { if (k < w.length) r[j] = w[k++]; }))); }
+  if (p.has("b")) { const b = p.get("b").split(",").map(Number); let k = 0; S.B.forEach(r => r.forEach((_, j) => { if (k < b.length) r[j] = b[k++]; })); }
+  if (p.has("t") && p.get("t") in TARGETS) S.target = p.get("t");
+  if (p.has("tc")) S.custom = p.get("tc").split(",").map(Number);
+  S.showAll = p.has("all");
+}
+
+function update() { render(); renderGoal(); syncTargetSelect(); }
+fromQuery(); renderPanel(); update();
+window.addEventListener("resize", update);
+</script>
+</body>
+</html>
