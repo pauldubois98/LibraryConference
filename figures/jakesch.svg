@@ -1,21 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" width="1600" height="720">
-<rect x="40.0" y="250.0" width="300" height="180" rx="18" fill="#eef1f6"   opacity="1"/>
-<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="190.0" y="317.5">1 506</tspan><tspan x="190.0" y="362.5">participants</tspan></text>
+<rect x="40.0" y="320.0" width="300" height="180" rx="18" fill="#eef1f6"   opacity="1"/>
+<text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="36" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="190.0" y="387.5">1 506</tspan><tspan x="190.0" y="432.5">participants</tspan></text>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="30" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style="font-style:italic;"><tspan x="800" y="45.0">Écrire un texte : « les réseaux sociaux sont-ils bons pour la société ? »</tspan></text>
-<line x1="345" y1="340" x2="506.80433837046434" y2="229.04845368882445" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<polygon points="520,220 510.1,237.4 500.2,223.0" fill="#6b7489" opacity="1"/>
+<line x1="345" y1="410" x2="509.16038792397137" y2="231.7687216825454" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
+<polygon points="520,220 514.2,239.1 501.4,227.4" fill="#6b7489" opacity="1"/>
 <rect x="530" y="150" width="460" height="140" rx="18" fill="#eef1f6"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="normal" text-anchor="middle" dominant-baseline="central" style=""><tspan x="760.0" y="202.5">Écrit seul</tspan><tspan x="760.0" y="237.5">(groupe témoin)</tspan></text>
 <line x1="1000" y1="220" x2="1074.0" y2="220.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="1090,220 1072.0,228.7 1072.0,211.3" fill="#6b7489" opacity="1"/>
-<line x1="345" y1="340" x2="505.14437294583587" y2="404.05774917833435" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<polygon points="520,410 500.0,411.4 506.5,395.2" fill="#6b7489" opacity="1"/>
+<line x1="345" y1="410" x2="504.0" y2="410.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
+<polygon points="520,410 502.0,418.7 502.0,401.3" fill="#6b7489" opacity="1"/>
 <rect x="530" y="340" width="460" height="140" rx="18" fill="#d6eef1"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="760.0" y="392.5">Avec une IA réglée</tspan><tspan x="760.0" y="427.5">sur « plutôt POUR »</tspan></text>
 <line x1="1000" y1="410" x2="1074.0" y2="410.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
 <polygon points="1090,410 1072.0,418.7 1072.0,401.3" fill="#6b7489" opacity="1"/>
-<line x1="345" y1="340" x2="511.06597810256017" y2="586.7265960380894" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
-<polygon points="520,600 502.7,589.9 517.2,580.2" fill="#6b7489" opacity="1"/>
+<line x1="345" y1="410" x2="509.16038792397137" y2="588.2312783174547" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>
+<polygon points="520,600 501.4,592.6 514.2,580.9" fill="#6b7489" opacity="1"/>
 <rect x="530" y="530" width="460" height="140" rx="18" fill="#fbe5d3"   opacity="1"/>
 <text font-family="Lato, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif" font-size="28" fill="#1f2a44" font-weight="bold" text-anchor="middle" dominant-baseline="central" style=""><tspan x="760.0" y="582.5">Avec une IA réglée</tspan><tspan x="760.0" y="617.5">sur « plutôt CONTRE »</tspan></text>
 <line x1="1000" y1="600" x2="1074.0" y2="600.0" stroke="#6b7489" stroke-width="4" stroke-linecap="round"  opacity="1"/>

@@ -65,17 +65,15 @@ class="slide level2">
 <h2>Le Machine Learning : apprendre à partir d’exemples</h2>
 <p><img data-src="figures/chat_ml.svg" class="fig" /></p>
 </section>
-<section id="réseau-de-neurones-un-système-capable-dapprendre"
-class="slide level2">
-<h2>Réseau de neurones : un système capable d’apprendre</h2>
+<section id="un-neurone-est-capable-dapprendre" class="slide level2">
+<h2>Un neurone est capable d’apprendre</h2>
 <p><img data-src="figures/neurone.svg" class="fig" /></p>
 </section>
 <section id="entraîner-un-réseau-de-neurones-à-la-main"
 class="slide level2">
 <h2>Entraîner un réseau de neurones à la main</h2>
-<iframe class="demo" data-src="demos/reseau.html?ni=2&amp;nh=1&amp;hs=2&amp;no=1&amp;act=step&amp;t=OU">
+<iframe class="demo" data-src="demos/reseau.html?ni=2&amp;nh=1&amp;hs=2&amp;no=1&amp;act=step&amp;t=OU-EXCLUSIF">
 </iframe>
-<!-- Aligne l'element id gear (qui fait apparaitre les Réglages) avec les layer-lab (entree, couche cachee, sortie)-->
 </section>
 <section id="explosion-de-la-taille-des-modèles" class="slide level2">
 <h2>Explosion de la taille des modèles</h2>
@@ -83,13 +81,14 @@ class="slide level2">
 </section>
 <section id="entraînement-automatique" class="slide level2">
 <h2>Entraînement automatique</h2>
-<p><img data-src="figures/boucle_entrainement.svg" class="fig" /></p>
+<p><img data-src="figures/boucle_entrainement.svg" class="fig" />
+<!-- les fleches ne sont pas visibles, fixer cette image --></p>
 </section>
 <section id="démo-la-machine-règle-les-boutons" class="slide level2">
 <h2>Démo : la machine règle les boutons</h2>
 <iframe class="demo" data-src="demos/entrainement.html">
 </iframe>
-<!-- lorsque l'on fait une etape, je veux voir avec des petites fleches vers le haut ou le bas comment les poids sont mis a jour (et si on clique sur une autre entree, les fleches doivent etre mises a jour) -->
+<!-- Le id "controls" doit etre mieux centre verticalement; je veux un bouton "poid aleatoires" et "RAZ poids"; je veux aussi pouvoir afficher/de-afficher le sens dans lequel l'exemple pousse; ajouter les objectifs "non-et" et "personalise" -->
 <aside class="notes">
 <p>Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés,
 1 sortie, activation sigmoïde). Poids tirés au hasard, puis à chaque
@@ -99,6 +98,11 @@ gradient). XOR : environ 300 étapes en moyenne. Vitesse = nombre
 d’étapes par image. Relancer « Nouveaux poids » montre que le point de
 départ change, mais l’erreur finit par descendre.</p>
 </aside>
+<!-- Ajouter une slide expliquant comment prendre 3 lettres en entree (activer le neurone correspondant), et predire la prochaine lettre (celle qui s'active le plus) -->
+</section>
+<section id="caractère-vs-mot-vs-token" class="slide level2">
+<h2>Caractère vs mot vs token</h2>
+<p><img data-src="figures/tokens.svg" class="fig" /></p>
 </section>
 <section id="prédire-la-suite-dun-texte" class="slide level2">
 <h2>Prédire la suite d’un texte</h2>
@@ -120,10 +124,6 @@ départ change, mais l’erreur finit par descendre.</p>
 </div>
 </div>
 </section>
-<section id="caractère-vs-mot-vs-token" class="slide level2">
-<h2>Caractère vs mot vs token</h2>
-<p><img data-src="figures/tokens.svg" class="fig" /></p>
-</section>
 <section id="token-par-token" class="slide level2">
 <h2>Token par token</h2>
 <iframe class="demo" data-src="demos/token.html">
@@ -138,9 +138,9 @@ départ change, mais l’erreur finit par descendre.</p>
 <h2>La température</h2>
 <p><img data-src="figures/temperature.svg" class="fig" /></p>
 </section>
-<section id="mascarade-de-la-conversation-avec-une-ia"
+<section id="une-conversation-dépend-du-point-de-vue"
 class="slide level2">
-<h2>Mascarade de la conversation avec une IA</h2>
+<h2>Une conversation dépend du point de vue</h2>
 <p><img data-src="figures/conversation.svg" class="fig" /></p>
 </section>
 <section id="raisonner-par-étapes-chain-of-thought"
@@ -220,8 +220,7 @@ dans un raisonnement coûte plus cher.
 <section id="écrire-avec-une-ia-peut-changer-notre-opinion"
 class="slide level2">
 <h2>Écrire avec une IA peut changer notre opinion</h2>
-<p><img data-src="figures/jakesch.svg" class="fig-s" />
-<!-- the "1 506 participants" box is not centered vertically, make it aligned with the middle row --></p>
+<p><img data-src="figures/jakesch.svg" class="fig-s" /></p>
 <div class="msg fragment">
 La majorité des participants n’a pas remarqué que l’IA était orientée.
 </div>
@@ -259,13 +258,13 @@ class="slide level2">
 Et en bibliothèque ? 📚
 </div>
 </section>
-<section id="des-faux-sous-toutes-les-formes" class="slide level2">
-<h2>Des faux, sous toutes les formes</h2>
-<p><img data-src="figures/fake_medias.svg" class="fig" /></p>
-</section>
 <section id="ce-qui-change-pour-linformation" class="slide level2">
 <h2>Ce qui change pour l’information</h2>
 <p><img data-src="figures/info_cout.svg" class="fig" /></p>
+</section>
+<section id="des-faux-sous-toutes-les-formes" class="slide level2">
+<h2>Des faux, sous toutes les formes</h2>
+<p><img data-src="figures/fake_medias.svg" class="fig" /></p>
 </section>
 <section id="hameçonnage" class="slide level2">
 <h2>Hameçonnage</h2>
@@ -331,6 +330,7 @@ Sources : Hugging Face, « Security incident disclosure — July 2026 » et
 « Anatomy of a Frontier Lab Agent Intrusion » (blog huggingface.co) ;
 OpenAI, « The Hugging Face incident and the road ahead ».
 </div>
+<!-- a simplifier -->
 <aside class="notes">
 <p>Faits (d’après le rapport technique de Hugging Face) : - Fenêtre de
 l’incident : 9 au 13 juillet 2026. - Origine : une évaluation interne
@@ -355,19 +355,16 @@ d’agents).</p>
 <h2>Conclusion</h2>
 <ol class="retenir">
 <li class="fragment">
-<b>Une IA n’est pas magique.</b><span>Elle apprend à partir de données
-et produit des prédictions.</span>
+Une IA n’est pas magique.
 </li>
 <li class="fragment">
-<b>Un LLM prédit du texte, token par token.</b><span>Le réseau de
-neurones est complexe, mais la tâche est simple.</span>
+Un LLM prédit du texte, token par token.
 </li>
 <li class="fragment">
-<b>Les données et les instructions peuvent être biaisées.</b>
+Les données et les instructions peuvent être biaisées.
 </li>
 <li class="fragment">
-<b>L’IA réduit fortement le coût de certaines activités.</b><span>La
-recherche… comme la fraude et la manipulation.</span>
+L’IA réduit fortement le coût de la fraude / la création de faux.
 </li>
 </ol>
 </section>

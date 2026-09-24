@@ -17,14 +17,13 @@ lang: fr
 
 ![](figures/chat_ml.svg){.fig}
 
-## Réseau de neurones : un système capable d'apprendre
+## Un neurone est capable d'apprendre
 
 ![](figures/neurone.svg){.fig}
 
 ## Entraîner un réseau de neurones à la main
 
-<iframe class="demo" data-src="demos/reseau.html?ni=2&nh=1&hs=2&no=1&act=step&t=OU"></iframe>
-<!-- Aligne l'element id gear (qui fait apparaitre les Réglages) avec les layer-lab (entree, couche cachee, sortie)-->
+<iframe class="demo" data-src="demos/reseau.html?ni=2&nh=1&hs=2&no=1&act=step&t=OU-EXCLUSIF"></iframe>
 
 ## Explosion de la taille des modèles
 
@@ -33,11 +32,12 @@ lang: fr
 ## Entraînement automatique
 
 ![](figures/boucle_entrainement.svg){.fig}
+<!-- les fleches ne sont pas visibles, fixer cette image -->
 
 ## Démo : la machine règle les boutons
 
 <iframe class="demo" data-src="demos/entrainement.html"></iframe>
-<!-- lorsque l'on fait une etape, je veux voir avec des petites fleches vers le haut ou le bas comment les poids sont mis a jour (et si on clique sur une autre entree, les fleches doivent etre mises a jour) -->
+<!-- Le id "controls" doit etre mieux centre verticalement; je veux un bouton "poid aleatoires" et "RAZ poids"; je veux aussi pouvoir afficher/de-afficher le sens dans lequel l'exemple pousse; ajouter les objectifs "non-et" et "personalise" -->
 
 ::: notes
 Même réseau que la démo « à la main » (2 entrées, 3 neurones cachés, 1 sortie, activation sigmoïde).
@@ -46,6 +46,12 @@ chaque poids est ajusté un peu dans la direction qui réduit l'erreur (descente
 XOR : environ 300 étapes en moyenne. Vitesse = nombre d'étapes par image.
 Relancer « Nouveaux poids » montre que le point de départ change, mais l'erreur finit par descendre.
 :::
+
+<!-- Ajouter une slide expliquant comment prendre 3 lettres en entree (activer le neurone correspondant), et predire la prochaine lettre (celle qui s'active le plus) -->
+
+## Caractère vs mot vs token
+
+![](figures/tokens.svg){.fig}
 
 ## Prédire la suite d'un texte
 
@@ -60,10 +66,6 @@ Relancer « Nouveaux poids » montre que le point de départ change, mais l'erre
 <div class="big-q teal" style="font-size:1.1em">→ Europe</div>
 :::
 
-## Caractère vs mot vs token
-
-![](figures/tokens.svg){.fig}
-
 ## Token par token
 
 <iframe class="demo" data-src="demos/token.html"></iframe>
@@ -76,7 +78,7 @@ Relancer « Nouveaux poids » montre que le point de départ change, mais l'erre
 
 ![](figures/temperature.svg){.fig}
 
-## Mascarade de la conversation avec une IA
+## Une conversation dépend du point de vue
 
 ![](figures/conversation.svg){.fig}
 
@@ -116,7 +118,6 @@ Relancer « Nouveaux poids » montre que le point de départ change, mais l'erre
 ## Écrire avec une IA peut changer notre opinion
 
 ![](figures/jakesch.svg){.fig-s}
-<!-- the "1 506 participants" box is not centered vertically, make it aligned with the middle row -->
 
 <div class="msg fragment">La majorité des participants n'a pas remarqué que l'IA était orientée.</div>
 
@@ -147,13 +148,13 @@ Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de
 
 <div class="msg fragment">Et en bibliothèque ? 📚</div>
 
-## Des faux, sous toutes les formes
-
-![](figures/fake_medias.svg){.fig}
-
 ## Ce qui change pour l'information
 
 ![](figures/info_cout.svg){.fig} 
+
+## Des faux, sous toutes les formes
+
+![](figures/fake_medias.svg){.fig}
 
 ## Hameçonnage
 
@@ -196,6 +197,7 @@ Une erreur de texte est une chose. Une erreur qui déclenche une action en est u
 ![](figures/incident_hf.svg){.fig}
 
 <div class="src">Sources : Hugging Face, « Security incident disclosure — July 2026 » et « Anatomy of a Frontier Lab Agent Intrusion » (blog huggingface.co) ; OpenAI, « The Hugging Face incident and the road ahead ».</div>
+<!-- a simplifier -->
 
 ::: notes
 Faits (d'après le rapport technique de Hugging Face) :
@@ -215,10 +217,10 @@ Faits (d'après le rapport technique de Hugging Face) :
 ## Conclusion
 
 <ol class="retenir">
-<li class="fragment"><b>Une IA n'est pas magique.</b><span>Elle apprend à partir de données et produit des prédictions.</span></li>
-<li class="fragment"><b>Un LLM prédit du texte, token par token.</b><span>Le réseau de neurones est complexe, mais la tâche est simple.</span></li>
-<li class="fragment"><b>Les données et les instructions peuvent être biaisées.</b></li>
-<li class="fragment"><b>L'IA réduit fortement le coût de certaines activités.</b><span>La recherche… comme la fraude et la manipulation.</span></li>
+<li class="fragment">Une IA n'est pas magique.</li>
+<li class="fragment">Un LLM prédit du texte, token par token.</li>
+<li class="fragment">Les données et les instructions peuvent être biaisées.</li>
+<li class="fragment">L'IA réduit fortement le coût de la fraude / la création de faux.</li>
 </ol>
 
 ## Sources

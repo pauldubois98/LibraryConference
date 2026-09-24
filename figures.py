@@ -100,11 +100,10 @@ def neuron():
         s.circle(x, y, 55, fill=LIGHT, stroke=INK)
         s.text(x, y, f"x{'₁₂₃'[k]}", fs=40)
     # biais
-    s.cbox(sx, 120, 170, 64, "b  (biais)", fill=PURPLE_L, stroke=PURPLE, fs=28, rx=32)
+    s.cbox(sx, 120, 170, 64, "b", fill=PURPLE_L, stroke=PURPLE, fs=28, rx=32)
     s.arrow(sx, 152, sx, sy - sr - 4, color=PURPLE, sw=4, head=16)
     s.circle(sx, sy, sr, fill=ORANGE_L, stroke=ORANGE, sw=5)
     s.text(sx, sy - 12, "Σ", fs=80, color=ORANGE, weight="bold")
-    s.text(sx, sy + 55, "on additionne", fs=22, color=MUTED)
     s.arrow(sx + sr + 5, sy, 1010, sy, sw=6, head=22)
     # fonction d'activation (sigmoïde)
     bx, by, bw, bh = 1020, 260, 220, 200
@@ -133,7 +132,7 @@ def neuron():
 
 def scale_params():
     s = SVG(1600, 700)
-    data = [("Notre petit\nréseau", 8, "8"), ("Reconnaître des\nchiffres (1998)", 6e4, "60 000"),
+    data = [("Réseau de\ndémonstration", 10, "~10"), ("Reconnaître des\nchiffres (1998)", 6e4, "60 000"),
             ("GPT-2\n(2019)", 1.5e9, "1,5 milliard"), ("GPT-3\n(2020)", 1.75e11, "175 milliards"),
             ("Grands modèles\nactuels", 1e12, "~1 000 milliards ?")]
     base_y, top = 560, 90
@@ -146,7 +145,6 @@ def scale_params():
         s.text(x + 95, base_y - h - 35, txt, fs=30, weight="bold", color=col)
         s.text(x + 95, base_y + 60, lab, fs=26)
     s.line(90, base_y, 1560, base_y, color=INK, sw=3)
-    s.text(90, 40, "nombre de « boutons » (paramètres), échelle logarithmique", fs=28, color=MUTED, anchor="start")
     s.save(out("echelle_parametres.svg"))
 
 
@@ -451,14 +449,14 @@ def hf_incident():
 
 def jakesch():
     s = SVG(1600, 720)
-    s.cbox(190, 340, 300, 180, "1 506\nparticipants", fill=LIGHT, fs=36, weight="bold")
+    s.cbox(190, 410, 300, 180, "1 506\nparticipants", fill=LIGHT, fs=36, weight="bold")
     s.text(800, 45, "Écrire un texte : « les réseaux sociaux sont-ils bons pour la société ? »", fs=30, italic=True)
     groups = [("Écrit seul", "(groupe témoin)", LIGHT, INK),
               ("Avec une IA réglée\nsur « plutôt POUR »", "", TEAL_L, INK),
               ("Avec une IA réglée\nsur « plutôt CONTRE »", "", ORANGE_L, INK)]
     for i, (t, sub, c, col) in enumerate(groups):
         y = 150 + i * 190
-        s.arrow(345, 340, 520, y + 70, sw=4)
+        s.arrow(345, 410, 520, y + 70, sw=4)
         s.box(530, y, 460, 140, t + ("\n" + sub if sub else ""), fill=c, fs=28, weight="bold" if i else "normal")
         s.arrow(1000, y + 70, 1090, y + 70, sw=4)
     s.box(1100, 150, 440, 140, "Référence", fill=LIGHT, fs=30)

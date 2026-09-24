@@ -13,7 +13,7 @@
   .hit { stroke: transparent; stroke-width: 22; cursor: ns-resize; }
   .neuron { cursor: ns-resize; }
   .neuron.input { cursor: pointer; }
-  .layer-lab { font-size: 22px; fill: var(--muted); text-anchor: middle; }
+  .layer-lab { font-size: 22px; fill: var(--muted); text-anchor: middle; dominant-baseline: central; }
   .val { font-size: 22px; font-weight: bold; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
   .wlab rect { fill: #fff; stroke-width: 2; }
   .wlab text { font-size: 20px; font-weight: bold; text-anchor: middle; dominant-baseline: central; }
@@ -37,10 +37,11 @@
   #goal .small { font-size: 16px; color: var(--muted); }
 
   /* Réglages repliables */
-  #gear { position: absolute; top: 6px; left: 8px; z-index: 5; font-size: 22px; padding: 4px 10px;
+  /* centre vertical du bouton = centre des titres de couches (8px de marge + y=30 dans le SVG) */
+  #gear { position: absolute; top: 18px; left: 8px; z-index: 5; font-size: 22px; padding: 0 10px; height: 40px; line-height: 40px;
     background: var(--light); color: var(--ink); }
-  #panel { position: absolute; top: 48px; left: 8px; z-index: 5; background: #fff; border: 2px solid var(--light);
-    border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 12px 16px; display: none;
+  #panel { position: absolute; top: 64px; left: 8px; z-index: 5; background: #fff; border: 2px solid var(--light);
+    border-radius: 14px; padding: 12px 16px; display: none;
     font-size: 19px; width: 380px; }
   #panel.open { display: block; }
   #panel .r { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 6px 0; }
@@ -78,14 +79,13 @@
   <div id="cfg"></div>
 </div>
 
-<div id="net"><svg id="svg"></svg><div id="hint">Glisser ↕ un trait = poids · un neurone = biais · clic sur une entrée = changer sa valeur · double-clic = 0</div></div>
+<div id="net"><svg id="svg"></svg><div id="hint">Glisser ↕ change les valeurs | trait pour les poids · neurones = biais · clic sur une entrée change sa valeur</div></div>
 
 <div id="goal">
   <h3>Objectif</h3>
   <select id="target"></select>
   <div id="tableWrap"></div>
   <div id="score"></div>
-  <div class="small">Clic sur une ligne : l'envoyer dans le réseau.<br>Clic sur une cible : la modifier.</div>
 </div>
 <div id="tip"></div>
 
@@ -133,7 +133,7 @@ function combos() {
 const TARGETS = {
   "OU":  r => r.some(v => v > 0) ? 1 : 0,
   "ET":  r => r.every(v => v > 0) ? 1 : 0,
-  "XOR (ou exclusif)": r => r.filter(v => v > 0).length % 2,
+  "OU-EXCLUSIF": r => r.filter(v => v > 0).length % 2,
   "NON-ET": r => r.every(v => v > 0) ? 0 : 1,
   "Personnalisée": null,
   "Aucune": null,
@@ -259,7 +259,7 @@ function moveTip(e) {
 }
 function refreshTip(F) {
   const {l, j} = hover;
-  if (l === 0) { tip.innerHTML = `<b>Entrée</b> : ${fmt(S.inputs[j])}<br><span style="color:#6b7489">clic pour changer</span>`; return; }
+  if (l === 0) { tip.innerHTML = `<b>Entrée</b> : ${fmt(S.inputs[j])}`; return; }
   const z = sizes(); let h = "<table>";
   for (let i = 0; i < z[l - 1]; i++) {
     const a = F.acts[l - 1][i], w = S.W[l - 1][i][j], c = a * w;
