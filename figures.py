@@ -32,19 +32,33 @@ def info_balance():
 
 # ---------------------------------------------------------------- système expert
 def expert_system():
-    s = SVG(1600, 760)
-    s.cbox(800, 70, 560, 90, "Une image arrive", fill=LIGHT, fs=34, weight="bold")
-    s.arrow(800, 115, 800, 175)
-    s.cbox(800, 230, 620, 100, "SI 4 pattes ET moustaches ?", fill=TEAL_L, stroke=TEAL, fs=34)
-    s.arrow(620, 280, 380, 380); s.text(460, 310, "oui", fs=28, color=GREEN, weight="bold")
-    s.arrow(980, 280, 1220, 380); s.text(1140, 310, "non", fs=28, color=RED, weight="bold")
-    s.cbox(380, 440, 520, 100, "SI miaule ?", fill=TEAL_L, stroke=TEAL, fs=34)
-    s.cbox(1220, 440, 420, 100, "ALORS pas un chat", fill=RED_L, stroke=RED, fs=34)
-    s.arrow(260, 490, 180, 590); s.text(185, 530, "oui", fs=28, color=GREEN, weight="bold")
-    s.arrow(500, 490, 580, 590); s.text(575, 530, "non", fs=28, color=RED, weight="bold")
-    s.cbox(180, 650, 300, 100, "ALORS chat", fill=GREEN_L, stroke=GREEN, fs=34, weight="bold")
-    s.cbox(600, 650, 380, 100, "ALORS pas un chat", fill=RED_L, stroke=RED, fs=34)
-    s.text(1220, 650, "Règles écrites\npar des humains", fs=38, color=TEAL, weight="bold")
+    s = SVG(1150, 780)
+    B, N = dict(fill=TEAL_L, stroke=TEAL, fs=30), dict(fs=26, weight="bold")
+
+    def yes(x1, y1, x2, y2):
+        s.arrow(x1, y1, x2, y2, sw=4, head=16); s.text((x1 + x2) / 2 - 45, (y1 + y2) / 2 - 5, "oui", color=GREEN, **N)
+
+    def no(x1, y1, x2, y2):
+        s.arrow(x1, y1, x2, y2, sw=4, head=16); s.text((x1 + x2) / 2 + 45, (y1 + y2) / 2 - 5, "non", color=RED, **N)
+
+    def leaf(cx, cy, t):
+        s.cbox(cx, cy, 210, 80, t, fill=GREEN_L, stroke=GREEN, fs=30, weight="bold")
+
+    s.cbox(575, 45, 380, 70, "Une zone de l'image", fill=LIGHT, fs=30, weight="bold")
+    s.arrow(575, 82, 575, 130, sw=4, head=16)
+    s.cbox(575, 175, 300, 80, "Plutôt bleu ?", **B)
+    yes(480, 217, 300, 290); no(670, 217, 850, 290)
+    s.cbox(270, 330, 340, 80, "En haut de l'image ?", **B)
+    s.cbox(870, 330, 290, 80, "Plutôt blanc ?", **B)
+    yes(200, 372, 140, 440); no(340, 372, 400, 440)
+    leaf(130, 485, "ALORS ciel"); leaf(410, 485, "ALORS mer")
+    yes(800, 372, 700, 440); no(940, 372, 990, 440)
+    leaf(680, 485, "ALORS nuage")
+    s.cbox(990, 485, 270, 80, "Plutôt vert ?", **B)
+    yes(930, 527, 860, 590); no(1050, 527, 1080, 590)
+    leaf(850, 635, "ALORS herbe")
+    s.cbox(1060, 635, 170, 80, "…", fill=LIGHT, stroke=MUTED, fs=36, dash="8 6")
+    s.text(300, 700, "Règles écrites par des humains", fs=34, color=TEAL, weight="bold")
     s.save(out("systeme_expert.svg"))
 
 
@@ -59,15 +73,59 @@ def cats_ml():
         s.text(x + 100, y + 70, e, fs=80)
         s.text(x + 100, y + 145, lab, fs=26, color=c, weight="bold")
     s.text(320, 600, "des milliers d'exemples étiquetés", fs=28, color=MUTED, italic=True)
-    s.arrow(590, 320, 760, 320, sw=7)
-    s.text(675, 280, "entraînement", fs=26, color=MUTED)
-    s.cbox(950, 320, 340, 200, "Modèle\n(fonction apprise)", fill=ORANGE, color=WHITE, fs=36, weight="bold")
-    s.arrow(1130, 320, 1260, 320, sw=7)
-    s.rect(1280, 190, 260, 260, fill=WHITE, stroke=MUTED, sw=4, dash="12 10")
-    s.text(1410, 290, "🐈", fs=110)
-    s.text(1410, 400, "chat : 97 %", fs=32, color=GREEN, weight="bold")
-    s.text(1410, 500, "nouvelle image", fs=28, color=MUTED, italic=True)
+    s.arrow(590, 300, 760, 300, sw=7)
+    s.gear(920, 270, 125, ORANGE, teeth=12, spin=12)
+    # vitesses dans le rapport des dents (12/8) et petit engrenage décalé pour que les dents s'emboîtent
+    s.gear(1060, 395, 75, TEAL, teeth=8, spin=-8, phase=10)
+    s.text(960, 540, "entraînement", fs=38, color=ORANGE, weight="bold")
+    s.arrow(1150, 300, 1260, 300, sw=7)
+    s.rect(1280, 170, 260, 260, fill=WHITE, stroke=MUTED, sw=4, dash="12 10")
+    s.text(1410, 270, "🐈", fs=110)
+    s.text(1410, 380, "chat : 97 %", fs=32, color=GREEN, weight="bold")
+    s.text(1410, 480, "nouvelle image", fs=28, color=MUTED, italic=True)
     s.save(out("chat_ml.svg"))
+
+
+def neuron():
+    s = SVG(1600, 720)
+    xs = [(150, 190), (150, 360), (150, 530)]
+    sx, sy, sr = 760, 360, 105
+    heads = [(150, "entrées"), (430, "poids"), (sx, "somme"), (1130, "activation"), (1460, "sortie")]
+    for x, t in heads:
+        s.text(x, 50, t, fs=30, color=MUTED, italic=True)
+    for k, (x, y) in enumerate(xs):
+        s.line(x + 55, y, sx - sr + 5, sy, color=[TEAL, RED, TEAL][k], sw=[7, 4, 10][k])
+        mx, my = x + (sx - x) * 0.42, y + (sy - y) * 0.42
+        s.cbox(mx, my, 90, 52, f"w{'₁₂₃'[k]}", fill=WHITE, stroke=[TEAL, RED, TEAL][k], fs=30, rx=26)
+        s.circle(x, y, 55, fill=LIGHT, stroke=INK)
+        s.text(x, y, f"x{'₁₂₃'[k]}", fs=40)
+    # biais
+    s.cbox(sx, 120, 170, 64, "b  (biais)", fill=PURPLE_L, stroke=PURPLE, fs=28, rx=32)
+    s.arrow(sx, 152, sx, sy - sr - 4, color=PURPLE, sw=4, head=16)
+    s.circle(sx, sy, sr, fill=ORANGE_L, stroke=ORANGE, sw=5)
+    s.text(sx, sy - 12, "Σ", fs=80, color=ORANGE, weight="bold")
+    s.text(sx, sy + 55, "on additionne", fs=22, color=MUTED)
+    s.arrow(sx + sr + 5, sy, 1010, sy, sw=6, head=22)
+    # fonction d'activation (sigmoïde)
+    bx, by, bw, bh = 1020, 260, 220, 200
+    s.rect(bx, by, bw, bh, fill=WHITE, stroke=TEAL, sw=5)
+    s.line(bx + 15, by + bh / 2, bx + bw - 15, by + bh / 2, color="#d0d5de", sw=2)
+    s.line(bx + bw / 2, by + 15, bx + bw / 2, by + bh - 15, color="#d0d5de", sw=2)
+    pts = []
+    for k in range(61):
+        t = -6 + 12 * k / 60
+        pts.append((bx + 15 + (bw - 30) * k / 60, by + bh - 25 - (bh - 50) / (1 + np.exp(-t))))
+    s.raw('<polyline fill="none" stroke="%s" stroke-width="6" stroke-linecap="round" points="%s"/>'
+          % (TEAL, " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)))
+    s.text(bx + bw / 2, by + bh + 40, "f", fs=36, color=TEAL, weight="bold", italic=True)
+    s.arrow(bx + bw + 5, sy, 1390, sy, sw=6, head=22)
+    s.circle(1460, sy, 65, fill=TEAL, stroke=None)
+    s.text(1460, sy, "y", fs=46, color=WHITE, weight="bold")
+    s.raw(f'<text x="800" y="650" font-family="{FONT}" font-size="44" fill="{INK}" text-anchor="middle">'
+          f'y = <tspan fill="{TEAL}" font-style="italic" font-weight="bold">f</tspan>( '
+          f'<tspan fill="{TEAL}">w₁</tspan>·x₁ + <tspan fill="{RED}">w₂</tspan>·x₂ + '
+          f'<tspan fill="{TEAL}">w₃</tspan>·x₃ + <tspan fill="{PURPLE}">b</tspan> )</text>')
+    s.save(out("neurone.svg"))
 
 
 # ---------------------------------------------------------------- réseau de neurones
@@ -421,6 +479,7 @@ if __name__ == "__main__":
     info_balance()
     expert_system()
     cats_ml()
+    neuron()
     scale_params()
     training_loop()
     tokens_split()

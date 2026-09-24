@@ -91,3 +91,32 @@ class SVG:
         with open(path, "w", encoding="utf-8") as f:
             f.write(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {self.w} {self.h}" '
                     f'width="{self.w}" height="{self.h}">\n{body}\n</svg>\n')
+
+
+def gear_path(cx, cy, r, teeth=10, depth=0.22):
+    """Contour d'un engrenage (chemin SVG) centré sur (cx, cy)."""
+    ri = r * (1 - depth)
+    pts = []
+    for k in range(teeth):
+        a0 = 2 * math.pi * k / teeth
+        step = 2 * math.pi / teeth
+        for frac, rad in [(0.0, ri), (0.15, r), (0.45, r), (0.6, ri)]:
+            a = a0 + frac * step
+            pts.append((cx + rad * math.cos(a), cy + rad * math.sin(a)))
+    return "M" + " L".join(f"{x:.1f},{y:.1f}" for x, y in pts) + " Z"
+
+
+def _gear(self, cx, cy, r, fill, teeth=10, spin=None, phase=0):
+    """Engrenage avec moyeu ; spin = durée d'un tour en secondes (négatif = sens inverse),
+    phase = rotation initiale des dents en degrés (pour que deux engrenages s'emboîtent)."""
+    anim = ""
+    if spin:
+        end = -360 if spin < 0 else 360
+        anim = (f'<animateTransform attributeName="transform" type="rotate" from="0 {cx} {cy}" '
+                f'to="{end} {cx} {cy}" dur="{abs(spin)}s" repeatCount="indefinite"/>')
+    rot = f'transform="rotate({phase} {cx} {cy})" ' if phase else ""
+    self.raw(f'<g><path {rot}d="{gear_path(cx, cy, r, teeth)}" fill="{fill}"/>'
+             f'<circle cx="{cx}" cy="{cy}" r="{r * 0.28:.1f}" fill="#ffffff"/>{anim}</g>')
+
+
+SVG.gear = _gear

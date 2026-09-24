@@ -108,3 +108,9 @@
 .reveal .cot-n b { display: inline; }
 .reveal .tok.bad { background: var(--red-l); border-color: var(--red); color: var(--red); font-weight: bold; }
 .reveal .cot-n { margin-top: .5em; font-size: 24px; color: var(--red); }
+
+/* Deux colonnes : photo + schéma */
+.reveal .cols { display: grid; gap: 30px; align-items: center; max-width: 1200px; margin: 0 auto; }
+.reveal figure.photo { margin: 0; }
+.reveal figure.photo img { max-height: 470px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+.reveal figure.photo figcaption { font-size: 20px; color: var(--muted); margin-top: 8px; line-height: 1.3; }
