@@ -19,13 +19,15 @@
   .bars .lab:hover, .bars .lab.hover { color: var(--orange); font-weight: bold; }
   .bars .track.hover .fill { background: var(--orange); }
   #info { font-size: 22px; color: var(--muted); }
+  /* boutons fixés en bas : ne bougent pas selon le nombre de propositions */
+  #controls { margin-top: auto; }
 </style>
 </head>
 <body>
 <div id="text"></div>
 <h3>Quel est le <b>prochain token</b> ? <span style="font-size:20px">(cliquez sur n'importe quel mot)</span></h3>
 <div class="bars" id="bars"></div>
-<div class="row">
+<div class="row" id="controls">
   <button id="best">Le plus probable →</button>
   <button id="undo" class="alt">↶ Annuler</button>
   <button id="reset" class="alt">Recommencer</button>

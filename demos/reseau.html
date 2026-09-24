@@ -34,7 +34,6 @@
   td.ko { color: var(--red); font-weight: bold; }
   td.sep { border-left: 2px solid var(--light); }
   #score { font-size: 24px; font-weight: bold; text-align: center; padding: 8px; border-radius: 12px; background: var(--light); }
-  #score.win { background: var(--green); color: #fff; }
   #goal .small { font-size: 16px; color: var(--muted); }
 
   /* Réglages repliables */
@@ -304,8 +303,8 @@ function renderGoal() {
     if (S.target !== "Personnalisée") { S.custom = rows.map((r, i) => targetFor(i, r)); S.target = "Personnalisée"; syncTargetSelect(); }
     const i = S.ivs.indexOf(S.custom[k]); S.custom[k] = S.ivs[(i + 1) % S.ivs.length]; update();
   });
-  score.className = hasT && ok === rows.length ? "win" : "";
-  score.textContent = !hasT ? "" : ok === rows.length ? "🎉 Tout est correct !" : `${ok} / ${rows.length} corrects`;
+  score.className = hasT;
+  score.textContent = !hasT ? "" : `${ok} / ${rows.length} corrects`;
 }
 function syncTargetSelect() {
   const sel = document.getElementById("target");
