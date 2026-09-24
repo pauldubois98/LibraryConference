@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Token par token</title>
+<link rel="stylesheet" href="common.css">
+<style>
+  #text { font-size: 36px; line-height: 1.45; min-height: 120px; background: var(--light);
+    border-radius: 16px; padding: 14px 24px; }
+  #text .new { background: var(--orange-l); color: var(--orange); font-weight: bold; border-radius: 8px;
+    padding: 0 6px; animation: pop .5s ease; }
+  #text .cursor { display: inline-block; width: 16px; height: 36px; background: var(--orange);
+    vertical-align: middle; margin-left: 6px; animation: blink 1s infinite; }
+  @keyframes pop { from { transform: scale(1.4); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes blink { 50% { opacity: 0; } }
+  h3 { margin: 0; font-size: 24px; color: var(--muted); font-weight: normal; }
+  h3 b { color: var(--teal); }
+  .bars > div { cursor: pointer; }
+  .bars .lab:hover, .bars .lab.hover { color: var(--orange); font-weight: bold; }
+  .bars .track.hover .fill { background: var(--orange); }
+  #info { font-size: 22px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div id="text"></div>
+<h3>Quel est le <b>prochain token</b> ? <span style="font-size:20px">(cliquez sur n'importe quel mot)</span></h3>
+<div class="bars" id="bars"></div>
+<div class="row">
+  <button id="best">Le plus probable →</button>
+  <button id="undo" class="alt">↶ Annuler</button>
+  <button id="reset" class="alt">Recommencer</button>
+  <span id="info"></span>
+</div>
+
+<script>
+// Mini « modèle » illustratif : les probabilités dépendent des 2 derniers tokens (ou du dernier).
+// Ce n'est pas un vrai LLM, seulement de quoi explorer différents chemins.
+const START = ["Paris", "est", "la", "capitale", "de", "la"];
+const M = {
+  "de la": {France: 91, région: 4, mode: 3, gastronomie: 2},
+  "la France": {".": 78, ",": 12, et: 6, depuis: 4},
+  "la région": {parisienne: 55, ".": 30, centrale: 15},
+  "la mode": {".": 60, et: 25, mondiale: 15},
+  "la gastronomie": {".": 55, "française": 35, et: 10},
+  "sur la": {Seine: 90, carte: 10},
+  "par la": {Seine: 95, "rivière": 5},
+  "appelée la": {Ville: 90, capitale: 10},
+  "comme la": {Ville: 100},
+  ". La": {ville: 50, Seine: 30, tour: 20},
+  ". Paris": {est: 50, compte: 30, accueille: 20},
+  "parisienne": {".": 80, et: 20},
+  "centrale": {".": 85, et: 15},
+  "mondiale": {".": 90, et: 10},
+  "française": {".": 85, et: 15},
+  ",": {et: 40, mais: 25, "où": 20, avec: 15},
+  "et": {la: 45, sa: 30, ses: 25},
+  "mais": {aussi: 100},
+  "avec": {sa: 50, ses: 50},
+  "depuis": {longtemps: 60, des: 40},
+  "longtemps": {".": 90, ",": 10},
+  "des": {"siècles": 60, millions: 25, touristes: 15},
+  "siècles": {".": 90, ",": 10},
+  ".": {Elle: 45, "C'est": 20, Paris: 15, La: 12, "Située": 8},
+  "Elle": {est: 85, compte: 7, accueille: 5, abrite: 3},
+  "est": {"située": 40, aussi: 22, connue: 18, "traversée": 20},
+  "située": {en: 55, sur: 25, au: 15, dans: 5},
+  "Située": {en: 50, sur: 30, au: 20},
+  "en": {Europe: 60, France: 25, "Île-de-France": 10, plein: 5},
+  "sur": {la: 70, les: 30},
+  "au": {nord: 60, "cœur": 30, bord: 10},
+  "dans": {le: 60, la: 40},
+  "nord": {de: 60, ".": 40},
+  "cœur": {de: 80, ".": 20},
+  "bord": {de: 100},
+  "plein": {"cœur": 70, centre: 30},
+  "centre": {de: 70, ".": 30},
+  "de": {la: 40, "l'Europe": 30, nombreux: 30},
+  "aussi": {connue: 50, "appelée": 30, la: 20},
+  "connue": {pour: 60, comme: 40},
+  "pour": {sa: 50, ses: 50},
+  "comme": {la: 100},
+  "appelée": {la: 100},
+  "sa": {tour: 50, cuisine: 30, culture: 20},
+  "ses": {"musées": 60, monuments: 40},
+  "traversée": {par: 100},
+  "par": {la: 100},
+  "compte": {vingt: 50, plus: 30, environ: 20},
+  "vingt": {arrondissements: 100},
+  "plus": {de: 100},
+  "environ": {deux: 100},
+  "deux": {millions: 100},
+  "millions": {"d'habitants": 70, de: 30},
+  "accueille": {chaque: 50, de: 30, le: 20},
+  "abrite": {le: 50, la: 30, de: 20},
+  "chaque": {"année": 100},
+  "année": {des: 70, ",": 30},
+  "nombreux": {touristes: 60, "musées": 40},
+  "le": {Louvre: 50, gouvernement: 50},
+  "la": {Seine: 40, ville: 30, France: 30},
+  "les": {rives: 60, bords: 40},
+  "rives": {de: 100},
+  "bords": {de: 100},
+  "C'est": {une: 50, la: 40, aussi: 10},
+  "une": {ville: 80, capitale: 20},
+  "ville": {"très": 30, ".": 30, "où": 20, de: 20},
+  "très": {"visitée": 50, "peuplée": 50},
+  "où": {"l'on": 100},
+  "l'on": {trouve: 100},
+  "trouve": {le: 50, de: 50},
+  "Seine": {".": 60, traverse: 40},
+  "traverse": {Paris: 100},
+  "tour": {Eiffel: 100},
+  "Europe": {".": 70, occidentale: 20, de: 10},
+  "occidentale": {".": 100},
+};
+const FALLBACK = {".": 70, ",": 20, et: 10};
+const MAX_SENTENCES = 4;
+
+let words = START.slice(), nStart = START.length, lastNew = false;
+const text = document.getElementById("text"), bars = document.getElementById("bars");
+const info = document.getElementById("info"), best = document.getElementById("best");
+
+function dist() {
+  const n = words.length;
+  const d = M[words[n - 2] + " " + words[n - 1]] || M[words[n - 1]] || FALLBACK;
+  const tot = Object.values(d).reduce((a, b) => a + b, 0);
+  return Object.entries(d).map(([t, p]) => [t, Math.round(100 * p / tot)]).sort((a, b) => b[1] - a[1]);
+}
+function isPunct(w) { return w === "." || w === ","; }
+function finished() { return words.slice(nStart).filter(w => w === ".").length >= MAX_SENTENCES; }
+
+function render() {
+  let html = "";
+  words.forEach((w, i) => {
+    const sep = (i === 0 || isPunct(w)) ? "" : " ";
+    const isNew = lastNew && i === words.length - 1;
+    html += sep + (isNew ? `<span class="new">${w}</span>` : w);
+  });
+  const done = finished();
+  text.innerHTML = html + (done ? "" : '<span class="cursor"></span>');
+  best.disabled = done;
+  if (done) { bars.innerHTML = ""; info.textContent = "… et ainsi de suite."; return; }
+  const D = dist();
+  bars.innerHTML = D.map(([t, p], i) =>
+    `<div class="lab" data-i="${i}">${t}</div><div class="track" data-i="${i}"><div class="fill" style="width:${p}%"></div></div><div class="pct" data-i="${i}">${p} %</div>`
+  ).join("");
+  bars.querySelectorAll("[data-i]").forEach(el => {
+    const i = +el.dataset.i;
+    el.onclick = () => choose(D[i][0]);
+    el.onmouseenter = () => bars.querySelectorAll(`[data-i="${i}"]`).forEach(e => e.classList.add("hover"));
+    el.onmouseleave = () => bars.querySelectorAll(`[data-i="${i}"]`).forEach(e => e.classList.remove("hover"));
+  });
+  info.textContent = `${words.length - nStart} token(s) générés`;
+}
+function choose(t) { words.push(t); lastNew = true; render(); }
+best.onclick = () => choose(dist()[0][0]);
+document.getElementById("undo").onclick = () => { if (words.length > nStart) { words.pop(); lastNew = false; render(); } };
+document.getElementById("reset").onclick = () => { words = START.slice(); lastNew = false; render(); };
+document.addEventListener("keydown", e => { if (e.key === "Enter" && !best.disabled) best.click(); });
+render();
+</script>
+</body>
+</html>
