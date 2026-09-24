@@ -1,21 +1,24 @@
 ---
-title: "IA & société "
-subtitle: "Fonctionnement des IA modernes, et consequences pour la société"
+title: "IA & société"
+subtitle: "Fonctionnement des IA modernes, et conséquences pour la société"
 lang: fr
 ---
 
-## Systemes experts: des règles écrites à la main
+## Systèmes experts : des règles écrites à la main
 
 ![](figures/systeme_expert.svg){.fig}
+<!-- Ajoute une photo de deep blue (programme qui joue aux echecs); met l'arbre en plus petit sur un cote de l'image, et change des questions: plutot bleu => mer/ciel; plutot blanc => nuage, etc... -->
 
-## Le Machine Learning: apprendre à partir d'exemples
+## Le Machine Learning : apprendre à partir d'exemples
 
 ![](figures/chat_ml.svg){.fig}
+<!-- Au lieu de "modele" ecrit en texte, met un schema d'engrenage avec comme sous titre "entrainement" -->
 
-## Réseau de neurones: systeme capables d'appendre
+## Réseau de neurones : un système capable d'apprendre
 
+<!-- Fais un schema d'un neurone. Il faut qu'on voit que le neurone a plusieurs entrees avec des poids, et une fonction d'activation -->
 
-## Entrainer un réseau de neurones à la main
+## Entraîner un réseau de neurones à la main
 
 DEMO_RESEAU
 
@@ -23,9 +26,10 @@ DEMO_RESEAU
 
 ![](figures/echelle_parametres.svg){.fig}
 
-## Entrainement automatique
+## Entraînement automatique
 
 ![](figures/boucle_entrainement.svg){.fig}
+<!-- Propose une live demo d'un entrainement automatique de reseau de neuronnes -->
 
 ## Prédire la suite d'un texte
 
@@ -40,20 +44,18 @@ DEMO_RESEAU
 <div class="big-q teal" style="font-size:1.1em">→ Europe</div>
 :::
 
-## Charactère vs not vs token
+## Caractère vs mot vs token
 
 ![](figures/tokens.svg){.fig}
-<!-- refaire cette image pour comparer decomposition en mot/charactère/token -->
 
 ## Token par token
 
 <iframe class="demo" data-src="demos/token.html"></iframe>
-<!-- Sur cette demo, l'utilisateur doit pouvoir choisir nimport lequel des mots, pas seulement de mot le plus probable -->
+<!-- les boutons "le plus porbable", "annuler", et "recommencer" devraient etre en bas de la page (pour qu'ils ne bougent pas en fonction du nombre de token suggeres) -->
 
-## Variabilite des reponses
+## Variabilité des réponses
 
 <iframe class="demo" data-src="demos/temperature.html"></iframe>
-<!-- Enlever les boutons "tirer 1 mot" et "tirer 100 mots" (laisser juste le slider) -->
 
 ## La température
 
@@ -65,32 +67,67 @@ DEMO_RESEAU
 
 ## Raisonner par étapes (« chain of thought »)
 
-![](figures/chain_of_thought.svg){.fig}
-<!-- Refaire cette slide: faire une reponse texte, avec les token faux surlignes en rouge. Dans le cas d'une reponse courte, un ou deux token faux, dans le cas d'une reponse longue, l'erreur est repetee, donc plus de token faux, donc plus penalisee. -->
+<div class="cot-q">3 étages × 12 rayonnages × 40 livres. 15 % sont prêtés. Combien de livres restent en rayon ?<br><span class="muted">Réponse attendue : 1 224</span></div>
+
+<div class="cards" style="align-items:start; grid-template-columns: 1fr 2fr">
+<div class="card cot">
+<h3>Réponse courte</h3>
+<div class="toks"><span class="tok">Il</span> <span class="tok">reste</span> <span class="tok">1</span> <span class="tok bad">3</span><span class="tok bad">50</span> <span class="tok">livres</span><span class="tok">.</span></div>
+<div class="cot-n"><b>2</b> tokens faux</div>
+</div>
+<div class="card cot fragment">
+<h3>Réponse longue (avec étapes)</h3>
+<div class="toks"><span class="tok">3</span> <span class="tok">×</span> <span class="tok">12</span> <span class="tok">=</span> <span class="tok">36</span> <span class="tok">rayonnages</span><span class="tok">.</span> <span class="tok">36</span> <span class="tok">×</span> <span class="tok">40</span> <span class="tok">=</span> <span class="tok">1</span> <span class="tok">4</span><span class="tok bad">00</span> <span class="tok">livres</span><span class="tok">.</span> <span class="tok">15</span> <span class="tok">%</span> <span class="tok">de</span> <span class="tok">1</span> <span class="tok">4</span><span class="tok bad">00</span> <span class="tok">=</span> <span class="tok">2</span><span class="tok bad">10</span><span class="tok">.</span> <span class="tok">Il</span> <span class="tok">reste</span> <span class="tok">1</span> <span class="tok">4</span><span class="tok bad">00</span> <span class="tok">−</span> <span class="tok">2</span><span class="tok bad">10</span> <span class="tok">=</span> <span class="tok">1</span> <span class="tok bad">1</span><span class="tok bad">90</span> <span class="tok">livres</span><span class="tok">.</span></div>
+<div class="cot-n"><b>7</b> tokens faux : l'erreur se répète</div>
+</div>
+</div>
+
+<div class="msg fragment">À l'entraînement, chaque token faux est pénalisé :<br>une erreur répétée dans un raisonnement coûte plus cher.</div>
 
 ## Deux sources de biais
 
 ![](figures/deux_biais.svg){.fig}
-<!-- refaire cette slide: meme scheme: biais dans le modele (surligner les poids), et biais dans l'instruction/l'utilisation (surligner les instructions) -->
 
 ## Biais d'entraînement : le modèle hérite de ses données
-<!-- biais dans le modele: choix des textes d'entrainement, choix du poid donne a chaque corpus de texte -->
+
+![](figures/biais_entrainement.svg){.fig}
 
 ## Biais d'utilisation : même modèle, réponses différentes
-<!-- biais dans l'utilisation: e.g. n'explique pas comment fabriquer une bombe, ne promouvois pas tel partie politique -->
 
-## L'IA dans la recherche
+![](figures/biais_usage.svg){.fig}
+
+## Écrire avec une IA peut changer notre opinion
+
+![](figures/jakesch.svg){.fig-s}
+
+<div class="msg fragment">La majorité des participants n'a pas remarqué que l'IA était orientée.</div>
+
+<div class="src">Jakesch, Bhat, Buschek, Zalmanson & Naaman, « Co-Writing with Opinionated Language Models Affects Users' Views », CHI 2023. <a href="https://doi.org/10.1145/3544548.3581196">doi:10.1145/3544548.3581196</a></div>
+
+::: notes
+Expérience en ligne, 1 506 participants, qui écrivent un court texte :
+« les réseaux sociaux sont-ils bons pour la société ? ».
+Une partie d'entre eux utilise un assistant d'écriture (GPT-3) configuré pour pencher d'un côté.
+Résultat : les textes penchent dans le sens de l'IA, ET l'opinion mesurée ensuite dans un questionnaire se déplace aussi.
+Deux fois plus de chances d'écrire un paragraphe d'accord avec l'assistant (Cornell Chronicle, mai 2023).
+La majorité des participants n'a même pas remarqué que l'IA était biaisée.
+Retour à la question d'ouverture : oui, une IA peut influencer ce que l'on pense sans dire quoi penser.
+:::
+
+<!-- ## L'IA dans la recherche
 
 ![](figures/recherche.svg){.fig}
 
 ::: notes
 Avant : un chemin, quelques pistes.
 Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de son domaine, et on garde une synthèse humaine.
-:::
+::: -->
 
 ## « Objectivement meilleur » ≠ « socialement préféré »
 
 ![](figures/meilleur_vs_prefere.svg){.fig}
+
+<div class="msg fragment">Et en bibliothèque ? 📚</div>
 
 ## Des faux, sous toutes les formes
 
@@ -99,8 +136,6 @@ Avec des agents : on explore en parallèle beaucoup de pistes, y compris hors de
 ## Ce qui change pour l'information
 
 ![](figures/info_cout.svg){.fig} 
-
-<div class="msg fragment">Et en bibliothèque ? 📚</div>
 
 ## Hameçonnage
 
@@ -159,30 +194,12 @@ Faits (d'après le rapport technique de Hugging Face) :
 À vérifier avant la conférence : les chiffres divergent selon les médias (certains parlent de centaines d'agents).
 :::
 
-## Écrire avec une IA peut changer notre opinion
-
-![](figures/jakesch.svg){.fig-s}
-
-<div class="msg fragment">La majorité des participants n'a pas remarqué que l'IA était orientée.</div>
-
-<div class="src">Jakesch, Bhat, Buschek, Zalmanson & Naaman, « Co-Writing with Opinionated Language Models Affects Users' Views », CHI 2023. <a href="https://doi.org/10.1145/3544548.3581196">doi:10.1145/3544548.3581196</a></div>
-
-::: notes
-Expérience en ligne, 1 506 participants, qui écrivent un court texte :
-« les réseaux sociaux sont-ils bons pour la société ? ».
-Une partie d'entre eux utilise un assistant d'écriture (GPT-3) configuré pour pencher d'un côté.
-Résultat : les textes penchent dans le sens de l'IA, ET l'opinion mesurée ensuite dans un questionnaire se déplace aussi.
-Deux fois plus de chances d'écrire un paragraphe d'accord avec l'assistant (Cornell Chronicle, mai 2023).
-La majorité des participants n'a même pas remarqué que l'IA était biaisée.
-Retour à la question d'ouverture : oui, une IA peut influencer ce que l'on pense sans dire quoi penser.
-:::
-
 ## Conclusion
 
 <ol class="retenir">
 <li class="fragment"><b>Une IA n'est pas magique.</b><span>Elle apprend à partir de données et produit des prédictions.</span></li>
-<li class="fragment"><b>Un LLM prédit du texte, token par token.</b><span>Le reseau de neurone est complexe, mais la tache est simple.</span></li>
-<li class="fragment"><b>Les données et l'instruction peuvent etre biaise.</b></li>
+<li class="fragment"><b>Un LLM prédit du texte, token par token.</b><span>Le réseau de neurones est complexe, mais la tâche est simple.</span></li>
+<li class="fragment"><b>Les données et les instructions peuvent être biaisées.</b></li>
 <li class="fragment"><b>L'IA réduit fortement le coût de certaines activités.</b><span>La recherche… comme la fraude et la manipulation.</span></li>
 </ol>
 
